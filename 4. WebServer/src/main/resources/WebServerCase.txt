@@ -1,0 +1,25 @@
+# Introduction
+
+The development team at OmniCorp decided that trusted REST implementations such as Jersey and Spring Rest weren't going to cut it for their particular application.
+As good programmers do, they decided to roll their own. At the start of the project this seemed great, the team could tie their particular technical requirements into their own API.
+Actually creating a handler for it was deemed as not important. Now, a few days before the launch of the product, the team realized that they are missing this vital piece of the application.
+Duke is called in to fix it.
+
+## Assigment
+  
+Help Duke implement the handler for his REST endpoint containing only GET methods. Because of good separation of concerns, the value returned by the REST
+resource is not serialized yet.
+  
+## Example
+
+With the URI "/foo/2" the method annotated with GET should be called on an instance of a class annotated with @Resource("Foo").
+This will be supplied in the handle method of the WebServer as follows: handle("foo", { "id", 2 }.
+
+It is also possible that instead of arguments an empty map is supplied. This should be mapped to a method that takes no parameters.
+  
+## Hints & Tips
+* Use the reflection API
+* The return type does not necessarily have to be of type Account
+* For this assignment a parameter is annotated with either null or exactly one parameter.
+  This makes usage of Method.getParameterAnnotations()[0] legal
+

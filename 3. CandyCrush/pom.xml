@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>candycrush</groupId>
+	<artifactId>candycrush</artifactId>
+	<name>CandyCrush</name>
+	<packaging>jar</packaging>
+	<version>1.0.0</version>
+
+	<properties>
+		<editables>CandyCrush.java</editables>
+		<testClasses>CandyCrushTester.java</testClasses>
+		<submitClasses></submitClasses>
+		<testClassTimeout>60</testClassTimeout>
+		<submitClassTimeout>60</submitClassTimeout>
+		<author>Koen Aben</author>
+		<authorURL></authorURL>
+		<displayName>CandyCrush</displayName>
+		<icon>virtualcpu.ico</icon>
+		<sponsorImage>sponsor.png</sponsorImage>
+		<solution>CandyCrush.solution</solution>
+		<fun>1/5</fun>
+		<quality>2/5</quality>
+		<difficulty>3/5</difficulty>
+		<hint>verzin iets</hint>
+		<category>Assembly</category>
+		<solutiontime>1800</solutiontime>
+		<testpenalties>true</testpenalties>
+		<testcredits>false</testcredits>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all -->
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

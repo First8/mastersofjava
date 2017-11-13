@@ -1,0 +1,30 @@
+#Intro
+
+Here's a new challenge about the Candy Crush Saga! 
+
+This time, your task is to check whether the given gameboard is playable.
+A gameboard is considered to be playable if it's possible to make at least one valid move.
+A move is valid if, afterwards, there is a set of at least three consecutive candies of the same color in a row or a column.
+
+##Example
+
+For gameboard = [['R','Y','G','Y'], 
+                ['Y','P','G','R'],
+                ['P','O','O','Y'],
+                ['B','O','B','O']]
+
+hasMovableFields(gameboard) = true, because one of the valid moves is to move the 'O' at (2, 2) down.
+
+For gameboard = [['R','Y','G','Y'], 
+                ['Y','P','G','R'],
+                ['P','O','O','Y'],
+                ['B','O','O','B']]
+hasMovableFields(gameboard) = false, because it is impossible to make a valid move on this board.
+
+##Input/Output
+
+[input] char[][] gameboard
+A rectangular matrix of characters, with each character representing a color:
+'R' (red), 'B' (blue), 'G' (green), 'Y' (yellow), 'P' (purple), 'O' (orange).
+Guaranteed constraints: 3 <= max(gameboard.length, gameboard[0].length) <= 100.
+[output] boolean: Return true if gameboard is playable, otherwise return false.

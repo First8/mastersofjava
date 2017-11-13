@@ -1,0 +1,81 @@
+
+public class CandyCrush {
+	
+	public boolean hasMovableFields(char[][] p) {
+		//<Solution>
+		int h, w, i=0, j, k, l=0, c=0, s=0;
+	    char[][] b = new char[h = p[0].length][w = p.length];
+	    for (; i < w; ++i)
+	        for (j = 0; j < h; ++j)
+	            b[j][i] = p[i][j];
+	 
+	    // swap the array, its width and height value in the second loop
+	    for (; l++ < 2; b = p, i = w, w = h, h = i)
+	        for (int x : "RBGYPO".getBytes())
+	            for (i = 0; i < h; ++i)
+	                for (j = 0; j < w-2; ++j, c = s = 0)
+	                {
+	                    // check whether there are three cells, within the range of 4, of same color in the same row
+	                    for (k = j; k < w && k < j+4; ++k)
+	                        c += x == b[i][k] ? 1 : 0;
+	                    
+	                    // check whether two consecutive rows meet the candy crush requirements
+	                    for (k = j; i < h-1 && k < j+3; ++k)
+	                        s += (b[i][k] ^ x) * (b[i+1][k] ^ x);
+
+	                    if (i < h-1 && s == 0 || c > 2)
+	                        return true;
+	                }
+	    //</Solution>
+	    return false;
+	}
+	
+    //<Tests>
+	public boolean testGameBoard_canMove2_2() {
+		char[][] gameboard = {{'R','Y','G','Y'}, 
+		            {'Y','P','G','R'}, 
+		            {'P','O','O','Y'}, 
+		            {'B','O','B','O'}}; 
+		
+		return this.hasMovableFields(gameboard);
+	}
+	
+	public boolean testSimpleStaticBoard() {
+		char[][] gameboard = {{'R','Y','G','Y'}, 
+		  {'Y','P','G','R'}, 
+		  {'P','O','O','Y'}, 
+		  {'B','O','O','B'}};
+		return !this.hasMovableFields(gameboard);
+	}
+	
+	public boolean testGameBoard_canMove1_2() {
+		char[][] gameboard = {{'R','Y','G','Y'}, 
+		 {'Y','P','O','R'}, 
+		 {'P','O','G','Y'}, 
+		 {'B','O','O','B'}};
+		
+		return this.hasMovableFields(gameboard);
+	}
+	public boolean testSmallStaticRowBoard() {
+		char[][] gameboard = {{'R','B','P','Y'}};
+		
+		return !this.hasMovableFields(gameboard);
+	}
+	
+	public boolean testSmallStaticColumnBoard() {
+		char[][] gameboard =  {{'R'}, 
+		            {'P'}, 
+		            {'B'}, 
+		            {'Y'}};
+		return !this.hasMovableFields(gameboard); 
+	}
+	
+	public boolean testGameBoard_canMove3() {
+		char[][] gameboard = {{'R','Y','G','Y'}, 
+		            {'Y','P','G','O'}, 
+		            {'G','R','O','Y'}, 
+		            {'B','P','B','O'}};
+		return this.hasMovableFields(gameboard);           		
+	}
+    //</Tests>
+}

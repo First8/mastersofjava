@@ -1,0 +1,34 @@
+# Introduction
+
+A company pays you a million dollars a year to work at its hedge fund. 
+It does the insider trading and you work on the created algorithms that makes winning trades.
+
+"I'll pay you a million dollars a year to work at my hedge fund. I'll do the insider trading and you pretend you created an algorithm that makes winning trades."
+  
+Here is an new algorithm to forecast prices of golden coffee beans:
+
+## Assigment
+
+Given a non-negative integer k, 
+- convert it to binary, 
+- swap the bits at positions p1 and p2 counting from the right, 
+- and return the obtained number in base 10.
+
+## Example
+- For k = 565, p1 = 9 and p2 = 3, the output should be swapPairBits(k, p1, p2) = 817.
+- k = k_binary = 1000110101
+- k_binary (with p1 and p2 swapped) becomes 1100110001, which is 81710. Thus, the final answer is 817.
+
+## Hints & Tips
+- The bitwise & operator performs a bitwise AND operation.
+- The bitwise ^ operator performs a bitwise exclusive OR operation.
+- The bitwise | operator performs a bitwise inclusive OR operation.
+- The signed left shift operator "<<" shifts a bit pattern to the left, and the signed right shift operator ">>" shifts a bit pattern to the right. 
+    The bit pattern is given by the left-hand operand, and the number of positions to shift by the right-hand operand. 
+- The unsigned right shift operator ">>>" shifts a zero into the leftmost position, while the leftmost position after ">>" depends on sign extension.
+
+## Input/Output
+0 < k < 2^50.
+0 < p1,p2 < 50.
+
+The number obtained by swapping the bits at p1 and p2.

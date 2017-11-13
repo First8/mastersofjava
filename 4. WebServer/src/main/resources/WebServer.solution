@@ -1,0 +1,78 @@
+package nl.first8.moj.webserver.server;
+
+import nl.first8.moj.webserver.api.Api;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Set;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+public class WebServer {
+
+    private final Set<Class<?>> resources;
+
+    public WebServer(Set<Class<?>> resources) {
+        this.resources = Collections.unmodifiableSet(new HashSet<>(resources));
+    }
+
+    public <T> T handle(String endPoint, Map<String, Object> parameters) throws Exception {
+
+        Class<?> resourceClazz = getRequestedEndpoint(endPoint);
+
+        Method method = findMethod(resourceClazz, parameters.keySet());
+
+        Object[] arguments;
+        if (method.getParameterCount() > 0) {
+            arguments = arguments(method.getParameterAnnotations()[0], parameters);
+        } else {
+            arguments = new Object[0];
+        }
+
+        Object instance = resourceClazz.getDeclaredConstructor().newInstance();
+        return (T) method.invoke(instance, arguments);
+    }
+
+    private Class<?> getRequestedEndpoint(String endPoint) throws NoSuchElementException {
+        return resources.stream()
+                .filter(res -> res.getAnnotation(Api.Resource.class).value().equalsIgnoreCase(endPoint))
+                .findFirst()
+                .orElseThrow(NoSuchElementException::new);
+    }
+
+    private Method findMethod(Class<?> resourceClazz, Set<String> parameters) {
+        Set<Method> eligibleMethods = Arrays.stream(resourceClazz.getMethods()).filter(m -> m.isAnnotationPresent(Api.GET.class)).collect(Collectors.toSet());
+
+        // Solution
+        Predicate<Method> isNoArgMethod = (m -> parameters.isEmpty() && m.getParameterCount() == 0);
+        Predicate<Method> matchesParameters = m -> m.getParameterAnnotations().length > 0
+                && Arrays.stream(m.getParameterAnnotations()[0])
+                .map(ann -> (Api.Param) ann)
+                .map(Api.Param::value)
+                .collect(Collectors.toSet())
+                .equals(parameters);
+        // /Solution
+
+        //Predicate<Method> isNoArgMethod = m -> false;
+        //Predicate<Method> matchesParameters = m -> false;
+
+        return eligibleMethods.stream()
+                .filter(isNoArgMethod.or(matchesParameters))
+                .findFirst()
+                .orElse(null);
+    }
+
+    private Object[] arguments(Annotation[] paramDescriptors, Map<String, Object> parameters) {
+        return Arrays.stream(paramDescriptors)
+                .filter(ann -> ann.annotationType().equals(Api.Param.class))
+                .map(ann -> (Api.Param) ann)
+                .map(Api.Param::value)
+                .map(parameters::get)
+                .collect(Collectors.toList())
+                .toArray();
+    }
+}

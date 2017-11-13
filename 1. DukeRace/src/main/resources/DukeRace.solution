@@ -1,0 +1,89 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class DukeRace {
+	Integer[] accel = new Integer[] {2,2};
+	Integer[] spd = new Integer[]{2,2};
+	
+	
+	public void setAccel(Integer[] accel) {
+		this.accel = accel;
+	}
+	public void setSpd(Integer[] spd) {
+		this.spd = spd;
+	}
+	Integer[] racers(int d) {
+		return racers(d, accel,spd); 
+	}
+	Integer[] racers(int d, Integer[] a, Integer[] v) {
+		int n=a.length;
+	    Integer[] result = new Integer[n];
+		//<Solution>
+	    List<Double> l = new ArrayList<>();
+	    for(int i=0;i<n;i++){
+	    	double t=1.*v[i]/a[i];
+	    	double x = .5*a[i]*t*t;
+	        t= x<d? t + (d-x)/v[i]: Math.sqrt(2.*d/a[i]);
+	        l.add(t);
+	    }
+
+	   
+	    
+	    for(int i=0;i<n;i++){
+	    	double t = Collections.min(l);
+	    	int k = l.indexOf(t);
+	        result[k]=i;
+	        l.set(k,Collections.max(l)+1);
+
+	    }
+	    //</Solution>
+	    return result;
+	}	
+	public boolean equalsAndPrint(Integer[] races, Integer[] output) {		
+		System.out.println("races " + Arrays.asList(races)+ " output " + Arrays.asList(output)); 
+		return Arrays.equals( races, output);
+	}
+	
+	public static void main(String[] args) {
+		DukeRace dukeRace = new DukeRace();
+		for (int index=0;index<20;index++ ) {
+			Integer[] temp = dukeRace.racers(index);
+			System.out.println(index + "="+ Arrays.asList(temp)); 
+		}
+		dukeRace.test10_2_2and2_4(); 
+		dukeRace.test10_2_2and2_2(); 
+		dukeRace.test10_2_4and2_2(); 
+		dukeRace.test1_5and20(); 
+		dukeRace.test27(); 
+
+	}
+	
+	//<Test>
+	public void init(){ 
+		accel = new Integer[] {2,2};
+		spd = new Integer[]{2,2};
+	}
+	public boolean test10_2_2and2_4() {
+		this.init(); 
+		return this.equalsAndPrint( this.racers(10,new Integer[] {2,2},new Integer[]{2,4}), new Integer[]{1,0});
+	}
+	public boolean test10_2_2and2_2() {
+		this.init();
+		return this.equalsAndPrint( this.racers(10,new Integer[] {2,2},new Integer[]{2,2}), new Integer[]{0,1});
+	}
+	public boolean test10_2_4and2_2() {
+		this.init();
+		return this.equalsAndPrint( this.racers(10,new Integer[] {2,2},new Integer[]{2,4}), new Integer[]{1,0});
+	}
+	public boolean test1_5and20() {
+		this.init();
+		return this.equalsAndPrint( this.racers(1,new Integer[]{5,10,15}, new Integer[]{20,10,5}), new Integer[]{2, 1,0});
+	}
+	public boolean test27() {
+		this.init();
+		return this.equalsAndPrint( this.racers(27,new Integer[]{3, 2, 2, 18, 14, 9},new Integer[]{151, 236, 152, 15, 163, 275}), new Integer[]{3, 4, 5, 1, 0, 2});
+	}
+	//</Test>
+}

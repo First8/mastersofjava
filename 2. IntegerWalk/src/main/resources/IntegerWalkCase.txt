@@ -1,0 +1,40 @@
+
+
+#Introduction
+Pointy-haired Boss: Let's have our meeting while we take a walk. 
+Dilbert: Absolutely. Shall I expect the usual? 
+Pointy-haired Boss: The usual? 
+Dilbert: The first five minutes will be nothing but you trying to find your phone. 
+Then you'll need to return some calls "real quick," then send an email before we leave. 
+On the way to the elevator we will be accosted by every employee you've been avoiding for a week. 
+Then you'll invite one of them to walk with us, which means we can't talk about my project. 
+But it doesn't matter because you'll be on your phone the entire walk anyway. 
+Pointy-haired Boss: Did you know that walking lowers stress? 
+Dilbert: Does it?!!
+
+Dilbert starts at the point (0,0) on the Euclidean plane. 
+He wants to get to the point (a,b), where a and b are nonnegative integers. 
+The only kinds of steps he can take are to step one unit in either the positive x direction, or the positive y direction. 
+In other words, he can go from (x,y) to either (x+1,y) or (x,y+1).
+
+Dilbert is wondering how many ways there are for him to get to (a,b). 
+But, all he wants your help for is to find whether that number is even or odd.
+
+##Example
+
+For example, if (a,b) = (2,1), then there are three paths Dilbert can take:
+(0,0) -> (0,1) -> (1,1) -> (2,1)
+(0,0) -> (1,0) -> (1,1) -> (2,1)
+(0,0) -> (1,0) -> (2,0) -> (2,1)
+Since three is odd, you should return True.
+
+##Input/Output
+
+Input 1 (a) : integer
+0 <= a <= 100
+
+Input 2 (b) : integer
+0 <= b <= 100
+
+Output : boolean
+True if the number of paths is odd, False if it's even.
