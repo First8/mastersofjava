@@ -1,0 +1,49 @@
+1 Introduction
+
+  Duke is now a boss and needs to distribute orders around in the duke factory.
+  Each order needs to be processed in a particular order and on a specific timing.
+  Of course Duke don't want's his colleagues to be doing nothing so all workers should
+  be working as efficient as possible until all orders are fulfilled. 
+
+2 Assignment
+
+  Given a list of orders and working days return a list of orders per day. 
+  The rules for the distribution should be:
+  	- The primary distribution rule is that the orders with the highest value 
+  	should be processed before the orders with the lowest value for each day.
+  	- After applying the first rule above the workers should have an equal
+  	workload for each day. When distributing make sure that the orders of higher
+  	value for each worker are still processed first! 
+  	
+  	Exception to both rules is when the number of order cannot be exactly distributed  between the days.
+  	In this case the first day will have the non distributed orders or the last day will contain
+  	less (or no) orders.    
+
+3 Example 
+
+Example 1
+Input:
+  Days = 3
+  order 1 = {value = 10, emp 1}
+  order 2 = {value = 1, emp 1}
+  order 3 = {value = 2, emp 2}
+  order 4 = {value = 6, emp 2}
+  order 5 = {value = 8, emp 1}
+
+Output:
+  day 1:
+  	order 1 = {value = 10, emp 1}
+	order 4 = {value = 6, emp 2}
+	order 3 = {value = 2, emp 2}
+	
+  day 2:
+    order 5 = {value = 8, emp 1}
+  	
+  day 3:
+  	order 2 = {value = 1, emp 1}
+  	
+4 Hints & Tips
+
+  - Analyse first and distribute after that
+  
+  

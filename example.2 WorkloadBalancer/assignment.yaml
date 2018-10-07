@@ -1,0 +1,40 @@
+# file paths are taken relative to this file.
+name: workload-balancer
+display-name: Workload Balancer
+author:
+  name: Mark
+  company: First8
+  website: https://first8.nl
+
+labels:
+- algorithm
+
+difficulty: 3
+java-version: 10
+duration: PT30M
+submit-timeout: PT60S
+test-timeout: PT60S
+
+scoring-rules:
+  maximum-resubmits: 2
+  resubmit-penalty: 50%
+  success-bonus: 200
+  test-penalty: 20%
+
+assignment-files:
+  assignment: assets/assignment.txt
+  sources:
+    base: src/main/java
+    editable:
+    - WorkloadBalancerImpl.java
+    readonly:
+    - Order.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - WorkloadbalancerDaysinListTest.java
+    - WorkloadbalancerOrderCountPerDayTest.java
+    hidden-test:
+    - WorkloadbalancerOrderSequenceTest.java
+  solution:
+  - assets/WorkloadbalancerCaseSolution.java

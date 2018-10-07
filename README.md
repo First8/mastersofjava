@@ -30,31 +30,39 @@ De oplossing staat in _src/main/resources/_ veelal met bestandsnaam _{puzzelNaam
 ## Opgaven
 Hieronder een korte uitleg van de opdrachten.
 
-##### Duke Race
+##### example VirtualCPU
+Implement a CPU :)
+Used for debugging so out of the box it spams a lot. You may want to clean up VirtualCPU.java before running it in a contest.
+
+##### example WorkLoadBalancer
+Distribute workload orders.
+Used for debugging so out of the box it is already implemented. You may want to clean up WorkloadBalancerImpl.java before running it in a contest.
+
+##### 2017 Duke Race
 Figure out what racer is winning, which depends on the length of the track, the max speed, and acceleration of each racer.
 
 _Author: Koen Aben_,
 _Category: Algorithms_
 
-##### IntegerWalk
+##### 2017 IntegerWalk
 Calculate the number of routes possible to get to an X,Y coordinate, provided that traversion can only be done on either the X or Y axis (x+1,y) or (x, y+1).
 
 _Author: Koen Aben_,
 _Category: Algorithms_
 
-##### Candy Crush
+##### 2017 Candy Crush
 Validate if the Candy Crush game board is in a valid state.
 
 _Author: Koen Aben_,
 _Category: Algorithms_
 
-##### WebServer
+##### 2017 WebServer
 Roll your own REST webserver!
 
 _Author: Frank de Jong_,
 _Category: APIs_
 
-##### SwapPairBits
+##### 2017 SwapPairBits
 Several steps must be undertaken, including swapping bits, to get the correct output from a given number (input).
 
 _Author: Koen Aben_,
