@@ -6,7 +6,7 @@ kent het officieuze NK programmeren niet? Al enkele jaren strijden de beste Java
 Voor meer info, zie de officiële pagina van [Masters of Java](http://www.nljug.org/moj/2017/).
 
 ## Inhoud
-Deze repository bevat alle opgaven van 2017 en de bijbehorende oplossingen. Zie hiervoor de branch met het corresponderende jaartal.
+Deze repository bevat alle opgaven van 2017 en de bijbehorende oplossingen. Deze zijn geformatteerd voor de server versie van 2017. 
 
 ---
 
