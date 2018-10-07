@@ -18,29 +18,28 @@ omschreven met een assignment.yaml file die in de root van de assignment moet st
 waarin de omschrijving van de opdracht en de oplossing staan. In de assignment.yaml file moeten alle java en resource files benoemd 
 worden die nodig zijn voor het compilen en runnen van de assignment. Verder kunnen additionele spelregels opgegeven worden.
 
----
-assignment-files:
-  assignment: assets/assignment.txt
-  sources:
-    base: src/main/java
-    editable:
-    - EditableJavaFile.java
-    readonly:
-    - ReadOnlyJavaFile.java
-  test-sources:
-    base: src/test/java
-    tests:
-    - TestCase1.java
-    - TestCase2.java
-    hidden-test:
-    - TestCaseHidden.java
-  test-resources:
-    base: src/test/resources
-    files:
-    - SomeResourceRequiredToTest.bin  
-  solution:
-  - assets/TheSolution.java
----
+
+    assignment-files:
+      assignment: assets/assignment.txt
+      sources:
+        base: src/main/java
+        editable:
+        - EditableJavaFile.java
+        readonly:
+        - ReadOnlyJavaFile.java
+      test-sources:
+        base: src/test/java
+        tests:
+        - TestCase1.java
+        - TestCase2.java
+        hidden-test:
+        - TestCaseHidden.java
+      test-resources:
+        base: src/test/resources
+        files:
+        - SomeResourceRequiredToTest.bin  
+      solution:
+      - assets/TheSolution.java
 
 
 #### Opdracht
@@ -111,3 +110,4 @@ Several steps must be undertaken, including swapping bits, to get the correct ou
 
 _Author: Koen Aben_,
 _Category: Algorithms_
+
