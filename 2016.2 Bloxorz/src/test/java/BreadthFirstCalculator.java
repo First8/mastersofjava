@@ -1,0 +1,73 @@
+import java.util.ArrayList;
+import java.util.List;
+
+
+/**
+ * A possible solution for calculating the shortest route, based on the breadth-first algorithm.
+
+ */
+public class BreadthFirstCalculator implements GameEngine {
+
+	private Board board;
+	@Override
+	public void loadGame(Board board) {
+		this.board = board; 
+		
+	}
+	@Override
+	public int calculate() {
+		return calculate(board, new ArrayList<Board>());
+	}
+
+	public int calculate(final Board board, final List<Board> history) {
+
+		if (!board.isValid() || history.contains(board)) {
+			return Integer.MAX_VALUE;
+		}
+
+		final List<Board> newHistory = new ArrayList<Board>(history);
+		newHistory.add(board);
+		if (board.isFinished()) {
+			System.out.println("SOLUTION IN " + history.size() + " STEPS");
+			for (Board move : newHistory) {
+				System.out.println(move);
+				//System.out.println(System.lineSeparator());
+			}
+
+			return history.size();
+		}
+
+		final MovableBlock block = board.getBlock();
+
+		return Math.min(
+				Math.min(calculate(board.withBlock(block.moveRight()), newHistory),
+						calculate(board.withBlock(block.moveUp()), newHistory)),
+				Math.min(calculate(board.withBlock(block.moveLeft()), newHistory),
+						calculate(board.withBlock(block.moveDown()), newHistory)));
+	}
+
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+    public static void main(String[] args) {
+    	String[] boardRows = new String[]{
+    			"BXXXX",
+       			" X X ",
+       			" X X ",
+       			" X XX",
+       			"    X",
+       			"OXXXX"
+    	};
+
+        Board game = Board.fromStringArray(boardRows);
+        GameEngine calculator = new GameEngineImpl();
+        calculator.loadGame(game);
+        calculator.print();
+        // shortest path should be 26 moves
+    }
+
+}

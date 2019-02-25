@@ -1,0 +1,26 @@
+1. Introduction
+
+  Java heroes love to compete in games with eachother after work hours. Recently, the Duke has found a new game: Bloxorz.    
+  Bloxorz is a game where the player must navigate a rectangular block into an opening (hole) somewhere on the board. 
+  The block can be moved by rolling. If you fall off the board, then your game is over. 
+
+2. Assignment
+
+  You should implement the 'calculate' method in the GameEngineImpl class.  
+
+3. Examples
+  
+  Below(B=Begin,O=Destination,X=Road) 
+
+  * ShortestPath(BO)  = 1 step
+  * ShortestPath(BXXO)= 3 steps
+                (BXXX)
+  * ShortestPath{X  X}= 4 steps
+                (XXOX) 
+  * See the Bloxorz class for a larger example. 
+ 
+4. Hints
+  * Don't forget to keep track of the previously made moves!
+  * Use the 'isValid' and 'isFinished' methods in the Board class to determine the state of the game.
+
+  
