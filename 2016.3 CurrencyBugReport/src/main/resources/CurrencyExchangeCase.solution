@@ -1,0 +1,55 @@
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Currency;
+
+public class TransactionImpl {
+    // best practice to store in cents
+    private double value; 
+    private Currency currency;
+    private State state;
+
+    public TransactionImpl(double value, Currency currency) {
+        this.value = value;
+        this.currency = currency;
+        this.state  = State.NEW;
+    }
+    
+    public double getValue() { 
+        return value;
+    }
+
+   public void setValue(double value) {
+      this.value = value;
+   }
+    
+    // De fout ontstaat in Gateway.modifyTransaction waar onrechtmatig, na conversie, met honderd wordt vermenigdvuldigd. 
+    // Omdat alleen TransactionImpl aangepast mag worden moet een setValue methode worden toegevoegd die een long 
+    // aanneemt om deze fout te herstellen.
+    public void setValue(long value) { 
+    	this.value = value / 100;
+    }
+
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
+    }
+    
+    public String toString() {
+        NumberFormat nf = new DecimalFormat("########0.00");
+        return currency.toString() 
+                + " " + nf.format(value/100); // in cents
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
+}     

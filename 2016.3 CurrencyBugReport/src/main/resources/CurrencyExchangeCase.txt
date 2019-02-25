@@ -1,0 +1,41 @@
+1. Introduction
+
+  Duke is currently employed at Initech, a Payment Service Provider. 
+  Initech is currently transitioning their flagship product to be used on a global scale. 
+  Therefore, Duke has been working non-stop on the new currency conversion feature.
+  Just in time for the release, he deployed a new version with the conversion feature. 
+  The next day however, a bug report was e-mailed; the feature did not pass the regression tests! 
+  With only 30 minutes left until the international launch the Code Wizard (you) are called in to fix the bug.
+
+2. Assignment
+  
+  The supplied program contains a bug, which is demonstrated with a unit test. Your assignment is to fix the bug.
+  
+  Bug Report
+  
+  ------------
+  Bug Name: Application cannot handle payment
+  Bug ID: 1337
+  Build Number: v1.8
+  Severity: EXTREMELY VERY HIGH
+  Priority: EXTREMELY VERY HIGH
+  Assigned to: Duke
+  Reported By: CreditCardVerificationSuite
+  Reported On: 01-11-2016
+  Reason: Defect
+  Status: Active
+  
+  ------------
+  Probable cause: Rounding errors?
+  Description: The new currency convertion feature is not working properly. The feature does not pass the verification suite.
+  Constraints: Certified classes are not to be modified
+  Additional info from client: Fix it, no matter what! No excuses!
+  
+3. Steps to reproduce
+  
+  Execute the accompanying unit tests.
+
+4. Hints & Tips
+
+  Remember, only the TransactionImpl class is allowed to be modified in order to fix the bug.
+ 
