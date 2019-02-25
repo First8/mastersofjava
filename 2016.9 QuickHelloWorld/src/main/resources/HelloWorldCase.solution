@@ -1,0 +1,15 @@
+
+public class HelloWorldImpl {
+
+	public String sayIt(String name) {
+		//
+		// If null, return just Hello
+		//
+		if (name==null) return "Hello";
+		//
+		// Otherwise return it with the name.
+		//
+		return "Hello "+name;
+	}
+
+}
