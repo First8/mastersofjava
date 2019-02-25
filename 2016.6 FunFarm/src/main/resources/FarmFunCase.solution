@@ -1,0 +1,33 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class ValetParkingAssistantImpl implements ValetParkingAssistant {
+
+    private Set<String> evaluated = new HashSet<String>();
+
+    public void solve(ParkingArea area) {
+        evaluated.add(area.toString());
+        Vehicle[] v = area.getAllVehicles();
+        //
+        for (int t=0;t<v.length;t++) {
+            if (v[t].canMove()) {
+                for (int move = -5; move < 6; move++) {
+                    if (move == 0) continue;
+                    if (v[t].canMove(move)) {
+                        ParkingArea copy=area.copy();
+                        copy.getAllVehicles()[t].move(move);
+                        String rep = copy.toString();
+                        if (!evaluated.contains(rep)) {
+                            v[t].move(move);
+                            if (area.isCompleted()) return;
+                            solve(area);
+                            if (area.isCompleted()) return;
+                            v[t].move(-move);
+                        }
+                    }
+                }
+            } 
+        }
+    }
+
+}

@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: ValetParkingAssistantImpl.java
+Monospaced: true
+TestClass: FarmFunTester
+SubmitClass: FarmFunTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: Koen Aben
+DisplayName: extra - Farm Vehicle Parking
+Icon: icon.png
+SponsorImage: sponsor.png
+Solution: FarmFunCase.solution
+AuthorURL: http://www.first8.nl
+Fun: 4
+Quality: 4
+Difficulty: 5
+Hint: Amazing moves for cars.
+Catagory: Algorithm, recursion.
