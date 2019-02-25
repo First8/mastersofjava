@@ -1,0 +1,34 @@
+1 Introduction
+
+    Map traversal is the proces of getting a value based on a key. A map can contain recursively maps and lists. 
+
+
+2 Assignment
+
+    When given:
+      - a Map<String, Object>, in which the value can be a String, a List<Object> or a Map<String, Object> and
+      - paths like "key1.key2.key3" and "key1.key2.key3[0].key4[1].key5"
+    
+    retrieve the correct String value from that map.
+
+
+3 Example
+
+    Map:
+        {
+            "name": {
+                "first": ["James","George"],
+                "last": "Gosling"
+            }
+        }
+    
+    Key:
+        "name.first[1]"
+    
+    Value:
+        "George"
+
+Map = {'name':{'first':["James","George"],'last':'Gosling'}}
+name.first[1]== "George"
+
+DOMAIN: DESCRIPTION,MAP,KEY,VAL

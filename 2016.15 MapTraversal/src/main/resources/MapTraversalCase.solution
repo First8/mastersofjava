@@ -1,0 +1,62 @@
+import java.util.*;
+
+public class MapTraversalImpl implements MapTraversal {
+
+    @Override
+    public String getValue(Map<String, Object> map, String key) {
+
+        String[] elements = key.split("\\.");
+        for (String element : elements) {
+            String[] tokens = element.replace("]", "").split("\\[");
+            Object value = map.get(tokens[0]);
+            if (value == null) {
+                return null;
+            }
+            if (value instanceof String) {
+                return (String) value;
+            }
+            if (value instanceof List) {
+                Integer index = new Integer(tokens[1]);
+                Object temp = elements[index];
+                if (value instanceof String) {
+                    return (String) value;
+                }
+                if (value instanceof Map) {
+                    map = (Map<String, Object>) value;
+                }
+                return (String) value;
+            } else {
+                map = (Map<String, Object>) value;
+            }
+
+        }
+
+        return null;
+    }
+
+    public String getValueRecursive(Map<String, Object> map,
+            List<String> elements) {
+        String element = elements.remove(0);
+        String[] tokens = element.replace("]", "").split("\\[");
+        Object value = map.get(tokens[0]);
+        if (value == null) {
+            return null;
+        }
+        if (value instanceof String) {
+            return (String) value;
+        }
+        if (value instanceof List) {
+            Object listValue = elements.get(new Integer(tokens[1]));
+            if (listValue instanceof String) {
+                return (String) listValue;
+            }
+            if (listValue instanceof Map) {
+                return getValueRecursive((Map<String, Object>) listValue,
+                        elements);
+            }
+            return (String) value;
+        } else {
+            return getValueRecursive((Map<String, Object>) value, elements);
+        }
+    }
+}
