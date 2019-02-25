@@ -1,0 +1,36 @@
+1. Introduction
+
+  Duke has been monitoring a game show called "Who is the Mole". In this game show contestants have orders to deliver parcels.
+  Each parcel is distributed over an area at a given location but has to be moved within the area to another location, its target location.
+  The contestants have to do this as quick as possible, however there is one contestant who is sabotaging the game. That's the Mole!
+  Duke managed to capture for each contestant which routes were taken and which parcels were delivered by the contestants.
+
+  Duke wants to analyse this data in order to determine who the Mole is!
+  All contestants are just humans, so they make mistakes, meaning that they do not have to take the most optimal route.
+  A contestant not taking the most optimal route does therefore not mean that it is the Mole.
+  The contestants do not travel with the same speed, some are quicker than others.
+  This means that also from the number of parcels, or road traveled, no conclusion can be drawn.
+
+  The routes itself however were chosen freely by the contestants.
+  Duke wants to find out who the Mole is based on the chosen routes.
+
+2. Assignment
+
+  Finish the next algorithm to find the Mole. (The second and third step of the algorithm still has to be implemented.)
+
+3. Algorithm
+
+  To find out who the Mole is, Duke made up the following algorithm:
+  1. Extract the route between picking up a parcel untill delivery of that parcel.
+  2. Give a rating (Mole rating) to these chosen routes.
+  3. Check that parcels are delivered correctly. A wrong delivered parcel would directly expose the Mole.
+  4. The contestant with the chosen routes with the highest total Mole rating has to be the Mole.
+
+4. Hints
+
+  * Instead of choosing bad routes, the Mole could also have delivered a parcel wrong on purpose. Check this!
+    If so, a MoleDetectedException can be thrown.
+  * The quickest routes from each location to any other location is known.
+    location.getShortestPathToLocation(Location targetLocation)
+  * The cost of each location to all its neighbour locations is known.
+    location.getTravelCostsToNeighbor(Location location)
