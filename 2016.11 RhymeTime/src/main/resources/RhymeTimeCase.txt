@@ -1,0 +1,30 @@
+1. Introduction
+
+  Sint Nicolas is coming! Soon all Dutch children will retrieve awesome presents and naturaly also funny poems. 
+  But, because of the competition with Santa Clause in the Netherlands, he had to cut costs: all servants for writing poetry were fired. 
+  Therefore Dutch parents are asked to provide Sint Nicolas with plenty of software to write poems with.
+  In this project, rhyming can be computed via the component Soundex, which needs to be enabled. 
+
+2. Assigment
+
+  Implement the method 'toSoundex' in RhymeAssistant. This method should be able to transform lines into a rhyme scheme.
+  Logically, the output should be [a,b,a,b], when input is 4 lines long and its individual ends are these 4 words: java, deer, lava, engineer.    
+   
+3. Examples
+
+  Both rhymes below should give an output of [a,a,b,b] 
+
+  My day ain't complete sans a cuppa java
+  And it must be as blisterin' hot as flowin' lava
+  The rich succulent flavor I crave in the morning
+  The aromatic scent that keeps me adoring
+
+  Java you are the breath that keeps me whole
+  The warmth that entices my soul
+  So I cherish every drop
+  My love could never stop
+
+4. Hints
+
+  * After some small steps, this assignment will sound easier!
+  * Study the Soundex utility carefully before usage.  
