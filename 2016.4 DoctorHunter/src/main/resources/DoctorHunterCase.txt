@@ -1,0 +1,50 @@
+1 Introduction
+
+  Your local hospital wants to fully automate the
+  resume to skills matching process. Currently this is done by hand which is
+  both too slow and error prone (they use trained monkeys to do the selection).
+  
+  For this you selected an Software Architect to devise up some nice framework to
+  make an skill expert system. Unfortunately the Architect had something more
+  profitable to do and left, so now you're left a partial framework and the
+  Architects assurance: 'You have only to implement the factory, the rest
+  is peanuts'.  
+
+2 Assignment
+
+  Implement the DoctorHunterImpl class so that it correctly constructs the
+  SkillExpert components and correctly matches the resumes to skill criteria.   
+  
+  The factory defines three different types of SkillExpert components which all 
+  can be implemented using inner or anonymous classes. 
+  
+  The three components are :
+  - Match : matches a single skill and experience level to a resume.
+  - And : matches if all its child skill experts also match.
+  - Or : matches if one of its child skill experts match.
+
+3 Example
+
+  You have two resumes:
+  dr Bob  which is a Physiotherapy,GURU and a Surgery,EXPERT
+  dr Phil which is a Physiotherapy,GURU and a Psychology,GURU
+  
+  Your client is looking for a (Physiotherapy,GURU)&((Surgery,EXPERT)|(Psychology,GURU))
+  (the '&' means AND and the '|' means OR)  
+
+  Using the factory the following SkillExpert tree will be created:
+  - AND
+    - Match: Physiotherapy,GURU
+    - OR
+      - Match: Surgery,EXPERT
+      - Match: Psychology,GURU 
+    
+  When applied to the resumes the
+  - dr Bob  : (TRUE) & ((TRUE) | (FALSE)) -> TRUE
+  - dr Phil : (TRUE) & ((FALSE) | (TRUE)) -> TRUE    
+  So, both resumes match.
+
+4 Hints & Tips
+
+  - This assignment uses both Method Factory and Composite Patterns.
+  - If you're of anonymous class a final may bridge your arguments.  
