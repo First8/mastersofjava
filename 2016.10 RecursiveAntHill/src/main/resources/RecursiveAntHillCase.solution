@@ -1,0 +1,18 @@
+
+
+public class RecursiveAntHillImpl implements AntHill{
+
+	public int calculate(final int row, final int col) {
+
+		if (col < 0 || col > row) {
+			return 0;
+		}
+
+		if (row == 0) {
+			return 1;
+		}
+
+		return calculate(row - 1, col - 1) + calculate(row - 1, col);
+	}
+	
+}
