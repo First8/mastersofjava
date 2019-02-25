@@ -1,0 +1,33 @@
+1 Introduction
+
+  I have fond memories of AlphabetGames or 'letter vermicelli' as we call it in Dutch. With
+  each composition of letters it is a challenge to see if you could make certain words with it. The
+  longer the better!  
+
+2 Assignment
+
+  Implement the canMakeWord(String letterComposition,String word) method in such a way that it will return 
+  true if the given word can be made out of the available letters. Keep in mind
+  that each letter in the composition can only be used once. 
+
+3 Example
+
+  The composition contains the following letters: AADEJKOSUW
+  The word to be checked is: WODKASJU
+  
+Composition   Word    All the letters in the word are available   
+  A  2        1  A    in the input composition, so the word can be made.
+  D  1        1  D    
+  E  1        0  E
+  J  1        1  J
+  K  1        1  K
+  O  1        1  O
+  S  1        1  S
+  U  1        1  U
+  W  1        1  W
+  
+4 Hints & Tips
+
+  - The example above may be very educational, but its implementation takes a bit of effort.
+  - There might be a more efficient solution, time wise.
+  - Beware of strange characters.
