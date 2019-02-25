@@ -1,0 +1,34 @@
+1. Introduction
+
+  Salvador Dalí produced over 1500 paintings in his career, in addition to producing illustrations for books, lithographs, designs for theater sets and costumes, 
+  a great number of drawings, dozens of sculptures, and various other projects, including an animated short film for Disney. 
+  Duke's Dali foundation owns a chronological list of all of his works. 
+  For easy research sorting all paintings based on the Spanish alphabet is needed. 
+  But the Spanish language has many original characters that the word processor does not understand. 
+  You should help Duke, our Java hero, to write a translation tool for Spanish characters.   
+
+2. Assignment 
+
+  For you the task to write a String comparator that sorts Spanish words.
+  Here are rules to sort Spanish words in the right way. 
+  In 1994 the UNESCO has convinced the Asociación de Academias de la Lengua Española 
+  to make it easier, but for this an assignment we use the authentic grammar rules. 
+
+  The rules:
+  * accents can be ignored ('á', 'é', 'í', 'ó', 'ú' and 'ü'); an á sorts just like an a
+  * the n. When acute accent and diaeresis marks are used on vowels ('á', 'é', 'í', 'ó', 'ú'
+    and 'ü') they are considered variants of the plain vowel letters but 'ñ' is
+    considered a separate letter from 'n'. This makes a difference when sorting
+    alphabetically: 'ñ' appears in dictionaries after 'n'. For example, in a Spanish dictionary piñata comes after pinza.
+  * The combinations 'ch','rr','gu' and the 'll' can be seen as 1 character. 
+    So, the 'ch' character comes between the 'c' and the 'd'. And the 'll' comes between the 'l' and the 'm'.
+
+3. Examples
+
+  * [piñata,pim,pio,pinza] becomes [pim,pinza,piñata,pio] 
+  * [luz,curioso,llama,chalina] becomes [curioso, chalina, luz, llama]
+ 
+4. Hints
+
+  *  Java API helps. Take a look at for example java.text.Normalizer of java.text.Collator.
+  *  Here, Java regular expressions supports Unicode blocks java.lang.Character.UnicodeBlock, (usable for example to remove all diacretes). 

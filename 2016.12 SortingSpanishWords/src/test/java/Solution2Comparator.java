@@ -1,0 +1,17 @@
+
+
+public class Solution2Comparator extends SortingSpanishWordsImpl {
+	@Override
+	public int compare(String o1, String o2) {
+		String simpler1=prepareForCompare(o1);// DONE:
+		String simpler2=prepareForCompare(o2);// DONE:
+		// TODO: return start hier
+		return simpler1.compareToIgnoreCase(simpler2);// DONE:
+	}
+	
+	// DONE: Oplossing
+	public String prepareForCompare(String input) {
+		input = input.replace("á","a").replace("é","e").replace("í","i").replace("ó","o").replace("ú","u").replace("ü","u").replace("ö", "o");
+		return input.replace("ñ", "nz").replace("ch", "cz").replace("ll", "lz").replace("á", "a").replace("é", "e").replace("ó", "o").replace("í", "i");//
+	} 
+}
