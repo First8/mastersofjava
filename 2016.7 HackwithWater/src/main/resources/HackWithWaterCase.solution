@@ -1,0 +1,65 @@
+import java.awt.Point;
+import java.util.*;
+
+public class AutoHackerImpl {
+
+	private List<Point> lock=new ArrayList<Point>();
+	
+	/**
+	 * hacks the given pipepanel.
+	 * @param pp the pipe panel to hack.
+	 */
+	public void hack(PipePanel pp) {
+		//
+		if (pp.isHacked()) return;
+		//
+		solve(pp,null,pp.getStart(),pp.getEnd(),pp.get(pp.getStart()),0);
+		//
+	}
+	
+	public boolean solve(PipePanel pp,Point previous,Point current,Point end,Pipe p,int step) {
+		try {
+			if (lock.contains(current)) throw new RuntimeException("Wrong Admi");
+			lock.add(current);
+			try {
+				Point next=pp.flow(current,previous,p);
+				if (lock.contains(next)) return false;
+				if (Pipe.BLOCK.equals(pp.get(next))) return false;
+				if (next.equals(end)) return true;
+				for (Pipe nxt:Pipe.values()) {
+					if (Pipe.BLOCK.equals(nxt)) continue;
+					Point fnd=find(pp,nxt);
+					if (fnd!=null) {
+						pp.swap(next,fnd);
+						if (solve(pp,current,next,end,nxt,step+1)) {
+							return true;
+						} 
+					}
+				}
+			} finally {
+				lock.remove(current);
+			}
+			return false;
+		} catch (DeadEndException ex) {
+			return false;
+		}
+	}
+	
+	public Point find(PipePanel pp,Pipe p) {
+		Point c=new Point();
+		for (int y=0;y<pp.getHeight();y++) {
+			for (int x=1;x<pp.getWidth()-1;x++) {
+				c.x=x;
+				c.y=y;
+				if (p.equals(pp.get(c))) {
+					if (!lock.contains(c)) {
+						return c;
+					}
+				}
+			}
+		}
+		return null;
+	}
+	
+
+}
