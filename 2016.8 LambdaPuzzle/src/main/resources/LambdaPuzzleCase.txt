@@ -1,0 +1,31 @@
+1. Introduction
+
+  Time to secure your company because a new virus is found on one of the computers, called the Sonja Bakker virus. 
+  It shrinks the Gigabyte hard drive suddenly to only 50kilobytes and then slowly expands back.
+ 
+  To secure data transmissions, a group of enthousiastic security experts is thinking about prime numbers for cryptography, using RSA encryption.
+  RSA is one of the first practical public-key cryptosystems and is widely used for secure data transmission. 
+  In such a cryptosystem, the encryption key is public and differs from the decryption key which is kept secret. 
+  In RSA, this asymmetry is based on the practical difficulty of factoring the product of two large prime numbers, called the factoring problem. 
+  Prime numbers must be kept secret of course. 
+
+2. Assignment
+  The security experts also visit NLJUG events, so they want to use the newest Java trends. 
+  Because these security experts have never used Java or lambdas before, they ask their local Java hero.  
+  You have to implement the 'primes' method in the class LambdaPuzzleImpl.
+  This method calculates a list of increasing primes given a start number and the amount of primes to list. 
+  
+3. Example
+  Lets say the start number is 1 and the amount of prime numbers to calculate is n<N.
+  Then the output of the 'primes' method can be defined as:  
+  n. [output]  
+  ------------------
+  1. [2]
+  2. [2, 3]
+  3. [2, 3, 5] 
+  4. [2, 3, 5, 7]
+  N. [N prime numbers since 2]
+
+4. Hints
+  * Use Java8 Streams and Lambdas.
+  
