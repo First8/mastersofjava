@@ -1,0 +1,36 @@
+public class BallotCardAnalyzerImpl implements BallotCardAnalyzer {
+
+    /**
+     * Analyzes the given ballot card and returns the corresponding result.
+     * @param ballotCard the ballot card to analyze.
+     * @return BLANK,INVALID,STAY or EXIT.
+     */
+	public Result analyze(String ballotCard) {
+		//
+	    int exit=ballotCard.indexOf("EXIT");
+        int stay=ballotCard.indexOf("STAY");
+        int eO=ballotCard.indexOf("[",exit);
+        int eE=ballotCard.indexOf("]",exit);
+        int sO=ballotCard.indexOf("[",stay);
+        int sE=ballotCard.indexOf("]",stay);
+        //
+        if ((exit==-1)||(stay==-1)) return Result.INVALID;
+        if ((eO==-1)||(eE==-1)) return Result.INVALID;
+        if ((sO==-1)||(sE==-1)) return Result.INVALID;
+        if (eE-eO!=2) return Result.INVALID;
+        if (sE-sO!=2) return Result.INVALID;
+        //
+        if (ballotCard.indexOf("EXIT",exit+1)>=0) return Result.INVALID;
+        if (ballotCard.indexOf("STAY",stay+1)>=0) return Result.INVALID;
+        //
+        boolean vE=!ballotCard.substring(eO+1,eE).equals(" ");
+        boolean vS=!ballotCard.substring(sO+1,sE).equals(" ");
+        //
+        if ((vE)&&(!vS)) return Result.EXIT;
+        if ((!vE)&&(vS)) return Result.STAY;
+        if ((vE)&&(vS)) return Result.INVALID;
+		//
+	    return Result.BLANK;
+	}
+
+}
