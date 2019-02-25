@@ -1,0 +1,38 @@
+Apples and oranges
+
+1. Introduction
+
+  Apples and oranges cannot be compared, yet they can be counted.
+
+  Because of 'reasons' only the local unix guru may or may not understand...
+
+  In an unsorted mess of directories is a number of files with production
+  numbers. Some of these files contain actual relevant data, with all kinds of
+  details and a grant total.
+
+  The file format is rather free, except for two rules:
+
+  * Every relevant file contains a line as follows:
+  total:2033. Where 2033 is variable, denoting the number of kilos produced.
+
+  * As any guru has his habits, the relevant files have a name ending in .foo
+
+  The reporting engine is written in java ( dismaying the unix guru).
+
+2. Assignment
+
+	The exercise is simple: given the Path, add up and report all the totals from
+	relevant files.
+
+	Of course, the unix guru says he can do this in one commandline action in under 30
+	seconds of thought (and milliseconds of execution). So, doing this in 30
+	minutes as Rockstar Enterprise Java Guru's should be trivial.
+
+3. Hints
+
+  * The given directory on the server will have subdirectories in which you can navigate. On each level there may be
+    relevant files.
+
+  * The class java.nio.File is your friend.
+
+
