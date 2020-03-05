@@ -1,0 +1,42 @@
+1 Introduction
+
+  Something went terribly wrong during the printing of the Ballot Cards for the Presidential Election.
+  Due to a loose sensor all the cards came out with the wrong dimensions. Some are too large while 
+  others are too small, causing the checkboxes for voting either Obama or McCain to be placed at 
+  irregular positions across the paper. This makes it impossible to count the votes using standard
+  equipment. Reprinting is also out of the question, the only one to save the day is you!   
+
+2 Assignment
+
+  Implement the Ballot Card analyser which must determine if the ballot card presented is
+  either a vote for Obama or McCain, a blank ballot form or an invalid one.  
+  A valid ballot card contains the following:
+  - one copy of the names of the candidates together with an checkbox: [ ]
+    The checkboxes consist of exactly 3 characters: '[',' ' and ']'.        
+  - only one checkbox may be checked with a character other than whitespace, e.g. [X]
+  - The marked checkbox identifies a vote for that candidate.
+
+3 Example
+
+  The following ballot card is valid and contains a vote for Obama:  
+   __________________________ 
+  |                          |
+  |     Obama [X]            |
+  | McCain [ ]               |
+  |__________________________|
+  
+  The following ballot card is invalid:
+   __________________________ 
+  |        McCain [ ]        |
+  |     Obama [ ]            |
+  | McCain [X]               |
+  |Obama [ ]                 |
+  |__________________________|  
+  
+4 Hints & Tips
+
+  - The String class has a bunch of methods that may come in useful.
+  - If that does not work you can always try something with regular expressions.  
+  - You never know the character of a voter.
+  
+  

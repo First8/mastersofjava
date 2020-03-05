@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: BallotCardAnalyzerImpl.java
+Monospaced: true
+TestClass: ElectionDayTester
+SubmitClass: ElectionDayTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: E.Hooijmeijer
+DisplayName: Election Day
+Icon: icon.png
+SponsorImage: sponsor.png
+Solution: ElectionDayCase.solution
+AuthorURL: 
+Fun: 3
+Quality: 3
+Difficulty: 3
+Hint: And you think voting is easy?!
+Catagory: Strings

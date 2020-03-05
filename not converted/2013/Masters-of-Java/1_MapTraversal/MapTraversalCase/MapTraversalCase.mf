@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: MapTraversalImpl.java
+Monospaced: true
+TestClass: MapTraversalClientTester
+SubmitClass: MapTraversalServerTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: Patrick Kik
+DisplayName: Map traversal
+Icon: nljug_icon.png
+SponsorImage: sogeti_icon.png
+Solution: MapTraversalCase.solution
+AuthorURL: http://java.sogeti.nl
+Fun: 3
+Quality: 3
+Difficulty: 3
+Hint: A cryptic but somewhat useful hint here.
+Catagory: API Knowledge

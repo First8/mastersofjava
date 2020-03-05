@@ -1,0 +1,22 @@
+1 Introduction
+
+  You're writing a highly concurrent, fully buzzword compliant web shop, and you need to
+  keep track of where all the money goes. More importantly: so does your customer!
+  You need an object that can hold all the transactions, and that can be displayed and
+  sorted. But watch out! Your transactions can and will be used by multiple threads!
+
+2 Assignment
+
+  Write a value class called Transaction that had fields for the amount, the date, and
+  a description of the transaction. It must correctly implement equals and hashCode.
+  It must implement Comparable and compareTo must be "consistent with equals", or else
+  using collections will become messy. It must be fully immutable. Finally, it must
+  implement toString, because that's super useful when you're debugging.
+
+3 Hints & Tips
+
+  * You're writing a value class, not a JPA entity or a DTO.
+  * An immutable object can NOT change for any reason, after it's constructed.
+  * An equals method is reflexive, symmetric, transitive, consistent, and should
+    return false if null is passed in.
+  * If two objects are equal, their hashCode should be equal and compareTo should be 0.

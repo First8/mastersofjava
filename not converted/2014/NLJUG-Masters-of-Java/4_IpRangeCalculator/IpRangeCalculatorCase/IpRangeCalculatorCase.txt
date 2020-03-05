@@ -1,0 +1,38 @@
+1 Inleiding
+
+Classless Inter-Domain routing (CIDR) is een methode voor het aanduiden van IP-adressen.
+
+Het belangrijkste verschil met adressering op basis van klassen, is dat bij CIDR exact (op bit-niveau) 
+wordt aangeduid welke bits van een 32-bit IPv4-adres tot het netwerkgedeelte behoren en welke gebruikt 
+worden om de hosts in dat netwerk aan te duiden. De CIDR notatie is dezelfde als bij een IPv4-adres, 
+maar met een “/” (slash) erachter, gevolgd door een decimaal getal tussen 0 en 32 dat het aantal 
+significante bits aanduidt.
+
+Een voorbeeld: het adres 192.168.0.0/16. Het decimaal getal 16 bepaalt dat er 16 van de 32 bits 
+gebruikt worden om het netwerkgedeelte aan te duiden (192.168). De overige 16 bits kunnen gebruikt 
+worden om hosts aan te duiden. Deze notatie betreft dus het blok met adressen van 192.168.0.1 tot 
+192.168.255.254 (waar 192.168.0.0 en 192.168.255.255 voorbehouden zijn voor resp. het netwerkadres en 
+het broadcastadres).
+
+[Bron: http://nl.wikipedia.org/wiki/CIDR]
+
+2 Opdracht
+
+Implementeer de methodes in de IpRangeCalculatorImpl die op basis van een CIDR notatie informatie
+geven over het IP adres of het subnet waarin dit adres zich bevindt.
+
+3 Voorbeeld
+
+CIDR: 192.168.0.1/24
+
+IP address        : 192.168.0.1
+Subnet mask       : 255.255.255.0
+Network address   : 192.168.0.0
+Broadcast address : 192.168.0.255
+First host        : 192.168.0.1
+Last host         : 192.168.0.254
+Host count        : 254
+
+4 Hints & Tips
+
+Rekenen en werken met IP adressen gaat het snelste met bitwise operators (&, |, ^, <<, etc).

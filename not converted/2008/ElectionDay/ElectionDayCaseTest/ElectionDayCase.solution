@@ -1,0 +1,37 @@
+
+public class BallotCardAnalyzerImpl implements BallotCardAnalyzer {
+
+    /**
+     * Analyzes the given ballot card and returns the corresponding result.
+     * @param ballotCard the ballot card to analyze.
+     * @return BLANK,INVALID,MCCAIN or OBAMA.
+     */
+	public Result analyze(String ballotCard) {
+		//
+	    int bama=ballotCard.indexOf("Obama");
+        int cain=ballotCard.indexOf("McCain");
+        int bo=ballotCard.indexOf("[",bama);
+        int be=ballotCard.indexOf("]",bama);
+        int co=ballotCard.indexOf("[",cain);
+        int ce=ballotCard.indexOf("]",cain);
+        //
+        if ((bama==-1)||(cain==-1)) return Result.INVALID;
+        if ((bo==-1)||(be==-1)) return Result.INVALID;
+        if ((co==-1)||(ce==-1)) return Result.INVALID;
+        if (ce-co!=2) return Result.INVALID;
+        if (be-bo!=2) return Result.INVALID;
+        //
+        if (ballotCard.indexOf("Obama",bama+1)>=0) return Result.INVALID;
+        if (ballotCard.indexOf("McCain",cain+1)>=0) return Result.INVALID;
+        //
+        boolean vb=!ballotCard.substring(bo+1,be).equals(" ");
+        boolean vc=!ballotCard.substring(co+1,ce).equals(" ");
+        //
+        if ((vb)&&(!vc)) return Result.OBAMA;
+        if ((!vb)&&(vc)) return Result.MCCAIN;
+        if ((vb)&&(vc)) return Result.INVALID;
+		//
+	    return Result.BLANK;
+	}
+
+}

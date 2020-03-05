@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: AlphabetSoupImpl.java
+Monospaced: true
+TestClass: AlphabetSoupTester
+SubmitClass: AlphabetSoupTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: E.Hooijmeijer
+DisplayName: Alphabet Soup
+Icon: icon.png
+SponsorImage: sponsor.png
+Solution: AlphabetSoupCase.solution
+AuthorURL: http://www.ctrl-alt-dev.nl
+Fun: 3
+Quality: 4
+Difficulty: 2
+Hint: Fun with letters.
+Catagory: API Knowledge

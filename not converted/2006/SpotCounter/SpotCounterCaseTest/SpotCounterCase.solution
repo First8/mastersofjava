@@ -1,0 +1,15 @@
+
+public class SpotCounterImpl {
+
+	public int scan(Radar r) {
+		//
+		// Implement Here
+		//
+		int cnt=0;
+		for (Hit h:r.getHits()) {
+			if (h.isSpot()) cnt++;
+		}
+		return cnt;
+	}
+
+}

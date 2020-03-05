@@ -1,0 +1,85 @@
+1 Introduction
+
+  Befunge is een esoterische programmeertaal welke gebaseerd is op het bewegen 
+  door een matrix (het speelveld). De tekens in de matrix vertegenwoordigen 
+  commando's die invloed hebben op het verloop van het programma of bewerkingen 
+  uitvoeren op de stack.
+  
+  De program counter (PC) begint links bovenin op positie (0,0) met het 
+  verwerken van commando's en beweegt vanuit daar in eerste instantie naar 
+  rechts. De karakters in het speelveld worden één voor één geinterpreteerd als 
+  een commando. Hierdoor wordt bijvoorbeeld de richting van de PC aangepast, 
+  worden stack manipulaties uitgevoerd of wordt output geschreven.
+
+2 Assignment
+
+  Duke heeft in Java een interpreter gebouwd die de onderstaande subset van 
+  Befunge commando's begrijpt. Hij loopt echter tegen het probleem aan dat er 
+  soms een oneindige loop ontstaat waardoor zijn interpreter heel veel CPU 
+  power consumeert en vastloopt. Omdat Duke zuinig is op zijn CPU cycles wil 
+  hij dat zijn interpreter zo'n situatie doorziet en de uitvoering van het 
+  programma afbreekt. Hij heeft al een interface gemaakt die events uit het 
+  uitvoeringsproces afvangt. Het is aan jou om de implementatie van de 
+  InfiniteLoopDetector af te maken. Als de detector ziet dat er een oneindige 
+  loop ontstaat moet deze ingrijpen door een InfiniteLoopException te gooien.
+  
+  (spatie) Doe niets
+  0-9      Push dit nummer naar de stack
+  +        Optellen: Pop a en b, push a+b
+  -        Aftrekken: Pop a en b, push b-a
+  *        Vermenigvuldigen: Pop a en b, push a*b
+  /        Delen: Pop a en b, push b/a
+  %        Modulo: Pop a en b, push de rest na deling b/a.
+  !        Logische Niet: Pop een waarde. Als de waarde nul is, push 1; anders 
+           push 0.
+  `        Groter dan: Pop a en b, push 1 als b>a, anders push 0.
+  >        Wijzig de richting van de PC naar rechts
+  <        Wijzig de richting van de PC naar links
+  ^        Wijzig de richting van de PC naar beneden
+  v        Wijzig de richting van de PC naar boven
+  _        Pop een waarde; wijzig richting naar rechts als de waarde 0 is, 
+           anders links
+  |        Pop een waarde; wijzig richting naar beneden als de waarde 0 is, 
+           anders naar boven
+  "        Start stringmode: push de ASCII waarde van elke karakter naar de 
+           stack tot aan de volgende ".
+  .        Pop een waarde en print deze naar de uitvoer als integer
+  ,        Pop een waarde en print de ASCII waarde naar de uitvoer
+  :        Dupliceer de waarde bovenaan de stack
+  #        Bridge: sla het volgende commando over
+  @        Einde van het programma
+  
+  Als de stack leeg is, dan resulteert een pop of een peek in 0.
+  Het speelveld is een zogenaamde torus: als de pointer de rand van het 
+  speelveld bereikt keert deze aan de andere kant terug alsof het oneindig 
+  doorloopt.
+
+3 Example
+
+  Onderstaand programma print "Hello World!". Interessant is de manier waarop de 
+  spatie geprint wordt. Eerst wordt 4 op de stack gezet en daarna 8. Deze twee 
+  worden vermenigvuldigd tot 32, de ASCII code van een spatie.
+
+  >              v
+  v  ,,,,,"Hello"<
+  >48*,          v
+  v,,,,,,"World!"<
+  >25*,@          
+
+4 Hints & Tips
+
+  Oneindige loop situaties die gedetecteerd kunnen worden:
+  * Het programma keert in exact dezelfde staat terug op een plaats waar het 
+    eerder is geweest. Omdat een Befunge programma geen andere input heeft dan 
+    de stack en het speelveld weten we zeker dat dit een oneindige loop gaat 
+    worden.
+  * Het programma keert terug op een plaats in het speelveld waar het eerder is 
+    geweest, en de reeks waarden die erbij zijn gekomen op de stack zijn een 
+    herhaling van de voorgaande waarden.
+    
+  Een situatie die niet gedetecteerd kan worden:
+  * Het programma blijft rondloopen en de waarde bovenop de stack wordt 
+    bijvoorbeeld steeds met dezelfde waarde verhoogd, waardoor de eindconditie 
+    niet bereikt wordt. Strikt genomen is dit ook geen oneindige loop, omdat de 
+    waarde van de integer uiteindelijk een keer zijn overflow bereikt waardoor 
+    de eindconditie na miljoenen rondjes toch bereikt wordt.

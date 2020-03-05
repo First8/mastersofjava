@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: HelloWorldImpl.java
+Monospaced: true
+TestClass: HelloWorldTester
+SubmitClass: HelloWorldTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: E.Hooijmeijer
+DisplayName: Hello World
+Icon: icon.png
+SponsorImage: sponsor.png
+Solution: HelloWorldCase.solution
+AuthorURL: http://www.ctrl-alt-dev.nl
+Fun: 3
+Quality: 4
+Difficulty: 1
+Hint: Hello World - how hard can it be?
+Catagory: Basic programming skills.

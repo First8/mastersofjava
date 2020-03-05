@@ -1,0 +1,44 @@
+1 Introduction
+
+A SmithNumber is a composite number (2 digits and more), for which the sum of it's digits is the equal to the 
+sum of its digits in prime factorization. (We consider numbers in base 10 for this assignment)
+Example: 378 = 2 × 3 × 3 × 3 × 7 is a Smithnumber 
+because 3 + 7 + 8 = 2 + 3 + 3 + 3 + 7. 
+
+Also 202 is a smithnumber because 
+2 + 0 + 2 = 4 and its prime factorization is : 2 × 101, and 2 + 1 + 0 + 1 = 4.
+So it is important that the numbers in the factorization are completely splitted in single digits before summation.
+
+Prime numbers are out of cosnideration, because they all satisfy these conditions, since the prime factorization is  
+of a prime number is the prime number itself.
+
+Prime number factorization:
+As already described, to determine if a number is a smithnumber, you need to know the prime factorization of the number. 
+
+In number theory, the prime factors of a positive integer are the prime numbers that divide that integer 
+exactly. The prime factorization of a positive integer is a list of the integer's prime factors,
+together with their multiplicities; the process of determining these factors is called integer factorization.
+The fundamental theorem of arithmetic says that every positive integer has a single unique prime factorization
+
+A prime number (or a prime) is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+The number 1 is not considered as a primenumber.
+ Prime factorizations is an operation, that can only be applied to round numbers greater than 1. 
+
+2 Assignment
+
+You have to complete 3 methods in the class SmithNumberImpl.
+1. boolean isPrimeNumber(int number) 
+2. List<Integer> primeFactors(int number)
+3. boolean isSmithNumber(int number) In this method the first 2 methods can be used.
+
+3. Example
+
+The first 3 Smith numbers are:
+
+    22, 27 and 58
+
+4 Hints & Tips
+
+The prime number factorization is written without exponents, and if one factor has duplicates they are all repeated 
+as many times as necessary.
+

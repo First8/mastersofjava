@@ -1,0 +1,112 @@
+import java.util.Arrays;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
+public class CompetitionImpl {
+
+	public SortedMap<Integer, String> teams;
+	
+	public Game[][] games;
+		
+	public CompetitionImpl(String[] teamNames) {
+		super();
+		teams = new TreeMap<Integer, String>();
+		for (int i=0;i<teamNames.length;i++) {
+			this.teams.put(i, teamNames[i]);
+		}
+	}
+		
+	public boolean MakeGames() {
+		int home, away, nrteams, nrGamesPerRound;
+		Game[][] tmpGames;
+		
+		nrteams = teams.size();
+		nrGamesPerRound = nrteams/2;
+		
+		tmpGames = new Game[nrteams-1][nrGamesPerRound];
+		
+		//round 1
+		for (int i=0;i<nrGamesPerRound;i++) //for each game
+		{
+			tmpGames[0][i] = new Game(i*2, i*2+1);
+		}	
+		
+		//other rounds
+		for (int i=1;i<nrteams-1;i++)
+		{
+			for (int j=0;j<nrGamesPerRound;j++) {
+				//hometeam
+				if (j==0) {
+					home = 0;
+				} else {
+					home = tmpGames[i-1][j-1].getHometeam();
+				}
+					
+				//awayteam
+				if (j==nrGamesPerRound-1) {
+					away = tmpGames[i-1][j].getHometeam();
+				} else {
+					away = tmpGames[i-1][j+1].getAwayteam();
+				}
+				
+				tmpGames[i][j] = new Game(home, away);
+			}
+		}
+		
+		if (nrteams == teams.size()) {
+			this.games = tmpGames;
+		} else {
+			this.games = new Game[nrteams-1][teams.size()/2];
+			for (int i=0;i<nrteams-1;i++)
+			{
+				int k = 0;
+				for (int j=0;j<nrGamesPerRound;j++) {
+					if (tmpGames[i][j].getHometeam() < teams.size() &&
+							tmpGames[i][j].getAwayteam() < teams.size()) {
+						this.games[i][k] = tmpGames[i][j];
+						k++;
+					}
+				}
+			}
+		}
+		return true;
+	}
+	
+	public String[][] getRanking(int winscore)
+	{
+		int[][] rank = new int[teams.size()][2];
+		String[][] ret = new String[teams.size()][2];
+		
+		for (int i=0;i<teams.size();i++) {
+			rank[i][0] = i;
+			rank[i][1] = 0;
+		}
+		
+		for(int i=0;i<games.length;i++) {
+			for(int j=0;j<games[i].length;j++) {
+				int[] score = games[i][j].getScore();
+				if (score == null)
+				{
+					continue;
+				} else if (score[0] > score[1]) {
+					rank[games[i][j].getHometeam()][1] = rank[games[i][j].getHometeam()][1] + winscore;
+				} else if (score[0] < score[1]) {
+					rank[games[i][j].getAwayteam()][1] = rank[games[i][j].getAwayteam()][1] + winscore;
+				} else if (score[0] == score[1]) {
+					rank[games[i][j].getHometeam()][1]++;
+					rank[games[i][j].getAwayteam()][1]++;
+				}
+			}
+		}
+		
+		Arrays.sort(rank);
+		int j=0;
+		for (int i=rank.length-1;i>=0;i--) {
+			ret[j][0] = "" + teams.get(rank[i][0]);
+			ret[j][1] = "" + rank[i][1];
+			j++;
+		}
+				
+		return ret;
+	}
+}

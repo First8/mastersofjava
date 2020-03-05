@@ -1,0 +1,161 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+public class DetacheringImpl {
+
+    // Utility classes om de kosten berekeningen uit te voeren
+    private KostenCalculatorImpl calc = new KostenCalculatorImpl();
+    private KostenPerPeriodeCalculatorImpl calcPerPeriode = new KostenPerPeriodeCalculatorImpl();
+    
+    // Opdracht parameters
+    private int[] minimaleBezettingPerPeriode;
+    private int maximumMedewerkers;
+    private int aantalPeriodes;
+    
+    private double[][] kostenTabel;
+    private List<Integer>[][] oplossingTabel;
+    
+    public List<Integer> berekenOptimaleBezetting(int[] minimaleBezettingPerPeriode, int maximumMedewerkers) {
+        init(minimaleBezettingPerPeriode, maximumMedewerkers);
+
+        // Los de opdracht op middels recursief bottom-up
+        
+        //berekenOptimaleBezettingRecursiefBottomUp(aantalPeriodes);
+        //System.out.println(Arrays.toString(oplossingTabel[0][maximumMedewerkers-1].toArray()));
+        //return oplossingTabel[0][maximumMedewerkers-1];
+        
+        // OF
+        
+        // Los de opdracht op middels recursief top-down
+        
+        OplossingPaar oplossing = berekenOptimaleBezettingRecursiefTopDown(0, maximumMedewerkers);
+        print(oplossing);
+        printOplossingTabel();
+        return oplossing.bezetting;
+    }
+    
+    /**
+     * Initialisatie methode voor het setten van de class variabelen
+     * en voor het initialiseren van de kosten en oplossingen tabellen.
+     */
+    private void init(int[] minimaleBezettingPerPeriode, int maximumMedewerkers) {
+        this.minimaleBezettingPerPeriode = minimaleBezettingPerPeriode;
+        this.maximumMedewerkers = maximumMedewerkers;
+        this.aantalPeriodes = minimaleBezettingPerPeriode.length;
+        
+        int maxDif = 0;
+        for(int i = 0; i < minimaleBezettingPerPeriode.length; i++) {
+            maxDif = Math.max(minimaleBezettingPerPeriode[i], maximumMedewerkers);
+        }
+        kostenTabel = new double[minimaleBezettingPerPeriode.length][maxDif];
+        oplossingTabel = new List[minimaleBezettingPerPeriode.length][maxDif];
+    }
+    
+    
+    /**
+     * Recursieve top-down methode voor het berekenen van de optimale bezetting.
+     */
+    private OplossingPaar berekenOptimaleBezettingRecursiefTopDown(int periode, int aantalMedewerkers) {
+        double minimaleKosten = Double.MAX_VALUE;
+        List<Integer> optimaleOplossing = new ArrayList<>();
+        
+        if(periode < aantalPeriodes-1) {
+            for(int i = minimaleBezettingPerPeriode[periode+1]; i <= maximumMedewerkers; i++) {
+                double kosten = calcPerPeriode.getKostenOvertalligPersoneel(minimaleBezettingPerPeriode[periode], aantalMedewerkers);
+                List<Integer> oplossing = new ArrayList<>();
+
+                if(oplossingTabel[periode+1][i-1] == null) {
+                    OplossingPaar recursieveDeelOplossing = berekenOptimaleBezettingRecursiefTopDown(periode+1, i);
+                    oplossing.addAll(recursieveDeelOplossing.bezetting);
+                    oplossing.add(0, aantalMedewerkers);
+                    kosten += recursieveDeelOplossing.kosten;
+                    kosten += calcPerPeriode.getKostenOntslaanAannemen(aantalMedewerkers, i);
+                } else {
+                    oplossing.addAll(oplossingTabel[periode+1][i-1]);
+                    oplossing.add(0, aantalMedewerkers);
+                    kosten += kostenTabel[periode+1][i-1];
+                    kosten += calcPerPeriode.getKostenOntslaanAannemen(aantalMedewerkers, i);
+                }
+                                
+                if(kosten < minimaleKosten) {
+                    minimaleKosten = kosten;
+                    optimaleOplossing = oplossing;
+                    
+                    oplossingTabel[periode][aantalMedewerkers-1] = optimaleOplossing;
+                    kostenTabel[periode][aantalMedewerkers-1] = minimaleKosten;
+                }
+            }
+        } else {
+            optimaleOplossing.add(aantalMedewerkers);
+            minimaleKosten = calcPerPeriode.getKostenOvertalligPersoneel(minimaleBezettingPerPeriode[periode], aantalMedewerkers);
+            
+            oplossingTabel[periode][aantalMedewerkers-1] = optimaleOplossing;
+            kostenTabel[periode][aantalMedewerkers-1] = minimaleKosten;
+        }
+        
+        return new OplossingPaar(optimaleOplossing, minimaleKosten);
+    }
+    
+    class OplossingPaar {
+        public double kosten;
+        public List<Integer> bezetting;
+
+        public OplossingPaar(List<Integer> bezetting, double kosten) {
+            this.kosten = kosten;
+            this.bezetting = bezetting;
+        }
+    }
+    
+    /**
+     * Recursieve bottom-up methode voor het berekenen van de optimale bezetting.
+     */
+    private void berekenOptimaleBezettingRecursiefBottomUp(int periode) {
+        int idx = periode-1;
+        for(int i = minimaleBezettingPerPeriode[idx]; i <= maximumMedewerkers; i++) {
+            double kosten = calcPerPeriode.getKostenOvertalligPersoneel(minimaleBezettingPerPeriode[idx], i);
+            List<Integer> deelOplossing = new ArrayList<>();
+            
+            if(periode < aantalPeriodes) {
+                double minRecKosten = Double.MAX_VALUE;
+                for(int j = minimaleBezettingPerPeriode[idx+1]; j < maximumMedewerkers; j++) {
+                    double recursieveKosten = calcPerPeriode.getKostenOntslaanAannemen(i, j) + kostenTabel[idx+1][j-1];
+                    if(recursieveKosten < minRecKosten) {
+                        deelOplossing = oplossingTabel[idx+1][j-1];
+                        minRecKosten = recursieveKosten;
+                    }
+                }
+                kosten += minRecKosten;
+            }
+            
+            List<Integer> kopieOplossing = new ArrayList<Integer>();
+            kopieOplossing.add(i);
+            kopieOplossing.addAll(deelOplossing);
+            kostenTabel[idx][i-1] = kosten;
+            oplossingTabel[idx][i-1] = kopieOplossing;
+        }
+        
+        if(periode > 1) {
+            berekenOptimaleBezettingRecursiefBottomUp(periode-1);
+        }
+    }
+    
+    private void print(OplossingPaar oplossing) {
+        System.out.println(Arrays.toString(oplossing.bezetting.toArray()) + " : " + oplossing.kosten);
+    }
+    
+    /**
+     * Handige methode om je oplossingTabel te printen.
+     */
+    private void printOplossingTabel() {
+        for(int i = 0; i < oplossingTabel.length; i++) {
+            System.out.print("[");
+            for(int j = 0; j < oplossingTabel[i].length; j++) {
+                if(oplossingTabel[i][j] != null) {
+                    System.out.print(oplossingTabel[i][j] + ",");
+                }
+            }
+            System.out.println("]");
+        }
+    }
+}

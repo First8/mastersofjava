@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Editable: TwisterSisterImpl.java
+Monospaced: true
+TestClass: TwisterSisterTester
+SubmitClass: TwisterSisterTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: E.Hooijmeijer
+DisplayName: Twister Sister
+Icon: icon.png
+SponsorImage: sponsor.png
+SecurityDelegate: nl.moj.security.FriendlySecurityDelegate
+Solution: TwisterSisterCase.solution
+AuthorURL: http://www.ctrl-alt-dev.nl
+Fun: 3
+Quality: 3
+Difficulty: 3
+Hint: Its a fine Transform.
+Catagory: API Knowledge

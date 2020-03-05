@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Editable: SushiEaterImpl.java
+Monospaced: true
+TestClass: SushiPanicTester
+SubmitClass: SushiPanicTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: E.Hooijmeijer
+DisplayName: Sushi Panic
+Icon: icon.png
+SponsorImage: sponsor.png
+Solution: SushiPanicCase.solution
+SecurityDelegate: SushiSecurityDelegate
+AuthorURL: http://www.ctrl-alt-dev.nl
+Fun: 3
+Quality: 3
+Difficulty: 3
+Hint: Sushi was never this Thready.
+Catagory: API Knowledge

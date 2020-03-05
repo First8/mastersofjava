@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: HandsUpImpl.java Card.java HandComparator.java
+Monospaced: true
+TestClass: HandsUpTester
+SubmitClass: HandsUpSubmitTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: Jaap Coomans
+DisplayName: Hands Up!
+Icon: nljug_icon.png
+SponsorImage: sogeti_icon.png
+Solution: HandsUpCase.solution
+AuthorURL: 
+Fun: 3
+Quality: 3
+Difficulty: 3
+Hint: A cryptic but somewhat useful hint here.
+Catagory: API Knowledge

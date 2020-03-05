@@ -1,0 +1,50 @@
+1 Introduction
+
+  'HeadHunters Inc' your IT Recruitment company wants to fully automate the
+  resume to skills matching process. Currently this is done by hand which is
+  both too slow and error prone (you use trained monkeys to do the selection).
+  
+  For this you selected an Java Architect to devise up some nice framework to
+  make an skill expert system. Unfortunately the Architect had something more
+  profitable to do and left, so now you're left a partial framework and the
+  Architects assurance: 'You have only to implement the factory, the rest
+  is peanuts'.  
+
+2 Assignment
+
+  Implement the ResumeHunterImpl class so that it correctly constructs the
+  SkillExpert components and correctly matches the resumes to skill criteria.   
+  
+  The factory defines three different types of SkillExpert components which all 
+  can be implemented using inner or anonymous classes. 
+  
+  The three components are :
+  - Match : matches a single skill and experience level to a resume.
+  - And : matches if all its child skill experts also match.
+  - Or : matches if one of its child skill experts match.
+
+3 Example
+
+  You have two resumes:
+  Jozhua Blogger  which is a Java,GURU and a Ruby,EXPERT
+  Jamesh Poshling which is a Java,GURU and a Database,GURU
+  
+  Your client is looking for a (Java,GURU)&((Ruby,EXPERT)|(Database,GURU))
+  (the '&' means AND and the '|' means OR)  
+
+  Using the factory the following SkillExpert tree will be created:
+  - AND
+    - Match: Java,GURU
+    - OR
+      - Match: Ruby,EXPERT
+      - Match: Database,GURU 
+    
+  When applied to the resumes the
+  - Jozhua Blogger  : (TRUE) & ((TRUE) | (FALSE)) -> TRUE
+  - Jamesh Poshling : (TRUE) & ((FALSE) | (TRUE)) -> TRUE    
+  So, both resumes match.
+
+4 Hints & Tips
+
+  - This assignment uses both Method Factory and Composite Patterns.
+  - If you're of anonymous class a final may bridge your arguments.  

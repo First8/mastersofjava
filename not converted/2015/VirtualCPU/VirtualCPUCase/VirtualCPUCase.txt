@@ -1,0 +1,45 @@
+1 Introduction
+
+On the internet, Duke has found a couple of old programs for the 'doesnotexistanymore' CPU. 
+Unfortunately, there are none of this type of CPU available anymore, let alone that 
+they are operational.
+
+Duke has figured out that the CPU on which this code is supposed to work had 8 functionally 
+identical 8 bit registers and could control 16 output ports that also had a size of 8 bit. 
+To do that, the CPU uses the following instructions:
+
+  ld destRegister, value 
+    value -> destRegister
+    destRegister [0 - 7]
+    value [0 - 255]
+  
+  mv destRegister, sourceRegister
+    sourceRegister -> destRegister
+    destRegister [0 - 7]
+    sourceRegister [0 - 7]
+  
+  add destRegister, sourceRegister
+    destRegister + sourceRegister -> destRegister
+
+  out sourceRegister, port
+    sourceRgister -> port
+    sourceRegister [0-7]
+    port [0-15]
+  
+  Duke has been busy for quite some time, trying to understand the programs, 
+  but manually going through all machine instructions is an annoying job even for Duke.
+  
+  2 Assigment
+  
+  Help Duke understanding the programs by implementing 
+  a virtual CPU which can execute the code.
+  
+  3 Example
+  
+  LD 0, 100
+  results in register 0 getting the value 100.
+  
+  4 Hints & Tips
+  
+  * The command pattern can be useful
+  * It is only an 8 bit CPU

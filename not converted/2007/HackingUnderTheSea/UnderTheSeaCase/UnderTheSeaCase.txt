@@ -1,0 +1,43 @@
+1 Introduction
+
+  After a plane crash you find yourself trapped in a city under the sea. Strange
+  fluid based devices are all around. Soon you realize that the only way of
+  surviving in this place is by hacking those devices. This is done by a 
+  special access panel that allows you to modify the internal pipings. You
+  need to make a connection between two pipe ends to successfully hack a 
+  device. 
+
+2 Assignment
+
+  Implement an autohack tool by implementing the 'hack(PipePanel)' method in the
+  AutoHackerImpl class. When the method returns the PipePanel.isHacked() method
+  should return true if the panel is hackable.
+  
+  A panel is considered hacked if there is a path from the left entrance pipe
+  to the right exit pipe (e.g. fluids can flow through the pipes from entrance
+  to exit).
+  
+  You should create the path by swapping pipes. Blocks cannot moved.
+
+3 Example
+
+  Given this initial layout, a connection can be made by swapping
+  the tiles in the following sequence:
+  
+  Start      Swap 1,1   Swap 1,3    And Done !     
+             with 2,1   with 2,3
+  
+  #####      #####      #####       #####        # = Block
+  --\-#      -\--#      -\-|#       **-|#        - = Horizontal pipe
+  #\-|-      #\-|-      #\---       #****        | = vertical pipe.
+  #####      #####      #####       #####        \ = left to bottom pipe and 
+                                                     top to right pipe.  
+  
+  NB: Top left coordinates are (0,0).
+  
+4 Hints & Tips
+
+  - It is a maze, with a twist.
+  - You can break the connection if you swap the wrong pipes.
+  - Use the Animations and the toString() method of PipePanel.
+  - A solution is not always possible so you should fail gracefully.  

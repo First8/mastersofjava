@@ -1,0 +1,20 @@
+1 Introductie
+
+  Een Harshadgetal is een geheel getal dat deelbaar is door de som van zijn cijfers. 
+  Harshad komt uit het Sanskriet en betekent 'grote vreugde'. Duke houd van grote vreugde en wil graag een groot aantal 
+  van deze nummers hebben en die gaan we doormiddel van deze opdracht dan ook aan hem aanbieden.
+ 
+  
+  
+2 Opdracht
+
+  Geef alle distinct harshad nummers tussen 1 tot 100.000 inclusief.
+
+3 Voorbeeld
+
+  201  is een Harshad number omdat het deelbaar is door 3. 201/(2+1). 
+  
+
+4 Hints & Tips
+
+  0 is geen Harshad number.  

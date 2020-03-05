@@ -1,0 +1,6 @@
+For the new RTL-show "Help, the president is a programmer", one is on site in Vianen with a mr. Janssen.
+This mr. Janssen has, as an amateur programmer, build a program to keep score at the local badminton competition. 
+This program, however, seems to contain some bugs which have yet to resolved. 
+There is only half an hour left before the show has to be recorded and that's why you have been asked to solve these bugs. 
+To check if everything has been solved, you can make use of old competitions. 
+The application is correct if it passes all tests.

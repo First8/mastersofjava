@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: DukemailValidatorImpl.java
+Monospaced: true
+TestClass: TemplateBuilderTester
+SubmitClass: TemplateBuilderTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: Ben Ooms
+DisplayName: Template builder
+Icon: icon.png
+SponsorImage: sponsor.png
+Solution: TemplateBuilderCase.solution
+AuthorURL: 
+Fun: 3
+Quality: 3
+Difficulty: 3
+Hint: A cryptic but somewhat useful hint here.
+Catagory: API Knowledge

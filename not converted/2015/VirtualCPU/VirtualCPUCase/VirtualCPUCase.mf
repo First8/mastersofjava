@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: VirtualCPU.java
+Monospaced: true
+TestClass: VirtualCPUTester
+SubmitClass: VirtualCPUTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: Ronald van Eijck
+DisplayName: Virtual CPU
+Icon: nljug_icon.png
+SponsorImage: sogeti_icon.png
+Solution: VirtualCPUCase.solution
+AuthorURL: 
+Fun: 3
+Quality: 3
+Difficulty: 1
+Hint: A cryptic but somewhat useful hint here.
+Catagory: Nostalgia

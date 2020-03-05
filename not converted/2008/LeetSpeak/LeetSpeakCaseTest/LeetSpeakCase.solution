@@ -1,0 +1,37 @@
+
+public class LeetSpeakImpl {
+
+	public String translate(String leet) {
+	    StringBuffer sb=new StringBuffer();
+	    for (int t=0;t<leet.length();t++) {
+            //
+            switch (leet.charAt(t)) {
+            case '0': sb.append("O");break; 
+            case '1': sb.append("I");break; 
+            case '2': sb.append("Z");break; 
+            case '3': sb.append("E");break; 
+            case '4': sb.append("A");break; 
+            case '&': sb.append("AND");break;
+            case 'T': 
+                if (leet.substring(t).equals("T3H")||(leet.substring(t).startsWith("T3H "))) {
+                    sb.append("THE");
+                    t+=2;
+                } else {
+                    sb.append('T');
+                }
+                break;
+            case 'X':
+                if (leet.substring(t).equals("X0R")||(leet.substring(t).startsWith("X0R "))) {
+                    sb.append("ER");
+                    t+=2;
+                } else {
+                    sb.append("CK");
+                }
+                break; 
+            default: sb.append(leet.charAt(t));break;
+            }
+	    }
+	    return sb.toString();
+	}
+
+}

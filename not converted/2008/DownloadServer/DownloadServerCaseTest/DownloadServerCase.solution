@@ -1,0 +1,52 @@
+import java.io.InputStream;
+import java.io.OutputStream;
+
+
+public class DownloadServerImpl {
+
+	private static final int PREFERRED_BUFFER_SIZE=1024; 
+	
+	private DownloadManager mgr;
+	
+	public DownloadServerImpl(DownloadManager mgr) {
+		 this.mgr=mgr;
+	}
+	
+	public void onDownloadRequest(DownloadRequest request,DownloadResponse response) {
+		//
+		long id=request.getDownloadId();
+		//
+		try {
+			mgr.beginTransaction();
+			try {
+				//
+				InputStream in=mgr.getDownloadById(id);
+				try {
+					OutputStream out=response.getOutputStream();
+					try {
+						//
+						int read=0;
+						byte[] buffer=new byte[PREFERRED_BUFFER_SIZE];
+						while ((read=in.read(buffer))>=0){
+							out.write(buffer, 0,read);
+						};
+						//
+						response.setSuccess(true);
+					} finally {
+						out.close();
+					}
+				} finally {
+					in.close();
+				}
+				//				
+			} finally {
+				mgr.endTransaction();
+			}
+		} catch (Exception ex) {
+			response.setSuccess(false);
+			//ex.printStackTrace();
+		}
+		//
+	}
+
+}

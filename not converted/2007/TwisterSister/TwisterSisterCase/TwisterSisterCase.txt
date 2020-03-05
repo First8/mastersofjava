@@ -1,0 +1,53 @@
+1 Introduction
+
+  Your little sister loves to dance with your big sister. They want to be cheerleaders
+  or something. Anyway, they made a whole dance routine and now they are practicing.
+  Your big sister is quite good at dancing, but your little sister needs a little help
+  from you, her [brother/sister].
+
+2 Assignment
+
+  Implement TwisterSisterImpl's dance(..) method. It contains the knowledge on how 
+  to transform the steps from the dance routine into body movement. The parameters
+  given are a collection of moves and your little sister needs to be told where to 
+  move to.
+  
+  There are 6 different moves your sister(s) can make:
+  - Move.STEP_LEFT : move one step to the left.
+  - Move.STEP_RIGHT : move one step to the right.
+  - Move.TURN_LEFT : turn 90 degrees counter clockwise.
+  - Move.TURN_RIGHT : turn 90 degrees clockwise.   
+  - Move.SMALLER : Tells your sister to make smaller steps (50% of current).
+  - Move.BIGGER  : Tells your sister to make bigger steps (200% of current).
+
+  You may assume your little sister starts at position (0,0) and is facing
+  the top of the screen. The step size is 1.0.
+
+3 Examples
+
+  Given the following dance routine: STEP_LEFT,TURN_RIGHT,STEP_LEFT
+  your little sister moves in the following way:
+  
+  Start        Move            Result  
+   0.0, 0.0 -> STEP_LEFT    -> -1.0, 0.0
+  -1.0, 0.0 -> TURN_RIGHT   -> -1.0, 0.0  (now facing the right side o.t. screen)
+  -1.0, 0.0 -> STEP_LEFT    -> -1.0, 1.0  left is now up !   
+
+  Given the following dance routine: STEP_LEFT,SMALLER,STEP_RIGHT,BIGGER,STEP_LEFT
+  your little sister moves in the following way:
+  
+  Start        Move            Result  
+   0.0, 0.0 -> STEP_LEFT   -> -1.0, 0.0
+  -1.0, 0.0 -> SMALLER     -> -1.0, 0.0  (step size is now 50% of 1 = 0.5)
+  -1.0, 0.0 -> STEP_RIGHT  -> -0.5, 0.0     
+  -0.5, 0.0 -> BIGGER      -> -0.5, 0.0  (step size is now 200% of 0.5 = 1)
+  -0.5, 0.0 -> STEP_RIGHT  ->  0.5, 0.0     
+
+4 Hints & Tips
+
+  - The animation displays your sisters from above.
+  - They should be in perfect sync for the unit tests to pass.
+  - When at doubt look at your big sister.
+  - How good is your highschool math ?
+  - a fine transform can help you out.
+  

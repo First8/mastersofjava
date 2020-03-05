@@ -1,0 +1,40 @@
+1 Introduction
+
+  Recently a tool was published on the Internet to copy OVCHIP cards or actually any card which uses the
+  MIFARE chip. The bureaucrats are frightened that this could ruin their carefully crafted plans to monitor
+  and control the population. They decided to investigate this tool but found out that the documentation was
+  written in something called Leet which is quite incomprehensible for mere mortals.
+
+  Leet or Eleet (sometimes rendered l33t, 1337, or 31337) is also known as Leetspeak. It is an alphabet which 
+  is used primarily on the Internet and uses various combinations of ASCII characters to replace Latinate letters.
+  
+  And guess what, they have asked you to write a tool that translates Leet into something more readable. 
+
+2 Assignment
+
+  Implement the translate(..) method so that it translates Leet to plain English. 
+  You must apply the following rules:
+  - 0 can be used for O 
+  - 1 can be used for I  
+  - 2 can be used for Z  
+  - 3 can be used for E 
+  - 4 can be used for A 
+  - X0R at the end of a word can be used for ER
+  - T3H can be used as the word THE
+  - & at the end of a word can be used for AND
+  - X can be used for CK 
+
+3 Example
+
+  The Leet word 'H4XX0R' translates to HACKER using the following substitutions:
+  H->H  (no change). 
+  4->A  
+  X->CK 
+  XOR->ER  
+
+4 Hints & Tips
+
+  - You can do a lot with simple substitution.
+  - But some substitutions are more equal than others.
+  - A 0 looks a lot like an O. You have been warned!
+  

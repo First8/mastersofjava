@@ -1,0 +1,38 @@
+1 Introduction
+
+  Eriks favorite drink is WodkaSju. That is his expression for a mix of fresh
+  Orange Juice and ice cold Vodka. Eriks refrigerator has a large stock of both 
+  these ingredients and he has a professional mixing beaker as well. There is
+  one minor problem though. Who mixes the drinks? 
+
+2 Assignment
+
+  Implement the drink(..) method in the Person class in such a way that each time
+  the method is called a single drink is poured and sipped from by that person. If 
+  at any time the DrinkContainer is empty, the first person that notices this is 
+  responsible for making fresh WodkaSju. 
+
+3 Example
+
+  > The DrinkContainer holds 2 drinks.
+  Erik wants a drink.
+  Erik drinks a WodkaSju.
+  > The DrinkContainer holds 1 drink.
+  Anthony wants a drink.
+  Anthony drinks a WodkaSju.
+  > The DrinkContainer holds 0 drinks!
+  Erik wants another drink.
+  > Erik notices the drink container is empty.
+  Erik gets some fresh ingredients from the fridge and makes new drinks.
+  Meanwhile Anthony wants another drink.
+  Anthony waits for Erik to finish making drinks.
+  > The DrinkContainer holds 4 drinks.
+  Erik drinks a WodkaSju.
+  Anthony drinks a WodkaSju.
+  > The DrinkContainer holds 2 drinks.  
+
+4 Hints & Tips
+
+  - The container is limited in size. 
+  - Two persons at the same time don't mix.
+  - Effective persons synchronize their actions.    

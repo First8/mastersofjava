@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: SlidePuzzleImpl.java
+Monospaced: true
+TestClass: SlidePuzzleClientTester
+SubmitClass: SlidePuzzleServerTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: Ron Bierman
+DisplayName: Slide puzzle
+Icon: nljug_icon.png
+SponsorImage: sogeti_icon.png
+Solution: SlidePuzzle.solution
+AuthorURL: http://java.sogeti.nl
+Fun: 3
+Quality: 3
+Difficulty: 3
+Hint: A cryptic but somewhat useful hint here.
+Catagory: API Knowledge

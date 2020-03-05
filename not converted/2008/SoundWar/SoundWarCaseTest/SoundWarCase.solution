@@ -1,0 +1,50 @@
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class SoundChooserImpl {
+    
+    private static class ChannelComparator implements Comparator<Channel> {
+        @Override
+        public int compare(Channel o1, Channel o2) {
+            int cmp=o1.compareTo(o2);
+            // If both channels are playing we need to compare their effects.
+            if (o1.isPlaying()&&o2.isPlaying()) {
+                SoundEffect sfx1=o1.getCurrentEffect();
+                SoundEffect sfx2=o2.getCurrentEffect();
+                cmp=-sfx1.compareTo(sfx2);
+                if (cmp==0) {
+                    // If same priority, use channel order.
+                    return o1.compareTo(o2);
+                }
+            }
+            return cmp;
+        }
+    }
+    
+    private Channel[] channels;
+    
+    public SoundChooserImpl(Channel[] channels) {
+        this.channels=channels;
+    }
+    
+	public void play(SoundEffect sfx) {
+	    //
+	    Arrays.sort(channels,new ChannelComparator());
+	    //
+	    if (channels[0].isPlaying()) {
+	        if (channels[0].getCurrentEffect().compareTo(sfx)<=0) {
+	            System.out.println(" -> Skip");
+	        } else {
+                System.out.println(" -> Stop/Play "+channels[0].getNumber());
+	            channels[0].stop();
+	            channels[0].play(sfx);
+	        }
+	        //
+	    } else {
+            System.out.println(" -> Play "+channels[0].getNumber());
+	        channels[0].play(sfx);
+	    }
+		//
+	}
+
+}

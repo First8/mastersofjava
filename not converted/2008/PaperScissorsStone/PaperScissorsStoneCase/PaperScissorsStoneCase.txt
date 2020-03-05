@@ -1,0 +1,32 @@
+1 Introduction
+
+  The rise of the casual gamer has surged the sales of easy to play computer games. And with
+  a gross revenue of 2.25 billion dollar last year world wide (and growing 20% per year) your 
+  company decides to take a piece of the action. 
+  
+  An easy computer game means returning to the basics. And you cannot get more basic than with
+  the classic 'Paper Scissors Stone' which forms the basis of many strategy games. 
+  
+  The money is almost in the bank, we only need to find a programmer that makes the game.. 
+
+2 Assignment
+
+  Implement battles(..) method in the enum PaperScissorsStoneImpl in such a way that it correctly
+  implements the rules of the paper scissors stone game. The rules are:
+  - paper defeats stone (by wrapping the stone).
+  - stone defeats scissors (by making the scissors blunt).
+  - scissors defeats paper (by cutting it in half).
+  If two equal opponents battle each other the outcome is a TIE.
+
+3 Examples
+
+  PAPER.battles(STONE) -> WIN
+  STONE.battles(PAPER) -> LOSE
+  
+  PAPER.battles(SCISSORS) -> LOSE
+  
+  PAPER.battles(PAPER) -> TIE
+
+4 Hints & Tips
+
+  - Use the enum Luke, don't give in to weighty implementations.   

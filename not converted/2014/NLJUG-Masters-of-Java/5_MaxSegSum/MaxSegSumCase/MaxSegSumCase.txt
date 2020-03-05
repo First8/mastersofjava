@@ -1,0 +1,44 @@
+1 Introductie
+	
+	Een fabrikant van elektronische gadgets uit Californië handelt dagelijkse tienduizenden aankopen en teruggaven online af. 
+	Aankopen zorgen voor creditering van hun bankrekening (positieve mutaties), teruggaven voor debitering (negatieve mutaties). 
+	De financiële afdeling van de fabrikant is geïnteresseerd in de meest waardevolle deelreeks (een `segment’) van een chronologische 
+	reeks van mutaties van hun bankrekening.  Dat is dus een ononderbroken segment van de totale reeks van mutaties wiens som maximaal is.
+	Ingewijden noemen dit probleem MaxSegSum. Als de MaxSegSum van een reeks mutaties positief is, wil dit dus zeggen dat er een periode
+	bestaat waarin meer verkopen dan teruggaven zijn afgehandeld. 
+	
+	Aangezien de fabrikant zich al in het `post pc-era’ bevindt doet zij alle berekeningen op handheld gadgets met bescheiden rekenkracht. 
+	Eerdere pogingen om de MaxSegSum van alle mutaties te bepalen leidden tot een langzaam algoritme, hitteontwikkeling in hun gadgets en 
+	zelfs explosies daarvan. Hun nieuwe CEO erkende de fout van het uitsluiten van (goede!) Java developers van hun gadgets en verordonneerde 
+	de onmiddellijke ontwikkeling van de Objective-J taal en APIs. 
+	
+	Sterk lijkend op Java 6 heeft Objective-J een aantal unieke`features’ die ervoor zorgen dat een programmeur de gadgets niet overvraagd. 
+	Om precies te zijn, is het volgende in Objective- J niet toegestaan:
+	a.	Threading;
+	b.	Velden in klassen;
+	c.	Het gebruik van méér dan één methode per klasse;
+	d.	Geneste loopjes (het gebruik van een while-,do/while- of for-loop binnen zo’n loop)
+
+
+2 Opdracht
+	
+	Maak de lege while-loop af in MaxSegSumImpl’s enige methode. Deze dient de MaxSegSum van de gegeven BigDecimal’s uit te rekenen in Objective-J.
+	Let op: begin niet te testen met de lege while-loop!
+
+	
+3 Voorbeeld
+	
+	Hieronder staan enkele voorbeelden met kleine Iterators, gebruikmakende van array notatie:
+	•	maxSegSum( [-1,2,-1,3,-1,-7]) --> 4:    de som van [2, -1, 3]
+	•	maxSegSum([-1,-3,-5,-4]) --> 0:         de som van [], de lege deelrij
+	•	maxSegSum( [1,2,3]) --> 6:              de som van [1,2,3], de rij zelf
+
+
+4 Hints & Tips
+	
+	Volgens geruchten ontbreken in de while-loop slechts 2 regels code. Laat amounts[i] de i-de next()-waarde zijn gedurende de iteratie: 
+	i is hierbij een denkvariabele van 0 tot en met N. De oplossing schuilt in het in stand houden van het volgende gedurende de iteratie:
+	•	r=maxSegSum( amounts[0..i-1] ): de MaxSegSum van de voorafgaande iteraties. 
+	•	s=maxSegSum( amounts[?..i]): de MaxSegSum van alle segmenten eindigend op amounts[i].
+	
+!!!SUCCES!!!

@@ -1,0 +1,28 @@
+import java.util.Collection;
+import java.awt.geom.AffineTransform;
+
+public class TwisterSisterImpl implements TwisterSister {
+
+    /**
+     * Instructs your little sister how to do her danceMoves.
+     * @param littleSister your little sister.
+     * @param danceMoves the dance moves to do.
+     */
+    public void dance(LittleSister littleSister,Collection<Move> danceMoves) {
+        //
+        AffineTransform a=new AffineTransform();
+        for (Move m:danceMoves) {
+            switch(m) {
+                case BIGGER : a.scale(2.0,2.0);break;
+                case SMALLER: a.scale(0.5,0.5);break;
+                case STEP_LEFT: a.translate(-1.0,0.0); break;
+                case STEP_RIGHT: a.translate(1.0,0.0);break;
+                case TURN_LEFT: a.rotate(Math.PI/2);break;
+                case TURN_RIGHT: a.rotate(-Math.PI/2);break;
+            }
+            littleSister.moveTo(a.getTranslateX(),a.getTranslateY());
+        }
+        //
+    }
+
+}

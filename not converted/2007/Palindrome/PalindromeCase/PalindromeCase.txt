@@ -1,0 +1,48 @@
+1 Introduction
+
+  Sometimes the beginning is the end and the end is the beginning. For example in the
+  motion picture 'Los Amantes del Circulo Polar' (Eng: The Lovers of the Arctic Circle)
+  both of the main characters have names that are palindromes: 'Otto' and 'Ana'. A 
+  palindrome is a word (or dataset) that can be read identically from left to right 
+  and from right to left. In this assignment we'll make a method that will identify
+  datasets that are Palindromes in the hope that it will aid us in finding a good
+  movie.
+
+2 Assignment
+
+  Implement the method 'isPalindrome' which must return true if the content of the
+  given collection is a Palindrome. For this assignment a dataset is a palindrome when
+  all elements have the following statement as true : 
+  
+  data[x].equals(data[data.length-x-1])
+  
+  Where 'data' is an array containing the dataset and 'x' is its index.
+   
+  Note: NULL and Empty datasets are not considered palindromes.
+  You may assume that there are no NULL values in the datasets.
+
+3 Example
+
+               0   1   2   3   4   5   6   7   8   9   10
+  char[] c= { 'a','b','r','a','c','a','d','a','r','b','a' };
+  
+  c[0] == c[10]
+  c[1] == c[9]
+  c[2] == c[8]
+  c[3] == c[7]
+  c[4] != c[6] -> The data set is NOT a Palindrome.
+  
+              0  1  2  3  4 
+  int[] i = { 1, 2, 3, 2, 1 };
+  
+  i[0] == i[4]
+  i[1] == i[3]
+  i[2] == i[2] -> The data set is a Palindrome.
+                            
+
+4 Hints & Tips
+
+  - A Deque is an interesting variant of the Queue.
+  - It allows for adding, retrieving and removing objects at the beginning and the end.
+  - Just like a palindrome :-)  
+  

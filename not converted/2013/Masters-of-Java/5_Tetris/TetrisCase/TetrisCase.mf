@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: TetrisImpl.java
+Monospaced: true
+TestClass: TetrisClientTester
+SubmitClass: TetrisServerTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: Patrick Kik
+DisplayName: Tetris
+Icon: nljug_icon.png
+SponsorImage: sogeti_icon.png
+Solution: TetrisCase.solution
+AuthorURL: 
+Fun: 3
+Quality: 3
+Difficulty: 3
+Hint: A cryptic but somewhat useful hint here.
+Catagory: API Knowledge

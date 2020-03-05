@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Editable: Transaction.java
+Monospaced: true
+TestClass: TransactionTester
+SubmitClass: TransactionTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: Jan Ouwens
+DisplayName: Transaction
+Icon: nljug_icon.png
+SponsorImage: sogeti_icon.png
+Solution: TransactionCase.solution
+SecurityDelegate: nl.moj.security.NoSecurityDelegate
+AuthorURL: 
+Fun: 3
+Quality: 3
+Difficulty: 3
+Hint: Create an immutable value class
+Catagory: API Knowledge

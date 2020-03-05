@@ -1,0 +1,74 @@
+1 Introduction
+
+  Our action hero Smill With is on the run again from the Government. And again he is
+  wholly innocent. Unfortunately the Government does not believe him until he has shown
+  them 3 pieces of evidence which can only be found by searching at evidence locations.
+  To make things worse, the Government has specified a series of fixed rules and 
+  regulations by which he has to Run away, Hide and find the evidence. To help Mr With
+  in his quest he has accidently acquired an independent security specialist, you.
+
+2 Assignment
+
+  The following state transition diagram represents how a proper Fugitive behaves: 
+                     ___              ____
+            pursuit /   \ RUN        /    \ SEARCH,USE 
+                    |   |            |    |
+  +-------+ found +-------+ found +---------+ isInnocent +--------+
+  |UNAWARE|------>|RUNNING|<------|SEARCHING|----------->|INNOCENT| 
+  +-------+       +-------+       +---------+            +--------+
+                    |    \ \           ^ GOTO __________/
+           captured |     \ \HIDE      |     /isInnocent
+            +--------+     \ \--->+---------+
+            |CAPTURED|      \     | HIDING  |
+            +--------+ found \<---+---------+ 
+   
+   * At first the Fugitive is UNAWARE of the Government searching for him.
+   * When the Government has found the Fugitive he is RUNNING for his life.
+     When RUNNING, the Fugitive can either RUN or HIDE. HIDE is only allowed if
+     the distance between him and the Government agents is >=3. 
+   * When the Fugitive is HIDING, he can be found again by the government, he 
+     can GOTO an Evidence Location or if he has evidence he can USE this evidence
+     to prove that he is innocent.
+   * When the Fugitive is SEARCHING at an Evidence Location he can either SEARCH
+     for more evidence, USE any existing evidence or be found again by the 
+     Government.
+   * When the Fugitive has acquired 3 pieces of evidence he is declared INNOCENT
+     by the Government.
+   * If the distance between the Government agents and the Fugitive becomes zero
+     the Fugitive is captured.  
+   
+   Your assignment is to properly implement the Fugitive class so that he behaves
+   according to these rules.
+
+3 Example
+
+  G: The government searches and finds the Fugitive! (found)
+  F: Attempts to escape. (RUN)
+  G: The government decreases the distance to the Fugitive. (pursuit)
+  F: Attempts to escape. (RUN)
+  G: The government decreases the distance to the Fugitive. (pursuit)
+  F: Attempts to hide. (HIDE)
+  G: The government searches... (searching)
+  F: Goes to an Evidence Location. (GOTO)
+  G: The government searches... (searching)
+  F: Searches for evidence and finds an MemoryCard. (SEARCH)
+  G: The government searches... (searching)
+  F: Uses the MemoryCard as evidence. (USE)
+  G: The government searches... (searching)
+  F: Searches for evidence and finds an Photo. (SEARCH)
+  G: The government searches... (searching)
+  F: Uses the Photo as evidence. (USE)
+  G: The government searches... (searching)
+  F: Searches for evidence and finds an Report. (SEARCH)
+  G: The government searches... (searching)
+  F: Uses the Report as evidence. (USE)
+  F: The Fugitive proves his innocence!
+
+
+4 Hints & Tips
+
+  - There are more ways to implement this assignment.
+  - You could just hack some code in the appropriate methods.
+  - Or use the provided State class with useful transitions and actions.   
+  - If you can't seem to pass the distance, you may need to store this.
+  

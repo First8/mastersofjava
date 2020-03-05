@@ -1,0 +1,24 @@
+1 Introduction
+
+  NASA will soon launch a deep space probe. If it will encounter an alien lifeform the probe must
+  send a personalised greeting to the alien. Everybody knows that aliens like to be treated humanly.
+  This advanced piece of technology will be coded by nobody else but you, our star(ting) programmer. 
+
+2 Assigment
+
+  Implement the method sayIt(String name) in such a way that it will return a formal earthly greeting
+  in to form of 'Hello' and then the name. If the name is not given, simply state 'Hello' without the
+  name.
+
+3 Example
+
+  Given the name 'Zaphod' return the String 'Hello Zaphod'
+  Given the name 'Gargravarr' return the String 'Hello Gargravarr'
+  Given no name return the String 'Hello' 
+
+4 Hints
+
+  - The quotes in the assignment and testcases are just for readability.
+  - You can add strings together.
+  - If the string is null return "Hello"
+  

@@ -1,0 +1,140 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Fugitive implements GovernmentResults,FugitiveResults {
+    
+    /**
+     * represents an action to be performed in a certain state. 
+     */
+    private interface Action {
+        /**
+         * performs the action
+         * @param st the state the action is performed in.
+         * @return the new state after performing the action.
+         */
+        public State perform(State st);
+    }
+    
+	public static enum State {
+	    
+		UNAWARE,RUNNING,HIDING,SEARCHING,CAPTURED,INNOCENT;
+		
+		private Map<String,State> transitions=new HashMap<String,State>();
+		private Action a;
+		/** sets the action for this state. */
+		public void setAction(Action a) {
+		    this.a=a;
+		}
+		/** links another state to this state via a named transition. */
+		public void link(String transition,State target) {
+		    transitions.put(transition,target);
+		}
+		/**
+		 * takes the named transition if available.
+		 * @param tr the named transition
+		 * @return the state after the transition was taken.
+		 */
+		public State take(String tr) {
+		    return transitions.containsKey(tr)?transitions.get(tr):this;
+		}
+		/**
+		 * executes the action belonging to this state.
+		 * @return the resulting state of this action.
+		 */
+		public State execute() {
+		    return a==null?this:a.perform(this);
+		}
+	}
+	
+	private State current;
+	private FugitiveAction action;
+	private int distance;
+	
+	private List<EvidenceObject> obj=new ArrayList<EvidenceObject>();
+	
+	public Fugitive(FugitiveAction fugitiveAction) {
+		this.action=fugitiveAction;
+		this.current=State.UNAWARE;
+		//
+		// Setup Government transitions. 
+		//
+		State.UNAWARE.link("found",State.RUNNING);
+		State.RUNNING.link("pursuit", State.RUNNING);
+		State.RUNNING.link("captured",State.CAPTURED);
+		State.HIDING.link("found",State.RUNNING);
+        State.HIDING.link("innocent",State.INNOCENT);
+		State.SEARCHING.link("found",State.RUNNING);
+		State.SEARCHING.link("innocent",State.INNOCENT);
+		//
+		// Setup Fugitive actions. 
+		//
+		State.RUNNING.setAction(new Action() {
+		   @Override
+		    public State perform(State s) {
+		        switch (distance) {
+		        case 2:
+		        case 1: action.doRun();break;
+		        case 3: action.doHide(); return State.HIDING;
+		        }
+		        return s;
+		    } 
+		});
+		//
+		State.HIDING.setAction(new Action() {
+		   @Override
+		    public State perform(State s) {
+		       action.doGoToEvidenceLocation();
+		       return State.SEARCHING;
+		    } 
+		});
+		//
+		State.SEARCHING.setAction(new Action() {
+		   @Override
+		    public State perform(State s) {
+		        if (obj.isEmpty()) {
+		            action.doSearch();
+		        } else {
+		            action.doUse(obj.remove(0));
+		        }		
+		        return s;
+		    } 
+		});
+		//
+	}
+	
+	//
+	// Government actions
+	//
+	
+	public void onFound(int distance) {
+	    this.distance=distance;
+	    current=current.take("found").execute();
+	}
+	public void onPursuit(int distance) {
+	    this.distance=distance;
+	    current=current.take("pursuit").execute();
+	}
+	public void onSearching() {
+	    current=current.take("searching").execute();
+	}
+    public void onIsInnocent() {
+        current=current.take("innocent").execute();
+    }
+    public void onCaptured() {
+        current=current.take("captured").execute();
+    }
+	
+	//
+	//
+	//
+	
+	@Override
+	public void onObjectFound(EvidenceObject obj) {
+		this.obj.add(obj);
+	}
+	
+
+}
+

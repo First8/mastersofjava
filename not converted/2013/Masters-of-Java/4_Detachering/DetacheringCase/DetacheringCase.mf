@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: DetacheringImpl.java
+Monospaced: true
+TestClass: DetacheringTester
+SubmitClass: DetacheringTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: B. C. Postma
+DisplayName: Detachering
+Icon: nljug_icon.png
+SponsorImage: sogeti_icon.png
+Solution: DetacheringCase.solution
+AuthorURL: 
+Fun: 3
+Quality: 3
+Difficulty: 3
+Hint: Use the concept of Dynamic Programming.
+Catagory: Dynamic Programming

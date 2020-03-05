@@ -1,0 +1,242 @@
+import java.util.Formatter;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+public class SlidePuzzleImpl implements SlidePuzzle {
+
+	private Map<List<Swap>, Integer[][]> state = new HashMap();
+
+	@Override
+	public Swap[] solvePuzzle(Integer[][] puzzle) {
+		state.put(new LinkedList<SlidePuzzle.Swap>(), clonePuzzle(puzzle));
+
+		while (true) {
+			Map<List<Swap>, Integer[][]> newState = new HashMap();
+
+			Set<Entry<List<Swap>, Integer[][]>> entrySet = state.entrySet();
+
+			for (Entry<List<Swap>, Integer[][]> entry : entrySet) {
+				List<Swap> list = entry.getKey();
+
+				Integer[][] current = entry.getValue();
+
+				try {
+					Integer[][] resultOfSwap = executeSwap(current, Swap.LEFT);
+					List<Swap> left = new LinkedList<SlidePuzzle.Swap>(list);
+					left.add(Swap.LEFT);
+
+					if (testPuzzle(resultOfSwap)) {
+						System.out.println("Found: " + left.toString());
+						return (Swap[]) left.toArray(new Swap[0]);
+					} else {
+						newState.put(left, resultOfSwap);
+					}
+
+				} catch (Exception e) {
+				}
+
+				try {
+					Integer[][] resultOfSwap = executeSwap(current, Swap.RIGHT);
+					List<Swap> right = new LinkedList<SlidePuzzle.Swap>(list);
+					right.add(Swap.RIGHT);
+					if (testPuzzle(resultOfSwap)) {
+						System.out.println("Found: " + right.toString());
+						return (Swap[]) right.toArray(new Swap[0]);
+					} else {
+						newState.put(right, resultOfSwap);
+					}
+
+				} catch (Exception e) {
+					System.out.println("Found: RIGHT EXCEPTION!!!!"
+							+ e.toString());
+				}
+
+				try {
+					Integer[][] resultOfSwap = executeSwap(current, Swap.UP);
+					List<Swap> up = new LinkedList<SlidePuzzle.Swap>(list);
+					up.add(Swap.UP);
+					if (testPuzzle(resultOfSwap)) {
+						System.out.println("Found: " + up.toString());
+						return (Swap[]) up.toArray(new Swap[0]);
+					} else {
+						newState.put(up, resultOfSwap);
+					}
+
+				} catch (Exception e) {
+
+				}
+
+				try {
+					Integer[][] resultOfSwap = executeSwap(current, Swap.DOWN);
+					List<Swap> down = new LinkedList<SlidePuzzle.Swap>(list);
+					down.add(Swap.DOWN);
+					if (testPuzzle(resultOfSwap)) {
+						System.out.println("Found: " + down.toString());
+						return (Swap[]) down.toArray(new Swap[0]);
+					} else {
+						newState.put(down, resultOfSwap);
+					}
+
+				} catch (Exception e) {
+
+				}
+
+			}
+
+			state = newState;
+		}
+	}
+
+	/**
+	 * This helper method check's if the puzzle is solved.
+	 * 
+	 * @param puzzle
+	 *            A two dimensional Integer array who should have a number of
+	 *            rows equal to the number of columns.
+	 */
+	private boolean testPuzzle(Integer[][] puzzle) {
+		int size = puzzle.length;
+
+		int currentValue = 1;
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				if (puzzle[i][j] == null) {
+
+					if (i != size - 1 || j != size - 1) {
+						return false;
+					}
+				} else if (puzzle[i][j] == currentValue) {
+					currentValue++;
+
+				} else {
+					return false;
+				}
+			}
+		}
+
+		return true;
+	}
+
+	/**
+	 * Modifies the given array by executing the swap specified.
+	 * 
+	 * @param puzzle
+	 *            The puzzle array
+	 * @param swap
+	 *            The swap operation
+	 */
+	private void executeSwap(Integer[][] puzzle, SlidePuzzle.Swap swap) {
+		int[] nullPosition = findNull(puzzle);
+
+		int row = nullPosition[0];
+		int column = nullPosition[1];
+
+		switch (swap) {
+		case LEFT:
+			if (column <= 0) {
+				throw new IllegalStateException(
+						"Couldn't execute swap with left because we would swap outside the puzzle");
+			}
+			puzzle[row][column] = puzzle[row][column - 1];
+			puzzle[row][column - 1] = null;
+			break;
+		case DOWN:
+			if (row >= puzzle.length) {
+				throw new IllegalStateException(
+						"Couldn't execute swap with down because we would swap outside the puzzle");
+			}
+			puzzle[row][column] = puzzle[row + 1][column];
+			puzzle[row + 1][column] = null;
+
+			break;
+
+		case RIGHT:
+			if (column >= puzzle.length) {
+				throw new IllegalStateException(
+						"Couldn't execute swap with right because we would swap outside the puzzle");
+			}
+			puzzle[row][column] = puzzle[row][column + 1];
+			puzzle[row][column + 1] = null;
+			break;
+
+		case UP:
+			if (row <= 0) {
+				throw new IllegalStateException(
+						"Couldn't execute swap with up because we would swap outside the puzzle");
+			}
+			puzzle[row][column] = puzzle[row - 1][column];
+			puzzle[row - 1][column] = null;
+			break;
+
+		}
+
+	}
+	
+	/**
+	 * Creates a clone of the given puzzle array.
+	 * 
+	 * @param original
+	 *          The puzzle array to clone
+	 * @return The clone of the original
+	 */
+	private Integer[][] clonePuzzle(Integer[][] original) {
+		int size = original.length;
+		Integer[][] clone = new Integer[size][size];
+
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				clone[i][j] = original[i][j];
+			}
+		}
+
+		return clone;
+	}
+
+	/**
+	 * Finds the current null value in a two dimensional array.
+	 * 
+	 * @param puzzle
+	 *            The two dimensional array
+	 * @return An integer array with to values or null if no null is found. The
+	 *         first value in the return array corresponds with first index in
+	 *         the puzzle array.
+	 */
+	private int[] findNull(Integer[][] puzzle) {
+		int size = puzzle.length;
+
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				if (puzzle[i][j] == null) {
+					return new int[] { i, j };
+				}
+			}
+		}
+
+		throw new IllegalStateException(
+				"Invalid puzzle state. No null field found");
+	}
+
+	public String displayString(Integer[][] puzzle) {
+		String formatString = "|%1$4s";
+
+		StringBuilder result = new StringBuilder();
+		result.append("+----+----+----+----+\r\n");
+
+		for (Integer[] row : puzzle) {
+			for (Integer cell : row) {
+				Formatter formatter = new Formatter();
+				formatter.format(formatString, cell);
+				result.append(formatter.toString());
+			}
+			result.append("|\r\n");
+			result.append("+----+----+----+----+\r\n");
+		}
+
+		return result.toString();
+
+	}
+}

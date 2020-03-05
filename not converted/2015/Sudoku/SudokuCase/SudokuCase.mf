@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: SudokuImpl.java
+Monospaced: true
+TestClass: SudokuTester
+SubmitClass: SudokuTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: David Stibbe
+DisplayName: Sudoku
+Icon: nljug_icon.png
+SponsorImage: sogeti_icon.png
+Solution: SudokuCase.solution
+AuthorURL: 
+Fun: 3
+Quality: 3
+Difficulty: 3
+Hint: A cryptic but somewhat useful hint here.
+Catagory: API Knowledge

@@ -1,0 +1,16 @@
+import java.util.Deque;
+
+public class PalindromeImpl implements PalindromeTest {
+
+	public boolean isPalindrome(Deque values) {
+		if (values==null) return false;
+		if (values.size()==0) return false;
+		//
+		while (values.size()>1) {
+			if (!values.removeFirst().equals(values.removeLast())) return false;
+		}
+		//
+		return true;
+	}
+
+}

@@ -1,0 +1,25 @@
+
+public class AlphabetSoupImpl implements AlphabetSoup {
+
+    /**
+     * checks if the letters in the soup can be used to make the given word. 
+     * @param soup the letters in the soup. 
+     * @param word the word to make.
+     * @return true if the word can be made.
+     */
+	public boolean canMakeWord(String soup,String word) {
+	    //
+	    for (int t=0;t<word.length();t++) {
+	        int idx=soup.indexOf(word.charAt(t));
+	        if (idx<0) {
+	            return false;
+	        } else {
+	            soup=soup.substring(0,idx)+soup.substring(idx+1,soup.length());
+	        }
+	    }
+	    // TODO: Implement
+		//
+		return true;
+	}
+
+}

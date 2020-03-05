@@ -1,0 +1,33 @@
+1 Introduction
+
+  I have fond memories of AlphabetSoup or 'letter vermicelli' as we call it in Dutch. With
+  each plate of soup it was a challenge to see if you could make certain words with it. The
+  longer the better!  
+
+2 Assignment
+
+  Implement the canMakeWord(String soup,String word) method in such a way that it will return 
+  true if the given word can be made out of the available letters in the soup. Keep in mind
+  that each letter in the soup can only be used once. 
+
+3 Example
+
+  The soup contains the following letters: AADEJKOSUW
+  The word to be checked is: WODKASJU
+  
+  Soup    Word    All the letters in the word are available   
+  A  2    1  A    in the soup, so the word can be made.
+  D  1    1  D    
+  E  1    0  E
+  J  1    1  J
+  K  1    1  K
+  O  1    1  O
+  S  1    1  S
+  U  1    1  U
+  W  1    1  W
+  
+4 Hints & Tips
+
+  - The example above may be very educational, but its implementation takes a bit of effort.
+  - There might be a more efficient solution, time wise.
+  - Beware of strange characters.

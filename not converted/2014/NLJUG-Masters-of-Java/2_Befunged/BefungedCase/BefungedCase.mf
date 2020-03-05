@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: InfiniteLoopDetector.java
+Monospaced: true
+TestClass: BefungedTester
+SubmitClass: BefungedServerTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: Jaap Coomans
+DisplayName: Befunged
+Icon: nljug_icon.png
+SponsorImage: sogeti_icon.png
+Solution: BefungedCase.solution
+AuthorURL: 
+Fun: 3
+Quality: 3
+Difficulty: 3
+Hint: A cryptic but somewhat useful hint here.
+Catagory: Algorithms

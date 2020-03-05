@@ -1,0 +1,46 @@
+1 Introduction
+
+  You have found a part time job as a valet parking assistant at a posh restaurant. And
+  although you like the part of driving around with other people's expensive cars the
+  job is not that easy. First the parking space is limited and second the people that
+  arrive first are also the first to depart causing a logistical nightmare because
+  all the cars that arrived later are in front of the ones that need to get out.
+  
+  And then there is that guy of the previous shift with a complete lack of spatial
+  insight.. And worse, a customer wants to get his red Porsche out now.  
+
+2 Assignment
+
+  Write a computer program that moves the red Vehicle (#1) off the ParkingArea 
+  using the indicated exit. The Vehicles can only move in the same direction as 
+  they are parked in (e.g. forward and backward, but not turn). The vehicles cannot 
+  move outside the ParkingArea except for the red Porsche. Vehicles cannot
+  bump into or jump over each other.
+
+3 Example
+
+  You start out with the following parking area on which two vehicles are parked:
+
+  112 -->    . empty parking space.    --> the exit.
+  ..2        1 the red porsche.
+  ...        2 another car.
+
+  To move the red porsche to the exit, first you have to move car #2 a bit down:
+
+  11. -->
+  ..2
+  ..2
+
+  After which the red porsche can be driven out.
+
+  .11 -->  ..11-->  ...11-> 
+  ..2      ..2      ..2
+  ..2      ..2      ..2
+
+4 Hints & Tips
+
+  - When is a maze not a maze?
+  - ParkingArea's toString() method is very useful in more than one way.
+  - Use a copy to test out your moves before really moving any cars.
+  - If a move didn't prove successful, return the car to its previous position.  
+  - Use the animations.   

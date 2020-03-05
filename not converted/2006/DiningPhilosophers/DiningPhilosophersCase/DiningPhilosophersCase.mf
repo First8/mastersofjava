@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Editable: PhilosopherImpl.java
+Monospaced: true
+TestClass: DiningPhilosophersTester
+SubmitClass: DiningPhilosophersTester
+TestClassTimeout: 20
+SubmitClassTimeout: 30
+Author: E.Hooijmeijer
+DisplayName: Dining Philosophers
+Icon: icon.png
+SponsorImage: sponsor.png
+SecurityDelegate: NoodleSecurityDelegate
+Solution: DiningPhilosophersCase.solution
+AuthorURL: http://www.ctrl-alt-dev.nl
+Fun: 4
+Quality: 2
+Difficulty: 4
+Hint: Civil manners come a long way.
+Catagory: Concurrent API

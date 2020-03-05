@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: SlipperySlopesImpl.java
+Monospaced: true
+TestClass: SlipperySlopesTester
+SubmitClass: SlipperySlopesTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: Jurjen van Geenen
+DisplayName: Slippery Slopes
+Icon: nljug_icon.png
+SponsorImage: sogeti_icon.png
+Solution: SlipperySlopesCase.solution
+AuthorURL: 
+Fun: 3
+Quality: 3
+Difficulty: 3
+Hint: You could just find all paths from start to finish, and select the one with the least maximum slope 
+Catagory: Graph Theory and recursion

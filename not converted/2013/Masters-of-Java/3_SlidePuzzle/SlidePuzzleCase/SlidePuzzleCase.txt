@@ -1,0 +1,28 @@
+1 Inleiding
+
+Wie kent ze niet. De kleine bordjes van 4 bij 4 vakjes met op elk vakje een cijfer. Een vakje is
+dus leeg zodat het mogelijk is om de vakjes te verschuiven. De puzel is opgelost als alle cijfers 
+vanaf 1 tot en met 15 in de juiste volgorde staan.
+
+2 Opgave
+Implementeer een methode die als input een tweedimensionale array neemt en als output een
+array met zetten (Swap objecten) die nodig zijn voor het oplossen van de puzzel.
+
+3 Voorbeeld
++----+----+----+----+
+|   1|   2|   3|   4|
++----+----+----+----+
+|   5|   6|   7|   8|
++----+----+----+----+
+|null|  10|  11|  12|
++----+----+----+----+
+|   9|  13|  14|  15|
++----+----+----+----+
+
+
+
+Oplossing: Swap[]{Swap.DOWN,Swap.RIGHT,Swap.RIGHT,Swap.RIGHT}
+
+
+
+

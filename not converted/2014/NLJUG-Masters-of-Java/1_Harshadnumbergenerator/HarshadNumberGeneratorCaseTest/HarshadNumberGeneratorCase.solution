@@ -1,0 +1,21 @@
+import java.util.Set;
+import java.util.HashSet;
+
+public class HarshadNumberGeneratorImpl {
+
+	public Set<Integer> generateSequence() {
+		Set<Integer> result = new HashSet<Integer>();
+		for (int i = 1; i <= 100000; i++) {
+			int sum = 0;
+			String s = "" + i;
+			for (int j = 0; j < s.length(); j++) {
+				sum += Integer.parseInt("" + s.charAt(j)); // of sum += (s.charAt(j) - '0');
+			}
+			if (i % sum == 0) {
+				result.add(i);
+			}
+		}
+		return result;
+	}
+
+}

@@ -1,0 +1,75 @@
+public class Tetris {
+
+	public int getMaxNumOfCollapsingRows(Game game, Block block) {
+
+		int max = 0;
+
+		// Try every column
+		for (int col = 0; col <= game.getWidth() - block.getWidth(); col++) {
+			max = Math.max(max, getMaxForColumn(game, block, col));
+		}
+
+		return max;
+	}
+
+	private int getMaxForColumn(Game game, Block block, int col) {
+
+		// Let it fall down the column
+		for (int row = 0; row <= game.getHeight() - block.getHeight(); row++) {
+
+			// Checks if the block will fit
+			if (!itFits(game, block, col, row)) {
+				// It does not fit.
+
+				// If it does not fit here, skip to the next column.
+				if (row == 0) {
+					return 0;
+				}
+
+				// Place the block in a copy of the game one row higher than the
+				// current row.
+				Game nextGame = game.copy();
+				nextGame.placeBlock(block, col, row - 1);
+
+				// Count the number of full rows.
+				int fullRowCount = 0;
+				for (int rowNr = 0; rowNr < game.getHeight(); rowNr++) {
+					if (nextGame.getRow(rowNr).isFull()) {
+						fullRowCount++;
+					}
+				}
+
+				return fullRowCount;
+			}
+
+		}
+
+		// Place the block in a copy of the game in the bottom row.
+		Game nextGame = game.copy();
+		nextGame.placeBlock(block, col, game.getHeight() - block.getHeight());
+
+		// Count the number of full rows.
+		int fullRowCount = 0;
+		for (int rowNr = 0; rowNr < game.getHeight(); rowNr++) {
+			if (nextGame.getRow(rowNr).isFull()) {
+				fullRowCount++;
+			}
+		}
+
+		return fullRowCount;
+	}
+
+	private boolean itFits(Game game, Block block, int col, int row) {
+		for (int y = 0; y < block.getHeight(); y++) {
+			for (int x = 0; x < block.getWidth(); x++) {
+				if (!block.getCell(x, y).isEmpty()
+						&& !game.getCell(col + x, row + y).isEmpty()) {
+					return false;
+				}
+			}
+		}
+
+		return true;
+	}
+
+}

@@ -1,0 +1,61 @@
+1 Introductie
+
+Texas Hold'm poker is een pokerspel waarbij iedere speler twee gesloten kaarten op handen krijgt en de dealer vijf open kaarten op tafel 
+legt. De bedoeling is om met de twee kaarten in de hand en de vijf kaarten op tafel een zo hoog mogelijke hand (combinatie van 5 kaarten) te 
+maken. De spelers kunnen in verschillende ronden tegen elkaar opbieden en telkens kiezen voor inleggen (call), verhogen (raise) of passen 
+(fold). Als aan het eind van een ronde twee (of meer) spelers over zijn die allemaal gecalld hebben dan volgt de showdown. De betreffende 
+spelers leggen hun kaarten open en de speler met de beste hand wint de pot.
+
+2 Opdracht
+
+Duke is een ontwikkelaar van poker software  en hij is aan de slag gegaan om software te schrijven die bepaalt welke speler wint in het 
+geval van een showdown. Hij is echter een beetje vastgelopen op een aantal punten. Het is aan jou om deze punten op te lossen:
+
+* Card.java           : Deze class wordt op diverse plekken in Collections gebruikt en uiteraard ook op diverse plekken vergeleken. Duke
+                        weet wel dat een goede equals() en compareTo() hiervoor nodig zijn, maar hij is er nog niet helemaal uit. Maak deze 
+                        implementaties voor hem af.
+* HandComparator.java : Duke heeft voor elke combinatie een verglijkingsmethode bij gelijkspel gebouwd. Alleen voor full house is hij deze 
+                        vergeten. Implementeer de methode compareFullHouse().
+* HandsUpImpl.java    : Voordat de handen van twee spelers vergeleken kunnen worden, moet wel eerst bepaald worden wat de beste hand voor 
+                        een speler is. Duke heeft een opzetje gemaakt, maak dit af.
+
+3 Terminologie
+
+Card (Kaart)  : Speelkaart
+Hand          : Combinatie van 5 kaarten
+Rank (Waarde) : De waarde van een kaart, 2 t/m 9, boer, vrouw, heer en aas.
+Suit (Kleur)  : De kleur van een kaart: harten, schoppen, klaveren, ruiten
+Pocket        : De twee (gesloten) kaarten die een speler op handen heeft.
+
+4 Hints & Tips
+
+De diverse pokerhanden van hoog naar laag zijn:
+* Royal flush     : Vijf opeenvolgende kaarten van dezelfde kleur, met de aas als hoogste kaart.
+                    - Indien gelijk: gelijkspel
+* Straight flush  : Vijf opeenvolgende kaarten van dezelfde kleur.
+                    - Indien gelijk: de hand met de hoogste kaart wint
+* Four of a kind  : Vier kaarten van dezelfde waarde en 1 andere.
+                    - Indien gelijk: de hand met de hoogste (andere) kaart wint
+* Full House      : Drie kaarten van dezelfde waarde en twee dezelfde kaarten van een andere waarde.
+                    - Indien gelijk: de hand met het hoogste drietal wint
+                    - Indien gelijk: de hand met het hoogste tweetal wint
+* Flush           : Vijf kaarten van dezelfde kleur
+                    - Indien gelijk: de hand met de hoogste kaart wint
+                    - Indien gelijk: de hand met daarna de hoogste kaart wint (etc.)
+* Straight        : Vijf opeenvolgende kaarten. De aas kan zowel als de kaart voor de 2 tellen als de kaart na de heer.
+                    - Indien gelijk: de hand met de hoogste kaart wint
+* Three of a kind : Drie kaarten van dezelfde waarde (plus twee ongerelateerde kaarten).
+                    - Indien gelijk: de hand met het hoogste drietal wint
+                    - Indien gelijk: de hand met de hoogste (andere) kaart wint
+                    - Indien gelijk: de hand met daarna de hoogste (andere) kaart wint
+* Two pair        : Twee kaarten van dezelfde waarde, plus twee andere kaarten van dezelfde waarde (plus een ongerelateerde kaart).
+                    - Indien gelijk: de hand met het hoogste tweetal wint
+                    - Indien gelijk: de hand met daarna het hoogste tweetal wint
+                    - Indien gelijk: de hand met de hoogste kaart wint
+* One pair        : Twee kaarten van dezelfde waarde (plus drie ongerelateerde kaarten).
+                    - Indien gelijk: de hand met het hoogste tweetal wint
+                    - Indien gelijk: de hand met de hoogste kaart wint
+                    - Indien gelijk: De hand met daarna de hoogste kaart wint (etc.)
+* High card       : Vijf kaarten die samen niet een van de eerder genoemde combinaties vormen.
+                    - Indien gelijk: De hand met de hoogste kaart wint
+                    - Indien gelijk: De hand met daarna de hoogste kaart wint (etc.)

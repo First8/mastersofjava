@@ -1,0 +1,31 @@
+
+public class SushiEaterImpl implements SushiEater {
+
+	private String name;
+	
+	public SushiEaterImpl(String name) {
+		this.name=name;
+	}
+	
+	public Sushi pick(SushiBelt belt) {
+		do {
+			Sushi[] s=belt.peek();
+			for (int t=0;t<s.length;t++) {
+				if (s[t].getLock().tryLock()) {
+					return s[t];
+				}
+			}
+			belt.waitForSushi();
+		} while (true);
+	}
+	
+	public Sushi take(SushiBelt belt,Sushi s) {
+		belt.take(s);
+		s.getLock().unlock();
+		return s;
+	}
+	
+	public void eat(Sushi s) {
+		System.out.println(name+" eats "+s);
+	}
+}

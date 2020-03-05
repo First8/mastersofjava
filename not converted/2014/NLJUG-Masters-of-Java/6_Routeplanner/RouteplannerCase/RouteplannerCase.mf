@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: RouteplannerImpl.java
+Monospaced: true
+TestClass: RouteplannerTester
+SubmitClass: RouteplannerTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: Rob Snelders
+DisplayName: Routeplanner
+Icon: nljug_icon.png
+SponsorImage: sogeti_icon.png
+Solution: RouteplannerCase.solution
+AuthorURL: 
+Fun: 3
+Quality: 3
+Difficulty: 3
+Hint: A cryptic but somewhat useful hint here.
+Catagory: Implement Algorithm

@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: AutoHackerImpl.java
+Monospaced: true
+TestClass: UnderTheSeaTester
+SubmitClass: UnderTheSeaTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: E.Hooijmeijer
+DisplayName: Under the Sea
+Icon: icon.png
+SponsorImage: sponsor.png
+Solution: UnderTheSeaCase.solution
+AuthorURL: http://www.ctrl-alt-dev.nl
+Fun: 4
+Quality: 3
+Difficulty: 4
+Hint: If you please...
+Catagory: Mazes with a twist

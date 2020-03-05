@@ -1,0 +1,56 @@
+1 Introduction
+
+  International negotiations can be very delicate business especially when you are responsible 
+  for the seating arrangements at dinner time. If you mess up it could mean World War III.
+
+2 Assignment
+
+  Dinner will take place at a round table. Diplomats of different countries, speaking
+  different languages and having diplomatic relations with other countries will sit at the 
+  table.
+   
+  One diplomat is assigned the leader and he must sit at the head of the table on a special 
+  chair to perform important ceremonial stuff. Diplomats not speaking a common language can 
+  not talk to each other. Furthermore, some of the countries represented will not have 
+  diplomatic relations with other nations represented, so these diplomats will not be speaking 
+  to each other either.
+  
+  It is your job to produce a valid seating arrangement that ensures that:
+  - the leader sits at the head of the table (position 0).
+  - adjacent diplomats must speak a common language.
+  - adjacent diplomats must have diplomatic relations with each other.     
+  
+  You can implement this algorithm in the seatDiplomats method of the TableSeaterImpl class. 
+  
+  If there is a solution, the method must return true and the table must hold the solution.
+  If there is no solution possible, the method must return false.  
+  If there is more that one solution, any one will suffice.
+
+3 Example
+
+  Three diplomats need to negotiate:
+  Diplomat of DLD, speaking [D, E], having diplomatic relations with [FRA, GBR]. 
+  Diplomat of GBR, speaking [E, D], having diplomatic relations with [FRA, DLD]. 
+  Diplomat of FRA, speaking [F, E], having diplomatic relations with [GBR, DLD]. (leader)
+
+  A solution exists, as all parties have formal relations with each other and all parties
+  speak English. A possible seating arrangement could be:
+
+  Nr pR pL nR nL Diplomat
+  #0 vv vv vv vv Diplomat of FRA, speaking [F, E], having diplomatic relations with [GBR, DLD]. (leader)
+  #1 vv vv vv vv Diplomat of DLD, speaking [D, E], having diplomatic relations with [FRA, GBR]. 
+  #2 vv vv vv vv Diplomat of GBR, speaking [E, D], having diplomatic relations with [FRA, DLD]. 
+
+  pR = Relation with the diplomat on the previous chair.
+  pL = Common language with the diplomat on the previous chair.
+  nR = Relation with the diplomat on the next chair.
+  nL = Common language with the diplomat on the next chair.
+  
+  If the French diplomat did not speak English a seating arrangement would be impossible.  
+
+4 Hints & Tips
+
+  - It is a Round Table.
+  - Looking back is not sufficient.
+  - Start with the leader.
+  - use the toString() on Diplomat and Table.  

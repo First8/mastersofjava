@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class MapTraversalImpl implements MapTraversal {
+
+	@Override
+    public String getValue(Map<String, Object> map, String key) {
+		
+		String[] elements = key.split("\\.");
+		for (String element : elements) {
+			Object value = map.get(element);
+			if (value == null) {
+				return null;
+			}
+			if (value instanceof String) {
+				return (String) value;
+			}
+			map = (Map<String, Object>) value;
+		}
+	    
+		return null;
+    }
+
+}

@@ -1,0 +1,32 @@
+1 Introduction
+
+  Zun Microdevices has unleashed its Sneaky Peeky Object Transducers (SPOTs) upon the world. 
+  No object is safe anymore. The SPOTs are monitoring all state and communications. 
+  Massive identity theft is occuring because of this and even voting computers are not safe 
+  anymore.
+  
+  Somebody has to spot eh Stop this !
+  
+  Fortunately you have built a hardware scanner to find those nasty SPOTs - the only thing you need 
+  is a good algorithm to identify and count them.
+
+2 Assignment
+
+  Implement the method scan(Radar r) to return the number of SPOTs the Radar has found. Unfortunately the
+  Radar only returns hits and some hits may be SPOTs but others are not. Fortunately the Hits themself can
+  differentiate between a SPOT hit and something else, you need only to ask them.
+
+3 Example
+
+  The Radar returns 3 hits. 
+  The first hit is not a SPOT.
+  The second hit is a SPOT !
+  The third hit is not a SPOT.
+  The result is : 1 SPOT.
+
+4 Hits
+
+  - look at the Hit and Radar source code. This will tell you which methods you can invoke.
+  - you need to iterate over the hits. In Java there are several ways to do this. The for statement is one of them.
+  - only count the hits that return true on the isSpot() method call.
+

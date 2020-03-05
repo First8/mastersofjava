@@ -1,0 +1,29 @@
+1 Introduction
+
+    Map traversal is the proces of getting a value based on a key. 
+
+
+2 Assignment
+
+    When given:
+      - a Map<String, Object>, in which the value can be a String or a Map<String, Object> and
+      - a path like "key1.key2.key3",
+    
+    retrieve the correct value from that map.
+
+
+3 Example
+
+    Map:
+        {
+            "name": {
+                "first": "Patrick",
+                "last": "Kik"
+            }
+        }
+    
+    Key:
+        "name.first"
+    
+    Value:
+        "Patrick"

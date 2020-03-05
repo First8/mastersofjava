@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Editable: ScriptExpressionEvaluator.java
+Monospaced: true
+TestClass: EvilExpertTester
+SubmitClass: EvilExpertSubmitTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: E.Hooijmeijer
+DisplayName: Evil Expert
+Icon: icon.png
+SponsorImage: sponsor.png
+Solution: EvilExpertCase.solution
+AuthorURL: http://www.ctrl-alt-dev.nl
+Fun: 4
+Quality: 4
+Difficulty: 3
+SecurityDelegate: AllowScriptingSecurityDelegate
+Hint: Power to the User
+Catagory: Java6 API Knowledge

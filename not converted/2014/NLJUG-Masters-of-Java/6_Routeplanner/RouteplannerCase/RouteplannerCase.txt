@@ -1,0 +1,16 @@
+1 Introductie
+
+The Matrix, Zion, jaar 2079
+  
+Voor het patrouilleren in de riolen wil men op bepaalde plaatsen komen. Maar door de sentinels
+is niet iedere route te pakken. Daarom moet men bij iedere plaats, wanneer men er is, 
+opnieuw bekijken waar men het snelst kan komen.
+
+2 De opdracht
+
+Er moet berekend worden hoe men het snelst bij andere knooppunten komen via het dijkstra algoritme.
+Er wordt een netwerk aangemaakt via de methoden in de network-klasse. Daarna wordt een startpunt aangegeven
+en dan de paden met lengte berekend. Daarna kan je van ieder eindpunt het pad opvragen.
+Paden kunnen beidde kanten op bewandeld worden.
+
+Er zijn 3 functies in de file RouteplannerImpl.java die aangevuld moeten worden. Dit zijn findMinimalDistances, getDistanceBetweenNeighbors en getNeighbors.

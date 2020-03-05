@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: CompetitionImpl.java
+Monospaced: true
+TestClass: CompetitionTester
+SubmitClass: CompetitionTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: Rob Snelders
+DisplayName: Competition
+Icon: icon.png
+SponsorImage: sponsor.png
+Solution: CompetitionCase.solution
+AuthorURL: 
+Fun: 3
+Quality: 3
+Difficulty: 3
+Hint: A competition-generator
+Catagory: Bug solving

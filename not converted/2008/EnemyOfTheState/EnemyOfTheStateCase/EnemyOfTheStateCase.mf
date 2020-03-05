@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: Fugitive.java
+Monospaced: true
+TestClass: EnemyOfTheStateTester
+SubmitClass: EnemyOfTheStateTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: E.Hooijmeijer
+DisplayName: Enemy of the State
+Icon: icon.png
+SponsorImage: sponsor.png
+Solution: EnemyOfTheStateCase.solution
+AuthorURL: http://www.ctrl-alt-dev.nl
+Fun: 4
+Quality: 4
+Difficulty: 4
+Hint: Smill With is the Fugitive.
+Catagory: State-Transition diagrams

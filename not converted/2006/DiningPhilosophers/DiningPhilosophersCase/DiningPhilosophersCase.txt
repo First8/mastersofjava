@@ -1,0 +1,46 @@
+1 Introduction
+
+  A number of philosophers sit around a circular table. Each philosopher spends 
+  his life alternatively thinking and eating. In the centre of the table is a 
+  large bowl of noodles. A philosopher needs two chopsticks to eat a noodle. 
+  Unfortunately, as philosophy is not as well paid as computing, each philosopher
+  can only afford one chopstick. The chopstick is placed between a pair of 
+  philosophers and they agree that each will only use the chopstick to his 
+  immediate right and left. 
+
+2 Assignment
+
+  A problem occurs when two adjacent philosophers become hungry at the same time.
+  They both need the same chopstick to take a noodle out of the bowl. To prevent
+  vicious outbursts of emotions (like an exception) usage of the chopsticks needs
+  to be regulated. Fortunately the chopstick has already been equipped with a  
+  java.util.concurrent.Lock for you to use.
+  
+  Implement proper table manners for the PhilosopherImpl class by making use
+  of the chopstick lock. A lock must be acquired before using the chopstick
+  and a lock must be released before putting it back on the table.
+  
+  If at some point a philosopher wants to eat but there are no chopsticks 
+  available, he has to wait for his turn.
+
+3 Example
+
+  Plato and Socrates are sitting around the table. 
+  Together they have 2 chopsticks, A and B. 
+  
+  Plato becomes hungry. 
+  He locks chopstick A. He locks chopstick B.
+  He takes a noodle and eats it.
+  Meanwhile Socrates has also become hungry. 
+  He tries to lock chopstick B and fails.
+  Socrates must wait for a while. 
+  Plato unlocks chopstick B and then chopstick A. 
+  Plato continues thinking. 
+  Socrates is still hungry and tries again.. now with success.
+
+4 Hints & Tips
+
+  - Each unit test takes 4 seconds. Don't execute them all at once !
+  - Remember the philosopher Hume who said that 'inductive knowledge is not certain'.
+  - A philosopher can wait forever to get a noodle if he is really hungry. 
+  - If only he would show the same courtesy to his peers as he is expecting from them.  

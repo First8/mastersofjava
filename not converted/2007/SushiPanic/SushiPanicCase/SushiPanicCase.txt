@@ -1,0 +1,44 @@
+1 Introduction
+
+  SushiFoeshi is a well known sushi francise from Japan and will soon open
+  a restaurant at Rotterdam Airport. The concept of the restaurant is that
+  there is a conveyor-belt with sushi on them. The guests of the restaurant
+  can select the sushi they like, take it from the belt and eat it.
+  Chopsticks are optional.
+     
+  The trials that were held to see if the people would understand the 
+  concept were slightly dissapointing. Frequenty two guests tried to take
+  the same sushi from the belt and ended up fighting over it.      
+  
+  To prevent this from happening in the future a reservation mechanism has
+  been built into the sushi box. All that remains now is decide how to 
+  use it.
+
+2 Assignment
+
+  Re-implement the SushiEaterImpl class in such a way that it will behave
+  as a perfect customer. This means that :
+  - in the select() method the sushi eater must choose a sushi from the belt
+    and acquire a reservation on it. If the reservation cannot be acquired 
+    another sushi must be selected. If there are no other sushi the
+    method must wait until new sushi arrive.
+  - in the take method the sushi eater must take the previously selected 
+    sushi from the belt.
+  - in the eat method the sushi eater must eat the sushi (finally !).
+
+3 Example
+
+  There is a box of 'Tekka Maki' on the belt.
+  Mr Lee sees the Tekka Maki. The reservation is not set.
+  Mr Hai sees the Tekka Maki. The reservation is not set.
+  Mr Lee accuires the reservation and sets it.
+  Mr Hai tries to accuire the reservation and fails.
+  Mr Hai sees the Tekka Maki. The lock is set to Mr Lee.
+  Mr Hai forgets about the Tekka Maki and waits for another opportunity.
+  Mr Lee takes the box of Tekka Maki from the belt.
+  Mr Lee eats the Tekka Maki.
+
+4 Hints and Tips
+
+  - the belt has a useful waitForSushi() method. 
+  - the Sushi Chef knows a little about locks (but not everything!).

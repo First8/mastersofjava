@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: HarshadNumberGeneratorImpl.java
+Monospaced: true
+TestClass: HarshadNumberGeneratorTester
+SubmitClass: HarshadNumberGeneratorTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: Ben Ooms
+DisplayName: Grote vreugde nummer generator
+Icon: nljug_icon.png
+SponsorImage: sogeti_icon.png
+Solution: HarshadNumberGeneratorCase.solution
+AuthorURL: 
+Fun: 3
+Quality: 3
+Difficulty: 1
+Hint: A number is not a string.
+Catagory: API Knowledge

@@ -1,0 +1,102 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class SmithNumberImpl {
+
+	/**
+	 * Generates an Set<Integer> of Smith numbers
+	 * 
+	 * @param upperBound
+	 */
+	public Set<Integer> generateSmithNumberList(Integer upperBound) {
+		Set<Integer> smithNumbers = new HashSet<Integer>();
+		// We start at 10 because that is the first composite number 
+		for (int i = 10; i < upperBound; i++) {
+			if (isSmithNumber(i)) {
+				smithNumbers.add(i);
+			}
+		}
+
+		return smithNumbers;
+	}
+
+	/**
+	 * Generates a list forming the complete Prime factorization of the number
+	 * that is provided as a parameter
+	 * 
+	 * For example 12 in prime factorization is 2 * 2 * 3. The List to return
+	 * would be List(2,2,3).
+	 * 
+	 * 
+	 * @param number
+	 */
+	public List<Integer> primeFactors(int number) {
+	    int n = number;
+	    List<Integer> factors = new ArrayList<Integer>();
+	    /*
+		 * Implement your algorithm for generating a list of containing all
+		 * Primefactors of a number underneath here
+		 */
+		 
+	    for (int i = 2; i <= n / i; i++) {
+	      while (n % i == 0) {
+	        factors.add(i);
+	        n /= i;
+	      }
+	    }
+	    if (n > 1) {
+	      factors.add(n);
+	    }
+	    return factors;
+	  }
+
+	/**
+	 * Determines if the given number is a smithNumber
+	 * 
+	 * @param number
+	 * @param primefactors
+	 * @return
+	 */
+	public boolean isSmithNumber(int number) {
+		String numberChars = "" + number;
+		if (isPrimeNumber(number) || numberChars.length() < 2){
+			return false;
+		} else {
+			char[] digits = numberChars.toCharArray();
+			int sumNumberDigits = 0;
+			int sumPrimeDigits = 0;
+			for (char digit : digits) {
+				sumNumberDigits += Character.getNumericValue(digit);
+			}
+			List<Integer> primefactors = primeFactors(number);
+			for (Integer primefactor : primefactors) {
+				char[] primedigits = primefactor.toString().toCharArray();
+				for (char digit : primedigits)
+				{
+					sumPrimeDigits += Character.getNumericValue(digit);
+				}
+			}
+			return sumNumberDigits == sumPrimeDigits;
+		}
+	
+	}
+
+	/*
+	 * Java method to check if an integer number is prime or not.
+	 * 
+	 * @return true if number is prime, else false
+	 */
+	public static boolean isPrimeNumber(int number) {
+		int sqrt = (int) Math.sqrt(number) + 1;
+		for (int i = 2; i < sqrt; i++) {
+			if (number % i == 0) {
+				// number is perfectly divisible - no prime
+				return false;
+			}
+		}
+		return true;
+	}
+
+}

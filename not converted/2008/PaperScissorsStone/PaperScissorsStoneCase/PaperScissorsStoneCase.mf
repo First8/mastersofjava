@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Editable: PaperScissorsStoneImpl.java
+Monospaced: true
+TestClass: PaperScissorsStoneTester
+SubmitClass: PaperScissorsStoneTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: E.Hooijmeijer
+DisplayName: Paper Scissors Stone
+Icon: icon.png
+SponsorImage: sponsor.png
+Solution: PaperScissorsStoneCase.solution
+SecurityDelegate: nl.moj.security.FriendlySecurityDelegate
+AuthorURL: http://www.ctrl-alt-dev.nl
+Fun: 4
+Quality: 4
+Difficulty: 2
+Hint: As easy as 0,1,2
+Catagory: Enumerations

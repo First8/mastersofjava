@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: SpotCounterImpl.java
+Monospaced: true
+TestClass: SpotCounterTester
+SubmitClass: SpotCounterTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: E.Hooijmeijer
+DisplayName: Spot Counter
+Icon: icon.png
+SponsorImage: sponsor.png
+Solution: SpotCounterCase.solution
+AuthorURL: http://www.ctrl-alt-dev.nl
+Fun: 3
+Quality: 3
+Difficulty: 1
+Hint: Spot the SPOT.
+Catagory: Basic programming skills

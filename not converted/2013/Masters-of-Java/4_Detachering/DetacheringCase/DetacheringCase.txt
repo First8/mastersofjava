@@ -1,0 +1,71 @@
+1 Introductie
+
+Duke heeft een eigen detacheringsbedrijfje gestart en wil zo veel mogelijk winst maken.
+Hiervoor heeft Duke informatie ingekocht zodat hij precies weet hoeveel mensen hij in
+de komende maanden kan inzetten op een opdracht. Zo kan Duke in december 255 medewerkers
+inzetten, in januari 220, in februari 240 en in maart 200.
+
+Om optimaal gebruik te maken van deze informatie wil Duke een algoritme schrijven om te
+weten hoeveel mensen hij in welke maanden moet inhuren of moet ontslaan. Wanneer er meer
+medewerkers zijn dan mogelijk inzetten, kost dit Duke 2.000 euro per medewerker per periode.
+Ontslaan of inhuren kost Duke het verschil in werknemers gekwadrateerd, maal 200 euro.
+Maximaal kan Duke 255 medewerkers in dienst hebben en minder medewerkers hebben dan mogelijke
+inzetten te hebben is onacceptabel.
+
+Duke is zelf een heel eind gekomen met het algoritme. Echter is zijn recursieve top-down
+algoritme niet snel genoeg en heeft hij moeite met het maken van het recursieve buttom-up
+algortime.
+
+De uiteindelijke implementatie dient tot de bezetting te komen met de goedkoopste kosten.
+De oplossing wordt gegeven door een List van integers te retourneren die het aantal
+medewerkers per opvolgende periode representeerd.
+
+Om later ook gebruik te kunnen maken van dit algoritme dient dit algoritme te werken met:
+ - variabel aantal periodes.
+ - variabel maximum aantal medewerkers.
+ 
+ 
+2 De opdracht
+
+Refactor het recursieve top-down algoritme, gebruikmakend van het concept dynamisch programmeren,
+zodat deze binnen de timeout tot de oplossing komt.
+
+ OF!!
+
+Maak de implementatie van het recursieve buttom-up algoritme af.
+
+
+3 Hints & Tips
+
+De oplossing dient geïmplementeerd te worden middels het concept dynamisch programmeren.
+Gebruik hiervoor de List<Integer>[][] oplossingTabel en de double[][] kostenTabel;
+Een andere oplossing zal vanwege de complexiteit tot een timeout (ThreadDeath) leiden en daarom
+fout zijn.
+
+Dynamisch programmeren is een methode voor het oplossing van complexe problemen door ze op
+te breken in simpelere subproblemen. Een belangrijk onderdeel van dynamisch programmeren is
+memoization. Memoization is een optimalisatie techniek waarbij voorkomen wordt dat dezelfde
+berekening meerdere malen wordt uitgevoerd. Onderstaande java code is een voorbeeld van
+dynamisch programmeren toegepast op fibonacci: 
+
+
+Fibonacci naïve recursieve oplossing ( O(n^2) ):
+
+public int fibonnaci(int n) {
+	if ( n == 0 ) { return 0; }
+	else if ( n == 1 ) { return 1; }
+	else { return fibonnaci(n-1) + fibonnaci(n-2);
+}
+
+
+
+Fibonacci recursieve oplossing met dynamisch programmeren ( O(n) ):
+
+private Map<Integer, Integer> map = new HashMap<>();
+
+public int fibonnaci(int n) {
+	if ( n == 0 ) { return 0; }
+    else if ( n == 1 ) { return 1; }
+	else if(!map.contains(n)) { map.put(n, fibonnaci(n-1) + fibonnaci(n-2)); }
+	else { return map.get(n); }
+}

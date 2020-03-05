@@ -1,0 +1,33 @@
+1 Introductie
+	Een groepje Senior Software Engineers (65++) wandelt samen door de Alpen met GPS apparaten en natuurlijk een 
+	laptop met daarop een recente JDK. Hun `kaarten’ bestaan uit de 3D coördinaten van alle WayPoints, hun onderlinge 
+	verbindingen (paden), en de start en finish van hun wandeling (beiden ook WayPoints). Niet elk paar WayPoints is 
+	onderling verbonden wegens natuurlijke obstakels zoals ravijnen, bergtoppen of rivieren.
+   
+	De lengte van hun wandeling interesseert de engineers niet. Wel willen ze gezien hun leeftijd en gewrichten de 
+	steilste paden en het `lopen in cirkeltjes’ vermeiden. Ze zijn bottom up begonnen met programmeren van een oplossing, 
+	maar raakten in hun code de weg kwijt.
+  
+2 Opdracht
+	Help de Senior Software Engineers de Alpen door. Maak hiertoe SlipperySlopesImpl.getFlattestSimplePath af. 
+	Deze dient van alle paden van start naar finish dàt pad te vinden, wat de kleinste maximale stijging of daling 
+	heeft en bovendien géén WayPoint meer dan eens aandoet.
+
+3 Example
+	Beneden staat een klein voorbeeld van een gerichte graaf van WayPoints van start naar finish. 
+	Een pijl tussen twee naburige WayPoints is gelabeld met de absolute graad van stijlheid van het pad ertussen. 
+	Het doet er immers niet toe of een pad stijgt of daalt.
+    
+  start -->{2}--> a --{6}--> b --{3}--> finish 
+        \->{5}--> c --{5}--> d --{5}-/
+  		
+  Het `vlakste simpele pad’ van start naar finish is [start,c,d,finish]. De reden hiervoor is dat de maximale graad 
+  van steilheid 5 is (van c naar d), waar het enige alternatief [start,a,b,finish] in dit voorbeeld een pad met 
+  steilheid 6 bevat (van a naar b).
+
+4 Hints & Tips
+
+Lees de JavaDocs van wat er al gemaakt is. Deze vertellen je van een resultaat of invoer mag verwachten.
+
+!!!SUCCES!!!
+

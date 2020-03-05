@@ -1,0 +1,43 @@
+import java.util.Map;
+
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
+public class ScriptExpressionEvaluator implements ExpressionEvaluator {
+
+    private static final String RESULT="result";
+    
+    private ScriptEngine se;
+    
+    public ScriptExpressionEvaluator(String shortName) throws ExpressionException {
+        //
+        // Implement Here
+        // 
+        ScriptEngineManager sem=new ScriptEngineManager();
+        se=sem.getEngineByName(shortName);
+        //
+    }
+    
+    public boolean evaluate(String expression, Map<String, Object> variables) throws ExpressionException {
+        //
+        if (se==null) {
+            throw new ExpressionException("No script engine");
+        }
+        //
+        for (String key:variables.keySet()) {
+            se.put(key, variables.get(key));
+        }
+        //
+        try {
+            Object result=se.eval(expression);
+            Object result2=se.get(RESULT);
+            //
+            return Boolean.valueOf(String.valueOf(result2==null?result:result2));
+        } catch (ScriptException ex) {
+            throw new ExpressionException(ex);
+        }
+    }
+
+}
+

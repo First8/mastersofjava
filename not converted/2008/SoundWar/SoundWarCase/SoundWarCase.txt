@@ -1,0 +1,49 @@
+1 Introduction
+
+  The new game of WarSock Entertainment called 'Empire of a Solar Sinner' has one slight problem.
+  
+  On low end systems the game tries to play too many sound effects at once causing a strange gurgling
+  noise and a subsequent crash. Initial experiments to limit the number of sounds played at 
+  once were unsatisfying as sometimes a critical sound (such as the impending destruction of a capital 
+  ship) was not played in favor of a unimportant sound (a laser firing). 
+  
+  To solve the problem all sounds were given a priority so that the engine can decide which sound to 
+  play. All that remains is a proper implementation :)          
+
+2 Assignment
+
+  The SoundChooser chooses which sound effects are played based upon the available channels and the 
+  priority of the sound. The rules for playing sound effects are as follows:
+  - If there are unused channels, then the effect is played on that channel with the lowest 
+    channel number.
+  - If there are no unused channels but there are channels playing lower priority effects then
+    the effect on the channel playing the lowest priority sound is replaced by the higher priority 
+    effect. If there are channels playing the same priority effect, the channel with the lowest
+    channel number is chosen.  
+  - In all other cases the sound effect is skipped.    
+
+3 Example
+
+  There is only one sound channel available (parallel port mono audio) :
+  > play(SFX(0,Warning: Destruction Imminent))
+  Channel 0 is available, so the sound effect is played on that channel.  
+  > play(SFX(1,Cannot deploy here, building in progress.))
+  There are no available channels (the previous effect is still playing) so this effect is skipped.
+  The sound on channel 0 finishes.
+  > play(SFX(1,Harkonen harvester deployed.))
+  Channel 0 is available, so the sound effect is played on that channel.  
+  
+  There are two sound channels available:
+  > play(SFX(3,Kaboom!))
+  Channel 0 is available, so the sound effect is played on that channel.
+  > play(SFX(4,[Background noise]))
+  Channel 1 is available, so the sound effect is played on that channel.
+  > play(SFX(0,Game Over))
+  There are no available channels, but there are lower priority sounds playing. 
+  Channel 1 is playing the lowest priority sound, so this one is replaced. 
+
+4 Hints & Tips
+
+  - Comparable and Comparator are your friends.
+  - There is a natural order in things which you may have to sort out.
+   

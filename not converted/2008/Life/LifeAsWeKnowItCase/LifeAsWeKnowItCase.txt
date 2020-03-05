@@ -1,0 +1,42 @@
+1 Introduction
+
+  Conways Game of Life proves that its possible to create enormous complexity with a few very
+  simple rules. Ever since the 1970 zero player game has inspired many programmers and mathmaticians.
+  Now at the height of the public debate about Evolution v.s. Intelligent Design a religious leader
+  has come to you for an implementation. He is convinced it will aid his quest to prove once and for
+  all that the Darwinists are WRONG!
+  
+2 Assignment
+
+  Implement the getNextGeneration(..) routine that will produce the next generation of cells 
+  based upon the current generation of cells. The rules for producing the new generation are:
+  - Any live cell with fewer than two live neighbours dies, as if by loneliness.
+  - Any live cell with more than three live neighbours dies, as if by overcrowding.
+  - Any live cell with two or three live neighbours lives, unchanged, to the next generation.
+  - Any dead cell with exactly three live neighbours comes to life.
+  All rules are applied at the same time. The neighbours of a cell are the 8 cells surrounding that 
+  cell. If you need to evaluate cells outside the boundaries of the board consider them dead.
+
+3 Examples
+
+  Birth:   ....      ....
+           .##.  =>  .##. 
+           .#..      .##.
+           ....      ....
+  
+  Death :  ...      ...
+           .#.  =>  ...
+           ...      ...
+                        
+  All rules at once :  .....      .....
+                       ..#..  =>  .###.  The cell in the middle dies because it has 4 neighbours.
+                       .###.      .#.#.  The cells in corners are born because they have 3 neighbours.
+                       ..#..      .###.  The other cells stay alive because they have 3 neighbours.
+                       .....      .....           
+ 
+4 Hints & Tips
+
+  - In a perfect world the board would be infinite in size..
+  - Don't count in yourself!
+  - The animations will help you. Green cells are good. Red cells are bad. 
+

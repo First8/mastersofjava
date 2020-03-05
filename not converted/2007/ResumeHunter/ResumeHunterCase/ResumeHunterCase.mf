@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Editable: ResumeHunterImpl.java
+Monospaced: true
+TestClass: ResumeHunterTester
+SubmitClass: ResumeHunterTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: E.Hooijmeijer
+DisplayName: Resume Hunter
+Icon: icon.png
+SponsorImage: sponsor.png
+Solution: ResumeHunterCase.solution
+SecurityDelegate: nl.moj.security.FriendlySecurityDelegate
+AuthorURL: http://www.ctrl-alt-dev.nl
+Fun: 4
+Quality: 4
+Difficulty: 3
+Hint: Hit the target with your Resume.
+Catagory: Inner Classes, Patterns

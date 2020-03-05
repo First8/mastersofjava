@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Editable: IpRangeCalculatorImpl.java
+Monospaced: true
+TestClass: IpRangeCalculatorTester
+SubmitClass: IpRangeCalculatorSubmitTester
+TestClassTimeout: 15
+SubmitClassTimeout: 20
+Author: Jaap Coomans
+DisplayName: IP Range Calculator
+Icon: nljug_icon.png
+SponsorImage: sogeti_icon.png
+Solution: IpRangeCalculatorCase.solution
+AuthorURL: 
+Fun: 3
+Quality: 3
+Difficulty: 3
+Hint: A cryptic but somewhat useful hint here.
+Catagory: Bitwise operators

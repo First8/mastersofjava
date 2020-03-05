@@ -1,0 +1,39 @@
+1 Introduction
+
+  Infamous Intellectual Property (I-IP) provides a sort of legal download service from the 
+  Kayman Islands. After a recent bandwidth upgrade they discovered a serious flaw in the
+  software that provides the download service. If a client unexpectedly terminates the 
+  connection the software fails to detect this and the connection remains open, requiring
+  regular restarts of the servers. Fortunately the problem has been isolated. The culprit
+  is the DownloadServerImpl class coded by a local script kiddie.  
+
+2 Assignment
+
+  Fix the DownloadServerImpl class in such a way that it properly deals with exceptions:
+  - Any transaction that has begun, needs to be ended.
+  - Any input stream that has been opened, needs to be closed.
+  - Any output stream that has been opened, needs to be closed.
+  - The data read from the input stream must be copied to the output stream. 
+  - If the data is successfully copied, the Success property on the response must be set to true.
+  - If the data is not successfully copied, the Success property must be set to false.
+  
+  Also fix the documented performance problem.
+
+3 Example
+
+  In an ideal world the flow of the program should go as follows:
+  
+  - begin a transaction.
+  - find and open the input stream.
+  - open the output stream.
+  - copy all the data.
+  - close the output stream.
+  - close the input stream.
+  - end the transaction.
+
+4 Hints & Tips
+
+  - Java has a wonderful construct for dealing with exceptions.
+  - You might try to catch an exception but finally this is only necessary.
+  - Copying a byte at a time may not be such a good idea after all.  
+  - Don't (!) start by running all the tests. 

@@ -1,0 +1,24 @@
+public final class Person {
+
+    private String name;
+
+    public Person(String name) {
+        this.name = name;
+    }
+
+    public void drink(DrinkContainer drinkContainer, Fridge fridge) {
+        synchronized (drinkContainer) {
+            WodkaSju drink = null;
+            while ((drink = drinkContainer.pourDrink(this)) == null) {
+                drinkContainer.makeDrinks(this, fridge.getSomeSju(), fridge.getSomeWodka());
+            }
+            //
+            drink.sip(this);           
+        }
+    }
+
+    public String toString() {
+        return name;
+    }
+
+}

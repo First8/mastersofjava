@@ -1,0 +1,60 @@
+
+public enum PaperScissorsStoneImpl {
+
+    PAPER(2),SCISSORS(0),STONE(1);
+    
+    private int win;
+    
+    private PaperScissorsStoneImpl(int win) {
+        this.win=win;
+    }
+    
+    public Outcome battles(PaperScissorsStoneImpl other) {
+        if (other.ordinal()==win) return Outcome.WIN;
+        if (other.equals(this)) return Outcome.TIE;
+        return Outcome.LOSE; 
+    }
+    
+    //
+    // Yes, there are several other implementations possible :-)
+    //
+    // This one is based on hard work. 
+    //
+    
+    
+//    public Outcome battles(PaperScissorsStoneImpl other) {
+//        //
+//        switch (this) {
+//        case PAPER:
+//            if (STONE.equals(other)) return Outcome.WIN;
+//            if (SCISSORS.equals(other)) return Outcome.LOSE;
+//            break;
+//        case SCISSORS:
+//            if (PAPER.equals(other)) return Outcome.WIN;
+//            if (STONE.equals(other)) return Outcome.LOSE;
+//            break;
+//        case STONE:
+//            if (SCISSORS.equals(other)) return Outcome.WIN;
+//            if (PAPER.equals(other)) return Outcome.LOSE;
+//            break;
+//        }
+//        //
+//        return Outcome.TIE;
+//    }
+    
+    //
+    // This one is based on keen intellect.
+    //
+    
+//    public Outcome battles(PaperScissorsStoneImpl other) {
+//        //
+//        int delta=this.ordinal()-other.ordinal();
+//        //
+//        if (delta==0) return Outcome.TIE;
+//        //
+//        if ((delta==-1)||(delta==2)) return Outcome.LOSE;
+//        //
+//        return Outcome.WIN;
+//    }
+    
+}

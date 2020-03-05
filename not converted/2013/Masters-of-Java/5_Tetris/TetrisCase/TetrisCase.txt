@@ -1,0 +1,38 @@
+1 Introduction
+
+    Play one step in a game of Tetris.
+
+2 Assignment
+
+    Given a Tetris game and one block, determine the maximum number of rows that will collapse.
+
+    A Game and a Block are the classes to begin with. Both have a width and a height.
+    Both classes consist of Rows. Rows are made of Cells. Every cell has a Filling which can be empty or full.
+
+3 Example
+
+    Suppose a game:    And a block:    The best place to put the block:    That means that one row will collapse:
+    
+    |        |         YY              |  YY    |                          |        |
+    |X  X X  |         Y               |X YX X  |                          |  XX    |
+    |XX XXXXX|         Y               |XXYXXXXX|                          |X XX X  |
+    |XX XXX X|                         |XX XXX X|                          |XX XXX X|
+    +--------+                         +--------+                          +--------+
+
+    The width of the game is 8, the height is 4.
+    The width of the block is 2, the height is 3.
+
+4 Hints & Tips
+
+    Rows are ordered top-down, Cells are ordered left-to-right.
+    
+    game.getHeight() will give the number of rows of the game.
+    game.getWidth() will give the number of columns of the game.
+    game.getRow(0) will give the top row.
+    game.getRow(0).getCell(0) will give the left cell of the top row.
+    
+    You can place a block in a game using game.placeBlock(colNr, rowNr).
+    colNr and rowNr represent the top-left corner of the block.
+    
+    game.toString() can be used for visual feedback.
+    

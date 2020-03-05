@@ -1,0 +1,58 @@
+public class Card implements Comparable<Card> {
+	private final Suit suit;
+	private final Rank rank;
+
+	private Card(Suit suit, Rank rank) {
+		this.suit = suit;
+		this.rank = rank;
+	}
+
+	public static Card getCard(Suit suit, Rank rank) {
+		return new Card(suit, rank);
+	}
+
+	public Suit getSuit() {
+		return this.suit;
+	}
+
+	public Rank getRank() {
+		return this.rank;
+	}
+
+	public boolean isNeighbour(Card other) {
+		return this.rank.isNeighbour(other.rank);
+	}
+
+	@Override
+	public String toString() {
+		return this.rank.getSymbol() + this.suit.getSymbol();
+	}
+
+	@Override
+	public int compareTo(Card other) {
+		return this.rank.compareTo(other.getRank());
+	}
+
+	@Override
+	public boolean equals(Object object) {
+		if (!(object instanceof Card)) {
+			return false;
+		}
+		Card other = (Card) object;
+		if (this.rank != other.rank) {
+			return false;
+		}
+		if (this.suit != other.suit) {
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		int hash = 17;
+		hash = 31 * hash + this.rank.hashCode();
+		hash = 31 * hash + this.suit.hashCode();
+		return hash;
+	}
+}

@@ -1,0 +1,30 @@
+1 Introduction
+
+  After many complaints about the slow time to market and not responding swiftly enough to change the
+  CTO of Disasterware TM decides to let users implement their own business rules because 'The users know
+  their business best'. The Evil Expert scratches his beard, mutters something about a new useful API in
+  Java 6, chants 'Power to the User!' and promptly instructs his minions to implement various hooks
+  into the business logic to use an interface called the ExpressionEvaluator. The actual implementation
+  of this trivial interface he leaves to you.  
+
+2 Assignment
+
+  Implement the ExpressionEvaluator interface in the ScriptExpressionEvaluator.java file. You will be
+  given the short name of the scripting language, the script itself and any context variables that are
+  available to the script. Your task is to evaluate the script and return either 'true' or 'false' or
+  throw an ExpressionException if the script contains errors.
+  
+  Note that more complex scripts may use the 'result' variable to store the result of the script. This
+  'result' variable takes precedence above the result of the last evaluated statement.   
+
+3 Example
+
+  Given the java script 'js' language, the script itself: '(a==42);' and variable 'a=42' the result 
+  should be 'true' because the variable a has the value 42 and thus the expression (42==42); returns 
+  true.
+
+4 Hints & Tips
+
+  - JDK 6 Has a brand new Scripting API located in the javax.script package which might be handy.
+  - Unless you decide to implement your own that is :-) 
+  - Cheaters please note: There is a trivial additional test when submitting your solution.

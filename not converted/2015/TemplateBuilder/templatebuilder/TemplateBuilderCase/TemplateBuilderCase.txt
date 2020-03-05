@@ -1,0 +1,52 @@
+1 Introduction
+
+Duke builded a template builder what was working, he taught ;<).
+In the template a place was reserved for the dukemail address. As the 
+template builder was used several documents failed to parse due to 
+a invalid dukemail address.
+
+2 Assignment
+
+Help Duke out and implement the dukemail address validator. The validator should
+return a true or false depending on the validity of the string passed.
+
+
+A valid dukemail address follows almost the same rules as regular email, only simpler:
+
+The local-part of the email address may use any of these ASCII characters:
+- Uppercase and lowercase Latin letters 
+- Digits 0 to 9
+- Character . (dot) provided that:
+	- It is not the first or last character
+	- It does not appear consecutively 
+	- It does not end the local part
+
+The domain-part of the email address may use any of these ASCII characters:
+- Uppercase and lowercase Latin letters
+- Digits 0 to 9
+- Character . (dot) provided that:
+	- It is used only once
+Also the domain part must end with .dukemail
+
+3 Example
+Valid examples are:
+John.Doe.ha@example.dukemail
+John34.Doe@example123.dukemail
+John.Doe.ha@eXample123.dukemail
+
+Invalid examples are:
+John..Doe@example.dukemail
+JohnDoe.@example.dukemail
+John34.Doe@.example123.dukemail
+John.Doe.ha@eXample.123.dukemail
+
+
+4 Hints & Tips
+
+The local part is before the at-sign and the domain part is after the at-sign
+
+For example:
+john.scala@oracleofthesun.dukemail 
+
+Local part is : john.scala
+Domain part is : oracleofthesun.dukemail
