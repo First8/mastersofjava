@@ -1,0 +1,30 @@
+ WARNING: special rules apply!
+
+The Masters Of Java Server software itself is written in Java. And, as most 
+internal projects go, it is a project with a bit more chaos than normal. People
+come and go, change of technologies, change of priorities and unfinished 
+refactorings are all part of the show. To simulate this chaos, in this 
+assignment you only have 10 minutes for this assignment...
+
+In this assignment, you're diving into a core part of the MoJ server software. 
+It is the part where Java JDK's are configured and selected. The 
+JavaVersionSelector is given a list of configured JDK's (JavaVersion's) and it 
+finds the best JavaVersion for a given version. (An 'environment' is used in 
+this assignment to mock the filesystem and environment variables.)
+
+The main principles are:
+* check if the configured java version exist on disk;
+* check if the configured java version is at least the required version;
+* if no configured java version is found, check if there is a JAVA_HOME 
+  environment setting. If so, fallback to this JDK. In this case, simply assume 
+  it is a valid configuration and version.
+
+Doesn't sound to complicated, does it? Still, we have a bug report that 
+sometimes it can't find a correct JDK. Somehow, on some machines, a "No java 
+version defined and no JAVA_HOME specified, cannot run without a javac/java..." 
+error is logged. Even though a valid JavaVersion is configured. 
+Unfortunately, the bug report doesn't specify more than that...
+
+Note: all visible tests already work, but the hidden tests will trigger the bug.
+If you submit a wrong or incomplete fix, your points will be halved. You can 
+only submit 3 times.

@@ -1,0 +1,30 @@
+In May, the GDPR regulation in Europe was activated. Every mailbox in the world 
+was flooded with privacy statements. We at EmailMarketingIsNotEvil Corp are a 
+bit lagging behind on this topic. Luckily we have you!
+ 
+One of the requirements of the GDPR is that you store personal information 
+carefully. That means that we have to [Eh, what's that word again...? 
+Comprehension? Encryption? No... Compression!] compress our data to ensure 
+safety. So, to save you some time, we googled a bit and came up with the best
+algorithm out there. (That means, simple thus cheap to implement.) It even
+sounds expensive: Lempel–Ziv–Welch or LZW.
+ 
+The encoding we already stole^Z^Z^Z^Z implemented for you. That roughly works
+as follows:
+
+1) Initialize the dictionary to contain all strings of length one.
+2) Find the longest string W in the dictionary that matches the current input.
+3) Emit the dictionary index for W to output and remove W from the input.
+4) Add W followed by the next symbol in the input to the dictionary.
+5) Go to Step 2.
+   
+The decoding is up to you. We left some hopefully helpful comments in the file.
+
+Note that the directory index is encoded in 12 bits, so there'll be a maximum of
+4096 entries in the dictionary. It is a bit of a hassle to read 12 bit words, 
+but there are already some helper functions for you. Those use a 3-byte buffer 
+which is either "on the left" if you are reading the first 1.5 bytes, or "on the
+right" if you are reading the second 1.5 bytes.
+
+ 
+Yes, we take our customers privacy very seriously.

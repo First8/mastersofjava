@@ -1,0 +1,48 @@
+# file paths are taken relative to this file.
+name: anagram
+display-name: Anagram Master or Stream Anagram
+author:
+  name: Frank de Jong
+  company: First8
+  website: https://first8.nl
+
+labels:
+- label1
+- label2
+
+difficulty: 3
+java-version: 10
+duration: PT30M
+submit-timeout: PT60S
+test-timeout: PT60S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+
+
+assignment-files:
+  assignment: assets/assignment.txt
+  sources:
+    base: src/main/java
+    editable:
+    - AnagramCheckerHelper.java
+    readonly:
+    - AnagramChecker.java
+    - AnagramCheckerImpl.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestNotAnagramSingleWord.java
+    - TestAnagramMultipleWord.java
+    - TestAnagramSingleWord.java
+    - TestIgnoreCapitals.java
+    - TestNotAnagramMultipleWord.java
+    hidden-tests:
+    - AnagramCheckerTestHidden.java
+  solution:
+  - assets/AnagramCheckerHelper.java
+
+  

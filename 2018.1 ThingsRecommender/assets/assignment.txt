@@ -1,0 +1,24 @@
+Dear employee,
+ 
+As developer at BigMusicCompany you should already know that Big Data is, well, 
+a big thing! We need to get on board with that. And since I, as CTO of 
+BigMusicCompany, am a visionary, I have allocated half an hour of budget for you
+to create a recommender for bands for people. But we'll call them Things so that 
+we can pivot if we need to.
+ 
+Shouldn't be too hard, I already envisioned the algorithm for you! Simply put, 
+we have Ratings of people for bands, erh Things.
+ 
+We first need to compare ratings of people. 
+That's done by calculating the Euclidian distance between their shared ratings. 
+You know, the square root of the sum of all the differences squared. If s(p1,b1)
+ is the score given by person p1 for band b1 etc, the distance is:
+sqrt( (s(p1, b1)-s(p2,b1))^2 + (s(p1, b2)-s(p2,b2))^2 + ...). 
+ 
+Then, we need to find the closest person. That's the one with the lowest 
+distance to the one we're recommending for.
+ 
+And then, find the highest new rating of the closest person. Easy as pie!
+  
+(And yeah, I know, I know. Plenty of stuff to improve here. But think big! Think 
+MVP!)

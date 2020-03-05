@@ -1,0 +1,39 @@
+# file paths are taken relative to this file.
+name: MoJServerBug
+display-name: MoJ Server Bug 
+author:
+  name: Arjan Lamers (and Bas Passon...)
+  company: First8
+  website: https://www.first8.nl
+
+difficulty: 3
+java-version: 10
+duration: PT10M
+submit-timeout: PT05S
+test-timeout: PT05S
+
+scoring-rules:
+  maximum-resubmits: 2
+  resubmit-penalty: 50%
+  success-bonus: 100
+  test-penalty: 0%
+
+assignment-files:
+  assignment: assets/assignment.txt
+  sources:
+    base: src/main/java
+    editable:
+    - JavaVersionSelector.java
+    readonly:
+    - Environment.java
+    - JavaVersion.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestTrivialCase.java
+    hidden-tests:
+    - TestBasLaptop.java
+    - TestArjansLaptop.java
+  solution:
+  - assets/JavaVersionSelector.java
+    

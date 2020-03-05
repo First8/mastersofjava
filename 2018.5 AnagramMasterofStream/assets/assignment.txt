@@ -1,0 +1,32 @@
+
+An anagram is a word or phrase formed by rearranging the letters of a
+ different word or phrase, typically using all the original letters exactly
+once.[1] For example, the word anagram can be rearranged into "naga ram". The
+original word or phrase is known as the subject of the anagram. Any word or
+phrase that exactly reproduces the letters in another order is an anagram.
+Someone who creates anagrams may be called an "anagrammatist",[2] and the
+goal of a serious or skilled anagrammatist is to produce anagrams that
+reflect or comment on their subject.
+
+(Source: https://en.wikipedia.org/wiki/Anagram)
+
+Since this is Masters of Java, and "Master" is an anagram of "stream", we'll
+build an anagram checker with... streams! Since you only have half an hour, 
+we've already built the stream for you. Simply complete the supplier, 
+accumulator and combiner in the Helper class, and you're done!
+
+Guck Lood!
+
+For this Checker, an anagram is defined with the following constraints:
+
+* Whitespaces are ignored. Given a subject 'adultery' the possibility 
+'true lady' returns true. 
+
+* Casing is ignored. Given a subject 'Adultery' the possibility 'true lady' 
+returns true. 
+
+* The count for a single character must match exactly. Given a subject 
+'absolves', the possibility 'absolve' returns false 
+
+* All characters must be used exactly once. Given a subject 'aardvarks' the 
+possibility 'radars' returns false.

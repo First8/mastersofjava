@@ -1,0 +1,20 @@
+
+In number theory, two integers A and B are said to be coprime if the only 
+positive integer that evenly divides both of them is 1,
+so the integers have no common denominator greater than 1 and completely build 
+different. So, 4 and 9 are coprime, since 4 divides by 1,2 and 4; 9 divides by 
+1, 3 and 9. And they only share 1 as a divider. So they are coprime.
+
+For a given number m, find all the coprimes lower than m. Then sum them up 
+modulo 201201 and output that number. 
+
+To make things easy (easier?), you can assume that 'm' is limited between 1 and 
+70201. We've already provided a 'Primes' helper class for you if you fancy doing
+stuff with primes.
+
+Some examples:
+
+execute(5) = 9 (4+3+2, not 1)
+execute(6) = 5 (only 5)
+execute(7) = 20 (6+5+4+3+2, not 1)
+execute(8) = 15 (3+5+7)
