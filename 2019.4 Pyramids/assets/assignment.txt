@@ -1,0 +1,30 @@
+(from Wikipedia:) The Egyptian pyramids are ancient pyramid-shaped masonry 
+structures located in Egypt. Most were built as tombs for the country's pharaohs 
+and their consorts during the Old and Middle Kingdom periods.
+
+The earliest known Egyptian pyramids are found at Saqqara, northwest of Memphis.
+The most famous Egyptian pyramids are those found at Giza, on the outskirts of 
+Cairo. Several of the Giza pyramids are counted among the largest structures 
+ever built. The Pyramid of Khufu at Giza is the largest Egyptian pyramid. 
+It is the only one of the Seven Wonders of the Ancient World still in existence.
+
+
+All that has not really something to do with this assignment. We're going to
+look at number pyramids:
+
+  7
+ 6 5
+3 8 1
+
+You can navigate this pyramid by starting at the top (7) and then choosing to go
+left or right (6 or 5). If you choose 6, then you can choose again to go left or
+right (3 or 8). If you add up all these numbers (7 + 6 + 8) you get 21, and that 
+is the maximum number you can get in this pyramid.
+
+You assignment is: given a pyramid, return the maximum number for that pyramid.
+
+Your input will by a 2-dimensional array containing the pyramid. For the example
+above, pyramid[0][0] = 7 and pyramid[2][1] = 8.
+
+There's just one catch: make sure your solution is fast. You need to be able to 
+solve BIG pyramids fast as well. For that, think a bit eh down-side-up?  

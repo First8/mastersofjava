@@ -1,0 +1,33 @@
+Long gone are the times when we could get away with console applications. 
+Everything is graphical these days. But our Masters of Java software is still a
+bit primitive, console support only.. (And, no, still no autocomplete...)
+So let's add some "graphical" support by doing some line drawing.
+
+You are given two coordinates (x0,y0) - (x1,y1), and you need to fill a 
+boolean[x][y] array that represents the line drawn (with true being a pixel 
+drawn, and false the pixel being empty.)
+ 
+We'll use Bresenham's algorithm for that. It works as follows.
+
+Assume that you are drawing a horizontal line from x0 to x1. (You can assume 
+that x0 <= x1, the code for that has been given.) If the line is not perfectly 
+horizontal, you would need to correct the y coordinate for each step between x0 
+to x1. We need to keep an error value for that, that indicates when we need to 
+change the Y value. To know when to change, we need to calculate a deltaError 
+value:
+
+	float deltaX = x1 - x0;
+	float deltaY = y1 - y0;
+	float deltaError = Math.abs(deltaY / deltaX);
+
+Now, loop from x0 to x1. Plot the pixel by setting: 
+    plot[x][y]=true.
+    
+Increase your error by deltaError. And, if it is >= 0.5, you need to:
+- change y with +1 or -1, depending on the line you are drawing
+- decrease the error you've build up by 1
+
+
+Note that this'll work if deltaX>deltaY since the line is then mostly 
+horizontal. If the line is mostly vertical, do the same thing, but then orient
+your loop around y instead of x.   

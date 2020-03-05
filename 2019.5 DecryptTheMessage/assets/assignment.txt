@@ -1,0 +1,67 @@
+As luck has it, you have intercepted an message between the developers
+of the Masters of Java competition. You now have the rare opportunity to get a 
+preview of next year's assignments! What else do you need to become the next 
+Mast of Java?! 
+
+The message reads:
+ 
+mqa7u7Dl6YDpr6a7rqa96b2m6ai9vaiqoem9oazpqLq6oK6npKynvbrn6Z6gpaXpuqynrem9oayk6aessb3pvqysouc=
+
+So, it looks like it is encrypted. But, since you are a master of Java, you'll 
+be able to encrypt this in less than 30 minutes, right? The encryption used 
+seems to be a simple single-byte XOR. That seems doable. We have a step-by-step 
+plan for you but remember: the Java SDK is quite big, so you may be able to
+find some shortcuts there. 
+
+Basically, it boils down to 4 steps:
+1) first, it looks like the message is base64 encoded. So write a decoder to get
+  the original encrypted bytes.
+2) next, write a function xor() that can, well, xor two equal sized byte arrays 
+  together
+3) now, write a function encrypt() that takes a single byte. Use the fill() 
+  function to create an equal sized array and encrypt the input. Note that 
+  you can also use this encrypt() function to decrypt()!
+4) finally, try out all bytes to see which leads to a readable text. There's a 
+  score() function provided that can help you determine if it is English, or 
+  garbage. You can assume the original message was in the character set "UTF-8".
+  
+  
+A bit more details if you are not familiar with all this stuff:
+
+Base64 encoding uses simple characters to transform a binary message into safe
+text that can easily be transported.
+Each character stands for 6 bits as in the table below. So, an 'A' character 
+actually means 000000 (0 in decimals) and the 'u' is 101110 (46 in decimals).
+If you group three characters together, you get 24 bits which is 3 bytes. And 
+those three bytes are the actual bytes before it was encoded. If there are some
+trailing equal signs ('='), that means that the message was actually a bit 
+shorter. If there's one '=', the last group contains only one byte. If there's 
+two equal signs ('=='), the last group contains two bytes.   
+
+
+0	A	16	Q	32	g	48	w
+1	B	17	R	33	h	49	x
+2	C	18	S	34	i	50	y
+3	D	19	T	35	j	51	z
+4	E	20	U	36	k	52	0
+5	F	21	V	37	l	53	1
+6	G	22	W	38	m	54	2
+7	H	23	X	39	n	55	3
+8	I	24	Y	40	o	56	4
+9	J	25	Z	41	p	57	5
+10	K	26	a	42	q	58	6
+11	L	27	b	43	r	59	7
+12	M	28	c	44	s	60	8
+13	N	29	d	45	t	61	9
+14	O	30	e	46	u	62	+
+15	P	31	f	47	v	63	/  
+    
+And if you don't know what XOR is, it stands for exclusive-OR.
+XOR is a bitwise operator that tells you if two bits are different. If the bits
+on which it operates are different, it outputs a 1, if they are the same, it 
+outputs a 0.
+
+For example, a bit string "0000" with "1010" would become "0101".
+In Java, you can use the ^ operator on, for example two byte primitives.
+    
+    

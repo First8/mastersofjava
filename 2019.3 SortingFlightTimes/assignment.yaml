@@ -1,0 +1,47 @@
+# file paths are taken relative to this file.
+name: FlightEventSorting
+display-name: Sorting flight times 
+author:
+  name: Tijmen van Wettum
+  company: First8
+  website: https://first8.nl
+
+labels:
+- time and dates
+- comparing
+- streams
+
+difficulty: 2
+java-version: 11
+duration: PT30M
+submit-timeout: PT10S
+test-timeout: PT10S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+
+  
+assignment-files:
+  assignment: assets/assignment.txt
+  sources:
+    base: src/main/java
+    editable:
+    - FlightSorter.java 
+    readonly:
+    - Airport.java
+    - Flight.java
+    - AirportRepository.java        
+  test-sources:
+    base: src/test/java
+    tests:    
+    - TestComplex.java
+    - TestSorting.java
+    - TestFormatting.java
+    hidden-tests:
+    - HiddenTests.java
+  solution:
+  - assets/FlightSorterSolution.java
+  

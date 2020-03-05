@@ -1,0 +1,42 @@
+Every software developer dreams of doing large complex projects with dates and 
+times, these dreams often come in the form of a nightmare. Without even setting 
+a step abroad we already have to handle daylight saving times(DST) and leap 
+years. Suddenly simple assumptions such as “a day has 24 hours” fall apart. And 
+when you start implementing DST in your product you will learn that it starts 
+and ends on different dates every year! Next up your CEO decides to ship the 
+product internationally. Another headache appears, not all countries have DST 
+(day light saving time), and those that do have DST start and end on different 
+dates again. And as a cherry on top, some countries might suddenly change their 
+DST-plans (e.g. Turkey in 2018 decided to permanently stay in DST instead of 
+reverting back). Beside that, going international also means time zones, which 
+is another source of headache. So you can see that working with dates and times 
+is painful, complex and labor intense.
+
+Luckily since Java1.8 we gained a large toolset to correctly handle dates and 
+times across borders and time zones, which is going to be very useful in this 
+assignment.
+
+One place where the complexity of DST and time zones becomes very visible is 
+with international flights. In this assignment you will order a series of 
+international flights on flight duration. 
+
+The method will receive a list of flights. Calculate the flight times of these 
+flights and return them in an ordered list with formatted strings. The order of 
+this list should be the flight times from short to long, and, in case of a tie, 
+ordered by flight-number. Note that you can look up the time zone of the airport
+in the AirportRepository.
+
+The format of the string is as follows:
+[FlightNumber] [OriginShortName]->[DestinationShortName] [Hours]:[Minutes]h
+
+Hours and minutes should be left-padded with a 0 if they are smaller than 10 
+(there are no flights of 100+ hours). 
+
+Flight Numbers are max. 6 characters, shorter flight numbers should be appended 
+with spaces until they are 6 long. This way, when printing everything to the 
+console, it will all be nicely lined out.
+
+Example output:
+Q      KIX->AMS 01:22h
+123456 AMS->KIX 11:42h
+GA89   AMS->CGK 13:40h

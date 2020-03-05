@@ -1,0 +1,44 @@
+# file paths are taken relative to this file.
+name: Decrypt
+display-name: Decrypt the message 
+author:
+  name: Arjan Lamers (inspired by http://cryptopals.com)
+  company: First8
+  website: https://first8.nl
+
+labels:
+- label1
+- label2
+
+difficulty: 3
+java-version: 10
+duration: PT30M
+submit-timeout: PT60S
+test-timeout: PT60S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+  
+assignment-files:
+  assignment: assets/assignment.txt
+  sources:
+    base: src/main/java
+    editable:
+    - Decrypt.java
+    readonly:
+    - Words.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestStep1Base64.java
+    - TestStep2Xor.java
+    - TestStep3Encrypt.java
+    - TestStep4Decrypt.java
+    hidden-tests:
+    - HiddenTests.java
+  solution:
+  - assets/DecryptSolution.java
+  

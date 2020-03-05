@@ -1,0 +1,56 @@
+# file paths are taken relative to this file.
+name: Pyramids
+display-name: Pyramids
+author:
+  name: Arjan Lamers 
+  company: First8
+  website: https://first8.nl
+
+labels:
+- label1
+- label2
+
+difficulty: 3
+java-version: 10
+duration: PT30M
+submit-timeout: PT30S
+test-timeout: PT30S
+execution-model: SEQUENTIAL
+
+scoring-rules:
+  maximum-resubmits: 2
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+
+assignment-files:
+  assignment: assets/assignment.txt
+  sources:
+    base: src/main/java
+    editable:
+    - Solver.java
+    readonly:
+    - Util.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestBig.java
+    - TestSmall.java
+  hidden-tests:
+    - HiddenTests.java
+  test-resources:
+    base: src/test/resources
+    files:
+    - pyramid0.dat	
+    - pyramid1.dat	
+    - pyramid2.dat	
+    - pyramid3.dat
+    - pyramid4.dat	
+    - pyramid5.dat  
+    hidden-files:
+    - pyramid37.dat	
+    - pyramid38.dat	
+    - pyramid39.dat	
+  solution:
+  - assets/SolverSolution.java
+  

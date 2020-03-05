@@ -1,0 +1,44 @@
+# file paths are taken relative to this file.
+name: Linedrawing
+display-name: Draw lines using Bresenham's algorithm 
+author:
+  name: Arjan Lamers 
+  company: First8
+  website: https://first8.nl
+
+labels:
+- label1
+- label2
+
+difficulty: 3
+java-version: 10
+duration: PT30M
+submit-timeout: PT10S
+test-timeout: PT10S
+
+scoring-rules:
+  maximum-resubmits: 1
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+  
+assignment-files:
+  assignment: assets/assignment.txt
+  sources:
+    base: src/main/java
+    editable:
+    - Draw.java
+    readonly:
+    - Print.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestTrivial.java
+    - TestHorizontal.java
+    - TestVertical.java
+    - TestDiagonal.java
+    hidden-tests:
+    - TestHidden.java
+  solution:
+  - assets/DrawSolution.java
+    

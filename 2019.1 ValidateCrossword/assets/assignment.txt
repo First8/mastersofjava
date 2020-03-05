@@ -1,0 +1,36 @@
+Do you like solving crossword puzzles? We do! And we've solved a few already for
+you! Can you check if they are valid solutions?
+
+You are given a list of Clue's. Those contain:
+- the clue
+- the word that's the solution to the clue
+- its coordinates 
+- whether or not it is horizontal (or vertical).
+
+So a clue could be: 'A programming language' with an answer 'Java'. And it is 
+placed at coordinates (0,0, horizontal). Another clue may be 'to make an 
+assumption' with as answer 'assert', placed at (0,1,vertically). These form a 
+valid crossword puzzle since there are no two different characters in a cell:
+
+
+[java]
+[ s  ]
+[ s  ]
+[ e  ]
+[ r  ]
+[ t  ]
+ 
+
+Note: to keep things simple in this first assignment, we are not interested in 
+adjacency checks. So, in this exercise, the following solutions are considered 
+valid:
+
+"Valid" puzzles:
+
+[javaassert]
+ - note that we do not validate if there is an empty cell between the words
+
+[java  ]
+[assert]
+- note that we do not validate if [ja], [as], [vs], [ae] are actually words 
+
