@@ -1,0 +1,43 @@
+# file paths are taken relative to this file.
+name: Birthdays
+display-name: Family Birthdays 
+author:
+  name: Ted Vinke / Bram Vonk
+  company: First8
+  website: https://first8.nl
+
+labels:
+- label1
+- label2
+
+difficulty: 3
+java-version: 10
+duration: PT30M
+submit-timeout: PT05S
+test-timeout: PT05S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+
+assignment-files:
+  assignment: assets/assignment.txt
+  sources:
+    base: src/main/java
+    editable:
+    - Family.java
+    readonly:
+    - Person.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestSimple.java
+    - TestBeginEndYear.java
+    - TestBigNumbers.java
+    - TestMultipleOnOneDay.java
+    hidden-tests:
+    - TestHidden.java
+  solution:
+  - assets/Family.java  

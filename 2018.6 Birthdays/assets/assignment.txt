@@ -1,0 +1,16 @@
+Software development is serious business. We as Developers are lined up to solve
+the worlds biggest problems, ranging from space exploration to medical research.
+
+Today we are going to solve one such issue. You probably all know that nagging 
+feeling when you approach your birthday, especially if it is a Big One, such as
+your 20th, 30rd or 40th birthday. Wouldn't it be nice to share the pain a bit 
+with your friends or family? Let's celebrate a joint 100th birthday!
+
+Your task is to determine the date when a group of people (your Family) has 
+reached a combined given age. More specifically, the first date where all the 
+ages of persons added up are at least the target age.
+
+Oh, and please be a bit efficient in solving it; our unit tests may time out 
+otherwise causing a failure...
+
+Enjoy and potentially win a nobel price solving this age old problem!
