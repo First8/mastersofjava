@@ -7,9 +7,7 @@ Voor meer info, zie de officiële pagina van [Masters of Java](http://www.nljug.
 
 ## Inhoud
 
-Deze repository bevat alle opgaven van 2017 en de bijbehorende oplossingen. Deze zijn geformatteerd voor de server versie van 2017. 
-In de branch 2018-layout zitten dezelfde (en meer) opgaven die geherformatteerd zijn voor de 2018 versie van de server.
-
+Deze repository bevat alle opgaven van de afgelopen jaren. Deze zijn geformatteerd voor de server versie vanaf 2017. 
 
 ## Indeling
 
