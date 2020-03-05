@@ -1,0 +1,35 @@
+# file paths are taken relative to this file.
+name: virtual-cpu
+display-name: Virtual CPU
+author:
+  name: Mark
+  company: First8
+  website: https://first8.nl
+
+difficulty: 3
+java-version: 10
+duration: PT30M
+submit-timeout: PT60S
+test-timeout: PT60S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+
+
+assignment-files:
+  assignment: assets/assignment.txt
+  sources:
+    base: src/main/java
+    editable:
+    - VirtualCPU.java
+    readonly:
+    - CPUState.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestVirtualCPU.java
+  solution:
+  - assets/VirtualCPUCaseSolution.java
