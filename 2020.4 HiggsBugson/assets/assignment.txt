@@ -1,0 +1,41 @@
+ 
+WARNING: special rules apply!
+  
+In computer programming jargon, a heisenbug is a software bug that seems to
+disappear or alter its behavior when one attempts to study it.[1] The term is
+a pun on the name of Werner Heisenberg, the physicist who first asserted the
+observer effect of quantum mechanics, which states that the act of observing
+a system inevitably alters its state. In electronics the traditional term is
+probe effect, where attaching a test probe to a device changes its behavior.
+  
+A higgs-bugson (named for the Higgs boson particle) is a bug that is
+predicted to exist based upon other observed conditions (most commonly,
+vaguely related log entries and anecdotal user reports) but is difficult, if
+not impossible, to artificially reproduce in a development or test
+environment. May also be used to reference a bug that is obvious in the code
+(mathematically proven), but which cannot be seen in execution (yet difficult
+or impossible to actually find in existence).
+ 
+The brilliant scientists at the ParticleAccelerator in Nijmegen are good at
+physics, but may be less so at Java. They wrote some code to detect, measure 
+classify particles. When trying to find the elusive Higgs Boson, they encounter
+a bug which is hard to reproduce. Sometimes one of the tests fail, sometimes 
+not. One thing is for sure, if you push this software to production without 
+fixing the bug, bad things will happen. Can you find the obvious bug as a 
+Java Master (or at least OCP credentials...)?
+  
+Two classes are likely candidates; the class Particle or the ParticleAccelerator
+itself, but maybe it is some obscure particle that is causing trouble. 
+You can edit any underlined file. The code is a bit, ehm, 
+academic: for all Particles there are prototypes with the exact values. A 
+Particle is also used during detection, then an UUID is assigned. And when it is 
+classified, a name gets assigned as well. The test validate if some randomly 
+generated detected particles are correctly classified. 
+
+Running a test is expensive and will cost you points, so if you are aiming for 
+maximal points, don't test too much! And, as a true Heisenbug: sometimes all tests
+are green even without having fixed the bug. If you submit, the bug is sure to
+trigger. So make sure you are confident that you found (and fixed!) the bug 
+before submitting and possibly creating a black hole or worse.
+ 
+[1]: https://en.wikipedia.org/wiki/Heisenbug

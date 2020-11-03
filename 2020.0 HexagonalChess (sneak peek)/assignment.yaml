@@ -1,0 +1,46 @@
+name: HexagonalChess
+display-name: Hexagonal Chess
+author:
+  name: Koen Aben
+  company: First8
+  website: https://first8.nl
+
+labels:
+  - Algorithm
+  - Java14 text blocks
+  - Chess Puzzle
+
+difficulty: 2
+java-version: 11
+duration: PT30M
+submit-timeout: PT60S
+test-timeout: PT60S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+
+#-- FACILITATORS-NOTES --
+# - no remarks
+
+#== ASSIGNMENT-FILES ==
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+    - ChessBoards.java
+    readonly:
+    - Demo.java
+    - Piece.java
+    - Rook.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - HexagonalChessUnitTest.java
+    - PieceNavigationTest.java
+    hidden-tests:
+  solution:
+    - assets/ChessBoardsSolution.java

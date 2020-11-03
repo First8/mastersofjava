@@ -1,0 +1,47 @@
+## Fix the radio!
+
+<i>I used to think that all radios had antennae, then I realised this was a stereo type.</i>
+
+<i>Saw a radio for sale for £5, with a broken volume control. I couldn’t turn it down. ;-)</i>
+
+## Introduction
+Software Defined Radio is a very interesting technique! Using a simple antenna 
+at home you can program a computer to listen to radio waves. Using tools like 
+https://www.gnuradio.org/ you can tune, filter, demodulate and do all kinds of 
+fancy stuff with complex numbers. At the end of it, you'll end up with a stream 
+of bits that may or may not be relevant. In this assignment you need to fix a 
+radio implementation, listening to a complex bit stream and parse out the 
+messages.
+
+## Step 1: build the Biphase decoder
+Each bit is actually encoded with two bits using "biphase encoding". Biphase
+encoding means that we use 2 bits for each bit that we want to send.
+We send the same two bits if we want to encode a '0', and two different bits if 
+we want to encode a '1'. If the previous chunk ended with a '0', we start the 
+next chunk with a '1'. This way, we never have more that two 0's or 1's in a row 
+and the output is nicely balanced.
+The biphase encoded input bits are represented one bit per byte (0 or 1) and the 
+decoded output should also be returned one bit per byte.
+
+
+## Step 2: make the listener store only the valid messages
+The inputstream from the radio contains lots of noise. Do not assume that you 
+can hold the entire stream in memory... Just store the valid messages. If you 
+encounter a message, add it to the internal message queue. 
+
+Each bit from the input is stored in a byte, so the inputstream should countain 
+only bytes with value 0 or 1. Assume that, apart from the occasional noise, a 
+message always starts with a '1'. 
+
+Each message is two bytes long (a header and a payload). That is thus 16 
+bits, so 32 bits in biphase encoding. Each message starts with a header of 1 
+byte: "1111 1111". So in biphase encoding that would be "1010 1010 1010 1010". 
+You can assume that if you encounter a full header, the payload immediately 
+follows.
+
+
+Scoring: you will get 100 points for the biphase decoder (but you will have to 
+submit on time!) plus a few bonus points for how quickly you got that test to 
+work. For completing the full assignment you get 300 additional points and 1 
+point for each second left on the clock.
+

@@ -1,0 +1,70 @@
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class VillageRepository {
+    public static List<House> loadHouseLocationsInNouvion()  {
+        return House.createHouseList("""
+                A 3 8
+                B 5 6
+                C 5 12
+                D 6 3
+                E 6 10
+                F 7 7
+                G 8 10
+                H 9 2
+                I 9 14
+                J 10 5
+                K 11 7
+                L 11 9
+                M 12 12
+                """);
+    }
+
+    public static List<House> loadHouseLocationsInCastleNearbyNouvion() {
+        return House.createHouseList("""
+                A 21 3
+                B 21 2
+                C 22 1
+                D 23 1
+                E 24 2
+                F 24 3
+                G 23 4
+                H 22 4
+                I 22 2
+                J 23 2
+                K 22 3
+                L 23 3
+                """);
+    }
+
+    public static List<House> loadWholeAreaIndicationOfParis() {
+        return Stream.of(Direction.SOUTH.name(), Direction.WEST.name(), Direction.NORTH.name(), Direction.EAST.name())
+                .map(VillageRepository::getCoordinateSurParisAvecDirection)
+                .collect(Collectors.toList());
+    }
+
+    private static House getCoordinateSurParisAvecDirection(String directionToken) {
+        return switch (directionToken) {
+            case "NORTH", "n"      -> new House("n", 600, 100);
+            case "SOUTH", "s"      -> new House("s", 100, 600);
+            case "WEST", "w"      -> new House("w", 100, 100);
+            case "EAST", "e"      -> new House("e", 600, 600);
+            default -> throw new IllegalStateException("Unexpected value");
+        };
+    }
+
+    public enum Direction {
+        NORTH('n'), SOUTH('s'), WEST('w'), EAST('e');
+
+        private char character;
+
+        private Direction(char ch) {
+            this.character = ch;
+        }
+
+        public char getCharacter() {
+            return character;
+        }
+    }
+}

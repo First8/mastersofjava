@@ -1,0 +1,64 @@
+# file paths are taken relative to this file.
+name: HiggsBugson
+display-name: Finding the HiggsBugson 
+author:
+  name: Arjan Lamers
+  company: First8
+  website: https://first8.nl
+
+labels:
+- all_visible_tests_green
+- one_hidden_test
+
+difficulty: 3
+java-version: 10
+duration: PT30M
+submit-timeout: PT60S
+test-timeout: PT60S
+
+scoring-rules:
+  maximum-resubmits: 2
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 20%
+
+  
+assignment-files:
+  assignment: assets/assignment.txt
+  sources:
+    base: src/main/java
+    editable:
+    - Photon.java
+    - ClassifiedParticle.java
+    - ParticleAccelerator.java
+    - Type.java
+    - UnknownParticle.java
+    - Particle.java
+    - Tau.java
+    - TauNeutrino.java
+    - Gluon.java
+    - Top.java
+    - MuonNeutrino.java
+    - Up.java
+    - Bottom.java
+    - Electron.java
+    - Muon.java
+    - ElectronNeutrino.java
+    readonly:
+    - Strange.java
+    - Charm.java
+    - ZBoson.java
+    - WBoson.java
+    - Down.java
+    - TestUtil.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestSpecificParticles.java
+    - TestClassify.java
+    - TestDetection.java
+    hidden-tests:
+    - HiddenTests.java
+  solution:
+  - assets/ParticleSolution.java
+  

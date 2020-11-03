@@ -1,0 +1,52 @@
+
+All programming tutorials start with a simple printing of "Hello world!". You,
+as an expert Java developer are way more advanced than that. That's why we are 
+going Next Level on this assignment. Instead of _printing_ characters, we are
+going to count unique characters in a string!
+
+The assignment is simple: count the unique characters in the given string. 
+
+Think that is easy in Java? Think again!
+
+## ASCII
+This exercise starts off simple, do like the Americans and assume there are only 
+ascii characters in the string. 
+
+## Early Unicode
+This was fine until about the 1980's when Americans discovered that
+the world is larger than the USA. So, to have you succeed the second set of tests,
+you have to count _code points_. A code point is basically a pointer to some
+_glyph_. A code point is encoded in some bits using an encoding (UCS-4, UTF-8, ...).
+Each code point refers to a _glyph_ or character (for a very loose definition of
+a character) which can be drawn on a screen using some font.
+Java has support for this so be sure to look up the Javadoc.
+
+## Modern Unicode
+The Japanese are responsible for the bump in unicode from 12.0 to 12.1. On april 
+21st, 2019 they announced the name of the new era: "Reiwa". And of course they 
+introduced a new character for that (codepoint U+32FF) which is the single 
+codepoint added in 12.1. Japan is also the origin for Emoji's (絵文字えもじ). 
+To allow for a wide range of emoji's, Unicode uses a special character: the zero
+width joiner (zwidge). This character allows you to combine two code points so that 
+their glyphs are connected. But of course this non-printing character can also
+be used to combine a [flag] with a [rainbow] to create a rainbow flag. Or to
+change the skin color of a figure. There are also code points that select a 
+specific variant of an emoji. So, for the final part of this assignment:
+- all code points that are joined with a zwidge (‍U+200D) should be counted as one 
+character
+- all code points that select a variant (UnicodeBlock.VARIATION_SELECTORS) should
+be counted together with the previous character.
+
+Easy peasy huh?
+
+Note: Most browsers that we've tested in don't render the zwidge properly. Take 
+a look at the TestModernUnicode.java. If you see a pirate flag in the 
+strings-under-test, cool! Otherwise, you may see a black flag, red dot and then
+a skull. Which is incorrect but for you as a developer, understandable? 
+
+Scoring: you will get 50 points for being a proper American, and 100 points for
+handling basic unicode properly. You also get some minimal points based on how
+fast you got those test to work. To get these points, be sure to submit on time!
+For completing the full assignment you get 200 additional points and 1 point for 
+each second left on the clock. 
+

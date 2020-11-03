@@ -1,0 +1,55 @@
+No. of Fence
+
+Ring, ring! "Allo allo, it is I, Rene Artois, your well-known French bartender 
+on the phone. I will explain it only once!"
+
+A contagious love virus has broken out in the small village of Nouvion in 1942, 
+making so many women adore Rene! What if Edith Artois will find out? Lets act 
+fast and help: isolate Nouvion with fences and ensure the virus will fade away!
+
+So, you will facilitate Nouvion with fences for isolation. Let's deliver these 
+fences with minimal costs.
+
+Complete the algorithms in our code repository. You have multiple maps, 
+containing houses that should be inside the new fences.
+- Buildings are defined with X-Y coordinates and a simple anonymized unique 
+  house identifier. Sorry for the french dialect in the code.
+
+The fences for each village must meet the following criteria:
+1. a resident lives on 1 coordinate and all houses must be inside or on the wall 
+   after the construction of the wall
+2. all residents must be able to travel to each other without having to go 
+   through / over the wall, so there is only 1 wall
+3. the wall should be as short as possible
+
+Imagine 'wrapping' the fence around all houses by pulling it counterclockwise, 
+starting from the left-most house, which house would you encounter first? And 
+which is next?
+
+Step 1: Find the left-most house in the list
+Step 2: Create the isMoreCounterClockWise() function to figure out which of two 
+        houses is the most "counterclock wise". 
+Step 3: Figure out the most counterclock-wise house to add to the fence, and 
+        loop until you are back to the left-most house.
+
+So how do you figure out which house is the most counterclockwise? 
+
+Imagine a line going from your original house (a) to your candidate house (b), 
+to your best candidate house so far (c). If that line bends clockwise, that 
+means that you encounter c before b, when wrapping counter clockwise.
+If you calculate the vector product 
+v = ((b.x - a.x) * (c.y - a.y)) - ((b.y - a.y) * (c.x - a.x))
+then:
+- the line is colinear (straight) if v=0
+- the line bends clockwise if v>1
+- the line bends counterclockwise if v<1
+
+
+Note: There are no cases where there's a straight line over three houses in the 
+final fence that we test for. Imagine three houses a,b and c at the same top 
+column. Then, the fence could run straight from a to c, or from a via b to c. 
+Both are fine, we don't test for this case. 
+
+Note2: The unit tests helpfully print out the village. There may be some 
+superfluous E's and .'s on the lines above and below the printed map. Those are
+JUnit output and you should ignore them. 

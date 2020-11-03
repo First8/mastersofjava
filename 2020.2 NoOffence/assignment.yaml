@@ -1,0 +1,54 @@
+# file paths are taken relative to this file.
+name: NoOffence
+display-name: No Of Fence
+author:
+  name: Maarten Abbring en Koen Aben
+  company: First8
+  website: https://first8.nl
+
+labels:
+- convexhull-algorithm
+- Thema Allo Allo
+- Optioneel Java14 textblocks
+- Optioneel Java14 switch expressions
+- Optioneel Java14 records
+
+difficulty: 3
+java-version: 11
+duration: PT30M
+submit-timeout: PT60S
+test-timeout: PT60S
+
+scoring-rules:
+  maximum-resubmits: 2
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+
+  
+assignment-files:
+  assignment: assets/assignment.txt
+  sources:
+    base: src/main/java
+    editable:
+    - FenceGenerator.java
+    readonly:
+    - House.java
+    - VillageRepository.java
+    - City.java
+    - FenceUtil.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - IsMoreCounterClockwiseTest.java
+    - LeftMostHouseTest.java
+    - FenceGeneratorTest.java
+    hidden-tests:
+    - HiddenTestFence.java
+  test-resources:
+    base: src/test/resources
+    hidden-files:
+      - address_list_with_15_houses.txt
+  solution:
+  - assets/FenceGeneratorSolution.java
+

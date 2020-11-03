@@ -1,0 +1,47 @@
+# file paths are taken relative to this file.
+name: CountingUnicode
+display-name: Counting Unicode
+author:
+  name: Arjan Lamers
+  company: First8
+  website: https://first8.nl
+
+labels:
+- Unicode in Java code
+- IO Inputstreams
+- testAscii_100
+- testEarlyUnicode_100
+
+difficulty: 2
+java-version: 11
+duration: PT30M
+submit-timeout: PT60S
+test-timeout: PT60S
+
+scoring-rules:
+  maximum-resubmits: 2
+  resubmit-penalty: 50%
+  success-bonus: 200
+  test-penalty: 0%
+  
+assignment-files:
+  assignment: assets/assignment.txt
+  sources:
+    base: src/main/java
+    editable:
+    - CountingUnicode.java    
+    readonly:
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestAscii.java
+    - TestEarlyUnicode.java
+    - TestModernUnicode.java
+    hidden-tests:
+    - HiddenTests.java
+  solution:
+    - assets/CountingUnicodeSolution.java
+  
+## NB. This assignment uses UTF8 image characters in the Java code.
+## The 2019 release of the MoJ runtime does not support this.
+## UTF8 image characters will be in the 2020 release, please check beforehand.
