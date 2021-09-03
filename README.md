@@ -5,10 +5,11 @@ kent het officieuze NK programmeren niet? Al enkele jaren strijden de beste Java
 
 Voor meer info, zie de officiële pagina van [Masters of Java](http://www.nljug.org/moj/2017/).
 
+
 ## Inhoud
 
-Deze repository bevat alle opgaven van de afgelopen jaren. Deze zijn geformatteerd voor de server versie vanaf 2017. In de folder "not converted" staan opdrachten die (nog) niet 
-geconverteerd zijn en dus alleen met de oude server software werken.
+Deze repository bevat alle opgaven van de afgelopen jaren. Deze zijn geformatteerd voor de server versie vanaf 2017. In de folder "not converted" staan opdrachten die (nog) niet geconverteerd zijn en dus alleen met de oude server software werken.
+De server software is open source en is te vinden op [https://github.com/mastersofjava/mastersofjava](https://github.com/mastersofjava/mastersofjava).
 
 ## Indeling
 
