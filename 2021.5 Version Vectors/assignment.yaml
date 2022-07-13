@@ -1,0 +1,46 @@
+# file paths are taken relative to this file.
+name: VersionVectors
+display-name: Version Vectors
+author:
+  name: Arjan Lamers (based on https://martinfowler.com/articles/patterns-of-distributed-systems/version-vector.html)
+  company: First8
+  website: https://first8.nl
+
+labels:
+- distributed systems
+- bug hunt
+
+difficulty: 5
+java-version: 11
+duration: PT30M
+submit-timeout: PT30S
+test-timeout: PT30S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+  
+assignment-files:
+  assignment: assets/assignment.txt
+  sources:
+    base: src/main/java
+    editable:
+    - Client.java
+    - VersionVector.java    
+    readonly:
+    - DistributedMapNode.java    
+    - VersionedValue.java    
+    - ObsoleteVersionException.java    
+    - Ordering.java    
+  test-sources:
+    base: src/test/java
+    tests:
+    - TrivialUpdateTest.java
+    - FailureWithoutConflict.java
+    - FailureWithConflict.java
+    hidden-tests:
+  solution:
+    - assets/VersionVectorSolution.java
+  

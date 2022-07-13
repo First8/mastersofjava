@@ -1,0 +1,54 @@
+# file paths are taken relative to this file.
+name: connectedcomponents
+display-name: Counting Blobs
+author:
+  name: Arjan Lamers
+  company: First8
+  website: https://first8.nl
+
+labels:
+- algorithm
+- build
+
+difficulty: 2
+java-version: 11
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+  
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+    - AreaCounter.java
+    readonly:
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestEmpty.java
+    - TestFull.java
+    - TestCount.java
+    hidden-tests:
+    - TestHidden.java
+  test-resources:
+    base: src/test/resources
+    files:
+    - image1.txt  
+    - image2.txt  
+    - image3.txt  
+    - image4.txt  
+    - image5.txt  
+    - image6.txt  
+    hidden-files:
+    - hiddentest1.txt  
+    - hiddentest2.txt  
+  solution:
+  - assets/AreaCounterSolution.java
+  

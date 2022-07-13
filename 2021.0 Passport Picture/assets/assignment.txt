@@ -1,0 +1,16 @@
+
+For a new pet project, Kevin Mitnick has developed a streaming cloud solution 
+that he plans to sell as a SaaS. This software-as-a-service project allows you 
+to upload your passport photo and the service automatically generates your own 
+passport and drivers license, depending on the type of a service you subscribed 
+to.
+
+All the nuts and bolts are there, but one of the most important parts, scaling 
+of the picture is still missing. Therefore, the service generates IDs with 
+invalid picture sizes. Conform the regulations of the US government, the 
+pictures need to be scaled "smooth"ly on a white background color.
+
+Can you, our Java Master, help him out with this ancient part of the Java API?
+
+The tests output images as ascii art. If it looks a bit weird, maybe zoom in or 
+out so that it displays better. 

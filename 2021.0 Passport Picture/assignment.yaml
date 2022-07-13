@@ -1,0 +1,46 @@
+# file paths are taken relative to this file.
+name: PassportPicture
+display-name: Passport Picture 
+author:
+  name: Arjan Lamers
+  company: First8
+  website: https://first8.nl
+
+labels:
+- java_desktop
+
+difficulty: 3
+java-version: 10
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+
+assignment-files:
+  assignment: assets/assignment.txt
+  sources:
+    base: src/main/java
+    editable:
+    - ImageUtil.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestLandscapeLogo.java
+    - TestSquareLogo.java
+    hidden-tests:
+    - TestHidden.java
+  test-resources:
+    base: src/test/resources
+    hidden-files:
+    - first8-logo.png  
+    - nljug.jpg
+    - red-cross-logo.jpg
+  solution:
+  - assets/ImageUtilSolution.java
+  
+## this assignment uses java desktop 2D rendering features. Be aware that this will only work when the java security manager configured when executing the tests.

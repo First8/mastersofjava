@@ -1,0 +1,45 @@
+Ah, distributed systems. Developers trying to make multiple systems agree on 
+something. Anyone familiar with this kind of systems know that networks will 
+fail and thus multiple versions of the truth will occur. Something similar 
+happens with stakeholder management but lets keep things simple for now.
+
+Vector Versions are a way of handling multiple versions and conflict resolution
+in a distributed system. You are given an implementation of a distributed hash 
+map. Only, one test fails. Can you find the bug?
+
+A version vector is a map that contains the latest _known_ version per node, at
+a given node. So, if there are three nodes, red/blue/green, each node keeps 
+track of what version at each node is the latest (as far as that node knows of 
+course). 
+
+In this implementation, the client manages all the communication with the three
+nodes red, green and blue. 
+To update a value, the client picks a primary node and creates a version vector, 
+increasing the version for that primary node. That version vector, with the new 
+value  of course,  is also communicated to all the other nodes. This vector is 
+then checked to see if it is indeed later (newer? greater?) then the vector at 
+the node being updated. If not, the node stores the new update as a concurrent 
+value (to be resolved somehow later), otherwise it can take the new value. So, 
+the core functionality is comparing version vectors to see if an incoming value 
+is EQUAL, BEFORE, AFTER or CONCURRENT.
+
+A version vector {blue=5} means that the blue node was at some 
+point the primary and assigned some value version 5. Version vector 
+{blue=3, green=5} means that blue (when it was a primary) assigned value 3, and
+green assigned version 5. 
+
+Some examples comparing vectors:
+
+{blue=5} BEFORE {blue=6} 
+{blue=4, green=5} AFTER {blue=3, green=5}
+{blue=4, green=5} AFTER {blue=4, green=4}
+{blue=4, green=5, red=3} AFTER {blue=4, green=5}
+{blue=4, green=5} CONCURRENT {blue=3, green=6}
+
+
+There is a problem in the current implementation. It seems that sometimes an 
+update is considered concurrent while it shouldn't be. Anyway, the bug is 
+reproduced by the aptly named
+"FailureWithoutConflict.whyIsRedConflictingInThisTestINeedCoffee" test.
+
+ 

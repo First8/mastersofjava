@@ -1,0 +1,48 @@
+name: HackingWithStackWalker
+display-name: Hacking With StackWalker
+author:
+  name: Koen Aben
+  company: First8
+  website: https://first8.nl
+
+labels:
+  - java.lang.StackWalker
+  - Reflection
+  - Hacking the MoJ server
+
+difficulty: 2
+java-version: 11
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+
+#-- FACILITATORS-NOTES --
+# junit does not have permission to use all methods of the stackwalker:
+# -- access denied ("java.lang.RuntimePermission" "getStackWalkerWithClassReference")' by StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE).getCallerClass()
+# -- enable-preview moet aan zijn (indien je het runt met java).
+
+#== ASSIGNMENT-FILES ==
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+    - RisingStackWalker.java
+    readonly:
+    - Battleship.java
+    - BattleshipGear.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - FlyingAtWarpSpeedUnitTest.java
+    - DemoUnitTest.java
+    hidden-tests:
+    - HiddenTest.java
+  solution:
+    - assets/RisingStackWalkerSolution.java

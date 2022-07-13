@@ -1,0 +1,28 @@
+
+The Christmas days are upcoming and you decide that this is the perfect opportunity to build a project with LEDs.
+Since ordinary LEDs are not cool enough for you as a Java developer, you choose to use programmable LEDs that can
+be individually turned ON an OFF. You decide to build a LED Matrix, for which you are using one long LEDstrip that you
+cut into even smaller pieces to build the matrix. To simplify the physical wiring in the Matrix, you decide to attach
+the pieces in a way such that the data line in the LEDstrip runs in a horizontal zigzag pattern like the example
+displayed below.
+
+0  >  1  >  2  >  3
+                  |
+7  <  6  <  5  <  4
+|
+8  >  9  >  10 > 11
+                  |
+15 <  14 <  13 < 12
+
+The LEDs on the LEDstrip can be individually turned ON or OFF via sending a signal to each specific LED. The data line
+that starts at the first LED and runs all the way to the last LED in the matrix.
+
+Before you can display pictures on the LED Matrix, you have write the software that translates the zigzag pattern to
+the correct output for the boolean[] LEDstring, when given a boolean[][] image.
+
+First implement the xyToled(int x, int y) method that returns the right index of the LEDstrip when given a specific
+(x,y) coordinate for that matrix.
+
+Than implement the getStrip(boolean[][] image) method that returns a boolean[] LEDstrip, when given a boolean[][] image.
+
+Can you make this work and display the Christmas Tree??

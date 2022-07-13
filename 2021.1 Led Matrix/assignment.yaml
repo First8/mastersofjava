@@ -1,0 +1,39 @@
+# file paths are taken relative to this file.
+name: LedMatrix
+display-name: LedMatrix
+author:
+  name: Wouter Blom
+  company: First8
+  website: https://first8.nl
+
+labels:
+- testTranslate_200
+
+difficulty: 2
+java-version: 11
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 200
+  test-penalty: 0%
+
+assignment-files:
+  assignment: assets/assignment.txt
+  sources:
+    base: src/main/java
+    editable:
+    - LedMatrix.java
+    readonly:
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestGetStrip.java
+    - TestTranslate.java
+    hidden-tests:
+    - HiddenTests.java
+  solution:
+    - assets/LedMatrixSolution.java

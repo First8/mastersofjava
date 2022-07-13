@@ -1,0 +1,14 @@
+
+
+public class Battleship {
+    public String switchToWarpSpeed(String warpDescription) {
+        String speed = switch (warpDescription) {
+            case "Warp Factor 1" -> "1x lightspeed";
+            case "Warp Factor 2" -> "10x lightspeed";
+            case "Warp Factor 3" -> "39x lightspeed";
+            case "Warp Factor 4" -> "102x lightspeed";
+            default -> "determined by autopilot";
+        };
+        return speed;
+    }
+}

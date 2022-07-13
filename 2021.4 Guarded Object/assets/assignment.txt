@@ -1,0 +1,25 @@
+Complying with the ISO 27001 Audit
+
+Security is always important when building software. Often, companies want to 
+prove objectively that they take security seriously. That's where ISO 27001 
+comes into place. If your company is certified, the auditor agrees that, each 
+year, your company is improving on the security side. (It says a bit less about 
+the base line security though...)
+
+Your assignment today is about solving a Minor Non-Conformity. Apparently, 
+documents are properly labeled (classified) for being public or non-public. But, 
+there is no control on whether that label is actually inspected, used and 
+complied to. More specifically, NON_PUBLIC documents should not be accessible by 
+the REST API. Of course, our internal audit tool must be able to access 
+PUBLIC and NON_PUBLIC documents.
+
+Luckily, Java has a nifty API for that since the early days. Much overlooked but
+still quite convenient, GuardedObjects can help in adding yet another layer of
+security. 
+
+So, all the framework stuff is already done. You only need to implement the ISO 
+27001 control. How? That is up to you. 
+
+In the SDK there are already many Guards implemented but a quick search on 
+ISO 27001 did not return any. So, maybe reuse one of the existing ones? Or simply
+implement it on your own? 
