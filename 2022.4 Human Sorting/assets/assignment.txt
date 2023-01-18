@@ -1,0 +1,28 @@
+## Artificial Intelligence and Sorting 
+
+                A male engineer implemented a perfect AI algorithm to substitute his mother in law.
+                - Every day he got different outputs from the AI software on what he did wrong!
+
+
+Let's sort out all your holiday pictures with AI!
+We probably all have a similar story: we went on a holiday and we have amassed a crazy amount of cool pictures...
+
+Unfortunately these pictures are named photo1.jpg, photo2.jpg, photo3.jpg,... ,photo10.jpg,
+photo11.jpg,..., photo100.jpg, ...., , photo200.jpg, etc. 
+
+So when we sort by name, suddenly everything is sorted completely different then intended! 
+like photo1.jpg, photo10.jpg, photo100.jpg, etc. This alphabetically order, is not our intended order.
+Similar issues might occur in lists of product names with serial numbers. For instance a 
+GeForce GTX 1080 Ti is much newer than the GeForce GTX 260M.
+
+Wouldn't it be nice if there was an algorithm that would sort names,
+serial numbers and filenames in a human-sensible way? The good news is, this AI-algorithm certainly
+exists and we are going to implement it right here in this Masters of Java assignment! 
+
+A few hints on how to approach this:
+- assume numbers are always written in the Hindu–Arabic numeral system as we all know them (i.e. 0123456789). 
+- we ignore decimal and thousands markers (you can consider '.' and ',' to be part of a string).
+- chunk the strings into numerical parts (digits) and alphabetic parts (non-digits)
+- compare those chunks in order :)
+
+  

@@ -1,0 +1,51 @@
+# file paths are taken relative to this file.
+name: requirement hell
+display-name: Requirement hell
+author:
+  name: Laura Nij Bijvank
+  company: First8
+  website: https://first8.nl
+
+labels:
+  - api
+  - test1_80
+  - test2_80
+  - test3_80
+  - test4_80
+  - test5_80
+
+difficulty: 1
+java-version: 17
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 0
+  test-penalty: 0%
+  
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+    - SuperAwesomeNameService.java
+    readonly:
+  test-sources:
+    base: src/test/java
+    tests:
+      - Test0.java
+    invisible-tests:
+      - Test1.java
+      - Test2.java
+      - Test3.java
+      - Test4.java
+      - Test5.java
+      - Test6.java
+    hidden-tests:
+      - HiddenTest.java
+  solution:
+    - assets/SuperAwesomeNameService.java
+  

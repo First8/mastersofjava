@@ -1,0 +1,46 @@
+# file paths are taken relative to this file.
+name: guess who
+display-name: Guess who
+author:
+  name: Laura Nij Bijvank
+  company: First8
+  website: https://first8.nl
+
+labels:
+- algorithm
+
+difficulty: 3
+java-version: 17
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 2
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+  
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+    - GameService.java
+    readonly:
+    - Question.java
+    - Person.java
+    - EyeColor.java
+    - HairColor.java
+    - Persons.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestBooleanProperties.java
+    - TestEnumProperties.java
+    - TestAllProperties.java
+    hidden-tests:
+    - HiddenTest.java
+  solution:
+  - assets/GameService.java
+  

@@ -1,0 +1,54 @@
+# file paths are taken relative to this file.
+name: calendar
+display-name: calendar
+author:
+  name: Laura Nij Bijvank
+  company: First8
+  website: https://first8.nl
+
+labels:
+  - testSimple_200
+  - testLongMonth_50
+  - testShortMonth_50
+  - testStartAtSunday_100
+  - api
+
+difficulty: 1
+java-version: 17
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 0
+  test-penalty: 0%
+  
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+    - CalendarMonth.java
+    readonly:
+    - CalendarPrinter.java
+  test-sources:
+    base: src/test/java
+    tests:
+      - TestSimple.java
+      - TestShortMonth.java
+      - TestLongMonth.java
+      - TestStartAtSunday.java
+    hidden-tests:
+      - HiddenSimpleTests.java
+      - HiddenShortMonthTest.java
+      - HiddenLongMonthTest.java
+      - HiddenStartAtSundayTest.java
+  test-resources:
+    base: src/test/java
+    files:
+    - CalenderMonthTester.java
+  solution:
+  - assets/CalendarMonth.java
+  

@@ -1,0 +1,41 @@
+# file paths are taken relative to this file.
+name: HumanSorting
+display-name: Human Sensible Sorting
+author:
+  name: Arjan Lamers and Tijmen van Wettum (based on The Alphanum Algorithm http://www.DaveKoelle.com)
+  company: First8
+  website: https://first8.nl
+
+labels:
+- algorithm
+- comparators
+
+difficulty: 3
+java-version: 11
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+  
+assignment-files:
+  assignment: assets/assignment.txt
+  sources:
+    base: src/main/java
+    editable:
+    - HumanSensibleSorter.java
+    readonly:
+    - PhotoAlbum.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestSorting.java
+    hidden-tests:
+    - HiddenTests.java
+  solution:
+  - assets/HumanSensibleSorterSolution.java
+  
