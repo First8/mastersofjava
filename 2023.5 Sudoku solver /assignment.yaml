@@ -1,0 +1,46 @@
+# file paths are taken relative to this file.
+name: sudoku solver
+display-name: Sudoku solver
+author:
+  name: Laura Nij Bijvank
+  company: First8
+  website: https://first8.nl
+
+labels:
+- api
+- testSingles_200
+- testPairs_100
+
+difficulty: 1
+java-version: 17
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 100
+  test-penalty: 0%
+  
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+    - RegionReducer.java
+    readonly:
+    - Sudoku.java
+    - SudokuSolver.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestSingles.java
+    - TestPairs.java
+    - TestTriplesAndQuads.java
+    - TestSudokuSolve.java
+    hidden-tests:
+    - HiddenTest.java
+  solution:
+  - assets/RegionReducer_arjanl.java
+  

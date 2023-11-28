@@ -1,0 +1,43 @@
+# file paths are taken relative to this file.
+name: AcceptLanguage header
+display-name: Browser Accept Language Header
+author:
+  name: Arjan Lamers
+  company: First8
+  website: https://first8.nl
+
+labels:
+- api
+- testSimple_100
+- testWithCountry_150
+
+difficulty: 1
+java-version: 17
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 2
+  resubmit-penalty: 50%
+  success-bonus: 150
+  test-penalty: 0%
+  
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+    - AcceptHeaderParser.java
+    readonly:
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestSimple.java
+    - TestWithCountry.java
+    - TestWithWeights.java
+    - TestFullParse.java
+    hidden-tests:
+  solution:
+  - assets/Solution.java
+  

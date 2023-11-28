@@ -1,0 +1,42 @@
+# file paths are taken relative to this file.
+name: PokemonCalculatorBug
+display-name: Pokémon Calculator Bug
+author:
+  name: Wilko Zonnenberg
+  company: First8
+  website: https://first8.nl
+
+labels:
+  - api
+  - testDecimalPoint_200
+  - testQuestionMark_200
+
+difficulty: 1
+java-version: 17
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 2
+  resubmit-penalty: 50%
+  success-bonus: 0
+  test-penalty: 0%
+
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+      - PokemonCalculator.java
+    readonly:
+      - DisplayNumber.java
+  test-sources:
+    base: src/test/java
+    tests:
+      - TestDecimalPoint.java
+      - TestQuestionMark.java
+    hidden-tests:
+      - HiddenTest.java
+  solution:
+    - assets/PokemonCalculator.java

@@ -1,0 +1,47 @@
+# file paths are taken relative to this file.
+name: equals smorgasbord
+display-name: equals-smorgasbord
+author:
+  name: Arjan Lamers
+  company: First8
+  website: https://first8.nl
+
+labels:
+- api
+- testStrings_100
+- testArraysEqual_150
+- testUrls_150
+
+difficulty: 1
+java-version: 17
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 0
+  test-penalty: 0%
+
+system-properties:
+  "jdk.net.hosts.file": ${base}/assets/hosts
+  
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+    - WeirdEqualsBugs.java
+    readonly:
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestStrings.java
+    - TestUrls.java
+    - TestArraysEqual.java
+    hidden-tests:
+  security-policy: src/main/resources/securityPolicyEquals.policy
+  solution:
+  - assets/WeirdEqualsBugs.java
+  

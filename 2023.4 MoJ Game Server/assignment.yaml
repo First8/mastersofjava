@@ -1,0 +1,47 @@
+# file paths are taken relative to this file.
+name: MoJ-Game-Server
+display-name: MoJ Game Server
+author:
+  name: Job van der Meiden
+  company: First8
+  website: https://first8.nl
+
+labels:
+  - api
+  - bughunt
+
+difficulty: 1
+java-version: 17
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0
+
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+      - TestService.java
+    readonly:
+      - Controller.java
+      - Team.java
+      - TestInstance.java
+      - TestRunner.java
+  test-sources:
+    base: src/test/java
+    tests:
+      - Team1Test.java
+      - Team2Test.java
+      - Team3Test.java
+      - Team4Test.java
+    hidden-tests:
+      - HiddenTest.java
+  solution:
+    - assets/TestService.java
+  

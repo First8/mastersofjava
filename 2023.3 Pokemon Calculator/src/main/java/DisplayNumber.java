@@ -1,0 +1,2 @@
+
+record DisplayNumber(char value) {}

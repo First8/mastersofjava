@@ -1,0 +1,42 @@
+# file paths are taken relative to this file.
+name: Set
+display-name: Set
+author:
+  name: Job van der Meiden
+  company: First8
+  website: https://first8.nl
+
+labels:
+  - algorithm
+
+difficulty: 1
+java-version: 17
+duration: PT15M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 2
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+      - SetFinder.java
+    readonly:
+      - Card.java
+  test-sources:
+    base: src/test/java
+    tests:
+      - SetTestStatic.java
+    invisible-tests:
+      - SetTest.java
+    hidden-tests:
+      - HiddenTest.java
+  solution:
+    - assets/SetFinder.java
+  
