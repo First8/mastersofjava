@@ -1,0 +1,40 @@
+# file paths are taken relative to this file.
+name: Roman interpreter
+display-name: Roman Interpreter
+author:
+  name: Mika van der Kolk, Rens Spiljard, Suman Enait, Tijmen van Wettum
+  company: First8
+  website: https://first8.nl
+
+labels:
+  - buildit
+  - testEasyRomanToArabic_200
+
+difficulty: 1
+java-version: 17
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 2
+  resubmit-penalty: 50%
+  success-bonus: 200
+  test-penalty: 0%
+  
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+    - RomanInterpreter.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestEasyRomanToArabic.java
+    - TestComplexRomanToArabic.java
+    hidden-tests:
+    - HiddenTest.java
+  solution:
+  - assets/RomanInterpreter.java
+  

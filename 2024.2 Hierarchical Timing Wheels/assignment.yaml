@@ -1,0 +1,43 @@
+# file paths are taken relative to this file.
+name: Hierarchical Timing Wheels
+display-name: Hierarchical Timing Wheels
+author:
+  name: Laura Nij Bijvank
+  company: First8
+  website: https://first8.nl
+
+labels:
+- algorithm
+
+difficulty: 1
+java-version: 17
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+  
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+    - HierarchicalTimingWheel.java
+    readonly:
+    - DhmsTimer.java
+    - Timer.java
+    - TimingWheel.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - HierarchicalTimingWheelTest.java
+    - MarsTimeTest.java
+    hidden-tests:
+    - HiddenTest.java
+  solution:
+  - assets/HierarchicalTimingWheel.java
+  

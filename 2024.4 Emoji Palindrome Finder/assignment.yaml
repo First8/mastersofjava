@@ -1,0 +1,43 @@
+# file paths are taken relative to this file.
+name: Emoji Palindrome Finder
+display-name: Emoji Palindrome Finder
+author:
+  name: Mika van der Kolk, Rens Spiljard, Suman Enait
+  company: First8
+  website: https://first8.nl
+
+labels:
+- api
+- testEasyPalindromeFinder_200
+- testIntermediatePalindromeFinder_100
+- testHardPalindromeFinder_100
+
+difficulty: 1
+java-version: 21
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 2
+  resubmit-penalty: 50%
+  success-bonus: 0
+  test-penalty: 0%
+  
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+    - EmojiPalindromeFinder.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestEasyPalindromeFinder.java
+    - TestIntermediatePalindromeFinder.java
+    - TestHardPalindromeFinder.java
+    hidden-tests:
+    - HiddenTest.java
+  solution:
+  - assets/EmojiPalindromeFinder.java
+  

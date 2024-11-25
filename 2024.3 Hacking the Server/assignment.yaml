@@ -1,0 +1,39 @@
+name: HackingTheServer
+display-name: Hacking The Server
+author:
+  name: Kelvin Vroegop
+  company: First8
+  website: https://first8.nl
+
+labels:
+  - Reflection
+  - Hacking the Server
+
+difficulty: 2
+java-version: 17
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 2
+  resubmit-penalty: 50%
+  success-bonus: 400
+  test-penalty: 0%
+
+#== ASSIGNMENT-FILES ==
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+      - StartupUtil.java
+    readonly:
+      - Server.java
+  test-sources:
+    base: src/test/java
+    tests:
+      - ServerTest.java
+  security-policy: src/main/resources/securityPolicyHackingTheServer.policy
+  solution:
+    - assets/StartupUtil.java
