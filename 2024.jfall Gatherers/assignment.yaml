@@ -1,0 +1,42 @@
+# file paths are taken relative to this file.
+name: boardgamegatherer
+display-name: Board Game Gatherer
+author:
+  name: Jan Smedts, Arjan Lamers
+  company: First8
+  website: https://first8.nl
+
+
+labels:
+- api
+
+difficulty: 1
+java-version: 22
+java-preview-enabled: true
+duration: PT10M
+submit-timeout: PT10S
+test-timeout: PT10S
+
+scoring-rules:
+  maximum-resubmits: 2
+  resubmit-penalty: 50%
+  success-bonus: 100
+  test-penalty: 0%
+  
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+    - BoardGames.java
+    readonly:
+    - BoardGameEvening.java
+  test-sources:
+    base: src/test/java
+    tests:
+    - TestGatherer.java
+    hidden-tests:
+    - TestHidden.java
+  solution:
+  - assets/BoardGames.java
+  
