@@ -1,0 +1,48 @@
+# file paths are taken relative to this file.
+name: Smorgasboard
+display-name: Smorgasboard
+author:
+  name: Amber
+  company: First8
+  website: https://first8.nl
+
+labels:
+  - fibonacciSequence
+  - stringSplit
+  - dateTimeFormat
+  - testStringSplit_130
+  - testDateTimeFormat_130
+  - testFibonacciSequence_130
+
+difficulty: 1
+java-version: 21
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 10
+  test-penalty: 0%
+
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+      - StringSplit.java
+      - DateTimeFormat.java
+      - FibonacciSequence.java
+  test-sources:
+    base: src/test/java
+    tests:
+      - TestDateTimeFormat.java
+      - TestStringSplit.java
+      - TestFibonacciSequence.java
+    hidden-tests:
+      - TestHidden.java
+  solution:
+    - assets/FibonacciSequence.java
+    - assets/StringSplit.java
+    - assets/DateTimeFormat.java

@@ -1,0 +1,44 @@
+# file paths are taken relative to this file.
+name: regex intricacies
+display-name: regex intricacies
+author:
+  name: Sjoerd Hemels
+  company: First8
+  website: https://first8.nl
+
+labels:
+  - api
+  - testReplacerSimple_100
+  - testReplacerCaseInsensitive_100
+  - testReplacerWordBoundaries_100
+  - testReplacerDiacritics_100
+
+difficulty: 1
+java-version: 21
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 1
+  resubmit-penalty: 50%
+  success-bonus: 0
+  test-penalty: 0%
+
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+      - Replacer.java
+  test-sources:
+    base: src/test/java
+    tests:
+      - TestReplacerSimple.java
+      - TestReplacerCaseInsensitive.java
+      - TestReplacerWordBoundaries.java
+      - TestReplacerDiacritics.java
+      - BaseTest.java
+  solution:
+    - assets/Replacer.java
+  

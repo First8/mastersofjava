@@ -1,0 +1,41 @@
+# file paths are taken relative to this file.
+name: NegativeBase
+display-name: Negative Base
+author:
+  name: Job van der Meiden
+  company: First8
+  website: https://first8.nl
+
+labels:
+  - api
+  - testBelowMinus10_100
+  - testUntilMinus10_200
+
+difficulty: 1
+java-version: 17
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 100
+  test-penalty: 0%
+
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+      - Converter.java
+  test-sources:
+    base: src/test/java
+    tests:
+      - TestBelowMinus10.java
+      - TestUntilMinus10.java
+    hidden-tests:
+      - TestHidden.java
+  solution:
+    - assets/Converter.java
+  

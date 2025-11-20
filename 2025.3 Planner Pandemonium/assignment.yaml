@@ -1,0 +1,55 @@
+# file paths are taken relative to this file.
+name: Planner Pandemonium
+display-name: Planner Pandemonium
+author:
+  name: Amber
+  company: First8
+  website: https://first8.nl
+
+labels:
+  - Planner
+  - Requirement Hell
+  - test1_66
+  - test2_66
+  - test3_66
+  - test4_66
+  - test5_66
+  - test6_66
+
+difficulty: 1
+java-version: 21
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 1
+  resubmit-penalty: 50%
+  success-bonus: 4
+  test-penalty: 0%
+
+system-properties:
+  "jdk.net.hosts.file": ${base}/assets/hosts
+
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    editable:
+      - Planner.java
+    readonly:
+      - Appointment.java
+      - Calendar.java
+  test-sources:
+    base: src/test/java
+    tests:
+      - Test0.java
+    invisible-tests:
+      - Test1.java
+      - Test2.java
+      - Test3.java
+      - Test4.java
+      - Test5.java
+      - Test6.java
+  solution:
+    - assets/Planner.java

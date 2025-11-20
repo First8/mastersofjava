@@ -1,0 +1,46 @@
+# file paths are taken relative to this file.
+name: Green scheduler
+display-name: Green scheduler
+author:
+  name: Wilko
+  company: First8
+  website: https://first8.nl
+
+labels:
+  - API
+  - ZonedDateTime
+  - DateTime
+  - testLowestCarbonIntensityBetweenTimepointsCalculator_200
+  - testLowestCarbonIntensityZoneCalculator_200
+
+difficulty: 1
+java-version: 21
+duration: PT30M
+submit-timeout: PT20S
+test-timeout: PT20S
+
+scoring-rules:
+  maximum-resubmits: 0
+  resubmit-penalty: 50%
+  success-bonus: 0
+  test-penalty: 0%
+  
+assignment-files:
+  assignment: assets/assignment.md
+  sources:
+    base: src/main/java
+    readonly:
+      - CarbonData.java
+    editable:
+      - CarbonIntensityZoneCalculator.java
+    hidden:
+      - CarbonIntensityDataFetcher.java
+  test-sources:
+    base: src/test/java
+    tests:
+      - TestLowestCarbonIntensityBetweenTimepointsCalculator.java
+      - TestLowestCarbonIntensityZoneCalculator.java
+    hidden-tests:
+      - TestHidden.java
+  solution:
+  - assets/CarbonIntensityZoneCalculator.java
